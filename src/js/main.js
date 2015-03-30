@@ -7,10 +7,9 @@ window.onload = function()
 	var tileset;
 	var layer;
 	var player;
-	var facing = 'left';
-	var jumpTimer = 0;
+	
+	
 	var cursors;
-	var jumpButton;
 	var bg;
 
 	var run = {
@@ -27,6 +26,10 @@ window.onload = function()
         
         },
         create: function(){
+            //--init des instance d'objets
+            
+            //
+
         	this.game.bg=this.game.add.sprite(200,0,'bg');
         	game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -45,91 +48,24 @@ window.onload = function()
 
 			layer.resizeWorld();
 
-			game.physics.arcade.gravity.y = 250;
-
-			player = game.add.sprite(32, 32, 'dude');
-			game.physics.enable(player, Phaser.Physics.ARCADE);
-
-			player.body.bounce.y = 0.2;
-			player.body.collideWorldBounds = true;
-			player.body.setSize(20, 32, 5, 16);
-
-			player.animations.add('left', [0, 1, 2, 3], 10, true);
-			player.animations.add('turn', [4], 20, true);
-			player.animations.add('right', [5, 6, 7, 8], 10, true);
-
-			game.camera.follow(player);
-
-			cursors = game.input.keyboard.createCursorKeys();
-			jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
+			
+            this.game.character = new Character(game);
+            game.physics.arcade.gravity.y = 250;
 		},
-        update:function(){
+        update:function()
+        {
 
-<<<<<<< HEAD
-	    	game.physics.arcade.collide(player, layer);
-=======
+            this.game.character.update();
+	    	game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
 
-        },    
-    };
->>>>>>> origin/master
-
-    		player.body.velocity.x = 0;
-
-   			 if (cursors.left.isDown)
-    		{
-        		player.body.velocity.x = -150;
-
-        		if (facing != 'left')
-       			{
-            		player.animations.play('left');
-            		facing = 'left';
-       			}
-    		}
-    		else if (cursors.right.isDown)
-    		{
-      			player.body.velocity.x = 150;
-
-        		if (facing != 'right')
-        		{
-           	 		player.animations.play('right');
-            		facing = 'right';
-        		}
-    		}
-    		else
-    		{
-        		if (facing != 'idle')
-        		{
-            		player.animations.stop();
-
-            		if (facing == 'left')
-            		{
-            	    	player.frame = 0;
-           		 	}
-            		else
-            		{	
-                		player.frame = 5;
-            		}	
-
-            		facing = 'idle';
-        		}
-    		}
-    
-  			if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer)
-    		{
-        		player.body.velocity.y = -250;
-       			jumpTimer = game.time.now + 750;
-    		}
-        }   
- 
-	}
+	   }
+    }   
 
 
     var menu = {
         //PRELOAD
         preload: function(){
           this.game.load.image('bg','src/assets/magic.jpg');
-
           console.log("----PRELOAD DONE---");
         },
         create: function(){
