@@ -66,7 +66,13 @@ window.onload = function()
 		},
         update:function(){
 
+<<<<<<< HEAD
 	    	game.physics.arcade.collide(player, layer);
+=======
+
+        },    
+    };
+>>>>>>> origin/master
 
     		player.body.velocity.x = 0;
 
