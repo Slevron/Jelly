@@ -23,15 +23,18 @@ window.onload = function()
     var menu = {
         //PRELOAD
         preload: function(){
-          this.game.load.image('bg','../assets/bg2.png');
-        
+          this.game.load.image('bg','src/assets/magic.jpg');
+
+          console.log("----PRELOAD DONE---");
         },
         create: function(){
             this.game.bg=this.game.add.sprite(0,0,'bg');
           
-           
+           console.log("----CREATE DONE---");
         },
         update:function(){
+        	
+        	 console.log("up");
 
         },    
     };
