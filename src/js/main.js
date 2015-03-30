@@ -31,7 +31,7 @@ window.onload = function()
             //
 
         	this.game.bg=this.game.add.sprite(200,0,'bg');
-        	game.physics.startSystem(Phaser.Physics.ARCADE);
+        	
 
 			game.stage.backgroundColor = '#000000';
 
@@ -50,13 +50,15 @@ window.onload = function()
 
 			
             this.game.character = new Character(game);
+            game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 250;
+
 		},
         update:function()
         {
-
+            game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             this.game.character.update();
-	    	game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
+	    	
 
 	   }
     }   

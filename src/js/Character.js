@@ -26,7 +26,7 @@ Character.prototype.update = function(){
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
-    this.jumpTimer+=this.refGame.time.now;
+    
      if (this.cursors.left.isDown)
      {
         console.log("----MOVE OK---")
@@ -64,7 +64,6 @@ Character.prototype.move =function(){
              this.facing = 'idle';
         }
     }
-    console.log(this.jumpButton.isDown ,this.sprite.body.onFloor() )
     if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
     {
 
