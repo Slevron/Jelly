@@ -5,7 +5,7 @@ function Character(game){
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
-    this.sprite.body.bounce.y = 0.2;
+    this.sprite.body.bounce.y = 0;
     this.sprite.body.collideWorldBounds = true;
     this.sprite.body.setSize(80, 90, 4, 16);
     this.sprite.animations.add('left', [0, 1, 2, 3], 10, true);
@@ -20,6 +20,7 @@ function Character(game){
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
    this.move();
+   this.shoots();
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
@@ -61,11 +62,11 @@ Character.prototype.move =function(){
     }
     if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
     {
-        this.sprite.body.velocity.y = -250;
+        this.sprite.body.velocity.y = -800;
         this.jumpTimer = this.refGame.time.now + 750;
     }        
 };
 Character.prototype.shoots = function(){
 
-   this.move();
+   this.shoots.push(new Shoot(game));
 };
