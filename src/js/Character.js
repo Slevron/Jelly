@@ -37,7 +37,7 @@ Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
     
     if (this.cursors.left.isDown){
-        this.sprite.body.velocity.x = -150;
+        this.sprite.body.velocity.x = -250;
         if (this.facing != 'left')
         {
             this.sprite.animations.play('left');
@@ -47,7 +47,7 @@ Character.prototype.move =function(){
     }
     else if (this.cursors.right.isDown)
     {
-        this.sprite.body.velocity.x = 150;
+        this.sprite.body.velocity.x = 250;
         if (this.facing != 'right')
         {
             this.sprite.animations.play('left');
