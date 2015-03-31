@@ -7,8 +7,11 @@ window.onload = function()
 	var layer;
 	var player;
 
+
     var enemies;
 	
+	
+
 	var cursors;
 	var bg;
 	var run = {
@@ -50,7 +53,9 @@ window.onload = function()
 
             game.enemies = game.add.group();
             console.log("try seb le noob srx")
+
             new Roach(game,100,100,[{x:-150,y:100},{x:150,y:100}]);
+
 			
             this.game.character = new Character(game);
             game.physics.startSystem(Phaser.Physics.ARCADE);

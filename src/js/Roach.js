@@ -40,7 +40,6 @@ Roach.prototype.checkIfWaypointReached = function () {
 		this.sprite.x+this.sprite.width >= waypoint.x &&
 		this.sprite.y <= waypoint.y+32 &&
 		this.sprite.y >= waypoint.y){
-		console.log("lalalalalalalala")
 		return true;
 	}
 	return false;
@@ -55,7 +54,9 @@ Roach.prototype.changeToNextWaypoint = function () {
 Roach.prototype.moveToNextWaypoint = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
+
 	if (this.sprite.x > waypoint.x){
+
 		//Left
 		if (this.facing == "right") {
 			this.changeFacing("left");
