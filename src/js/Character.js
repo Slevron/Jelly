@@ -1,6 +1,3 @@
-/********************************************
-    JAUGE
-********************************************/
 function Character(game){
     this.refGame=game;
     this.sprite = game.add.sprite(32, 32, 'dude');

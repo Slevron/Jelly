@@ -18,7 +18,7 @@ window.onload = function()
         //PRELOAD
         preload: function(){
         	this.game.load.image('bg','src/assets/magic.jpg');
-    		this.game.load.tilemap('level1', 'src/assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
+    		this.game.load.tilemap('level1', 'src/json/level2_test.json', null, Phaser.Tilemap.TILED_JSON);
    	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
     		this.game.load.spritesheet('dude', 'src/assets/dude.png', 32, 48);
     		this.game.load.spritesheet('droid', 'src/assets/droid.png', 32, 32);
@@ -39,17 +39,7 @@ window.onload = function()
 
 			//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
 			//bg.fixedToCamera = true;
-
-
-			map = game.add.tilemap('level1');
-
-			map.addTilesetImage('tiles-1');
-
-			map.setCollisionByExclusion([ 13, 14, 15, 16, 46, 47, 48, 49, 50, 51 ]);
-
-			layer = map.createLayer('Tile Layer 1');
-
-			layer.resizeWorld();
+            new Map(game);
 
             game.enemies = game.add.group();
             console.log("try seb le noob srx")

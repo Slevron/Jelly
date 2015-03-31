@@ -1,5 +1,6 @@
 function Roach (game,x,y,waypoints){
 	Enemy.call(game);
+	console.log(Enemy);
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
 	this.facing = "right";
