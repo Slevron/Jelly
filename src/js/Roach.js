@@ -1,10 +1,22 @@
 function Roach (game,x,y,waypoints){
+<<<<<<< HEAD
 	Enemy.call(game);
 	console.log(Enemy);
+=======
+	Enemy.call(this,game);
+
+>>>>>>> 7ed2ebb9f5bff569a89351bdd9f777beadd790f3
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
-	this.facing = "right";
-	this.waypoints = waypoints || [{x:0,y:0},{x:0,y:0}];
+
+	this.speed = 0.1;
+
+	this.waypoints = [];
+	for(var i = 0; i < waypoints.length; i++) {
+		this.waypoints[i] = {x:this.sprite.x,y:this.sprite.y};
+		this.waypoints[i].x += waypoints[i].x;
+	}
+
 	this.nextWaypoint = 0;
 };
 Roach.prototype = Object.create(Enemy.prototype);
@@ -47,20 +59,21 @@ Roach.prototype.changeToNextWaypoint = function () {
 Roach.prototype.moveToNextWaypoint = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
-	if (this.x > waypoint.x){
+
+	if (this.sprite.x > waypoint.x){
+
 		//Left
 		if (this.facing == "right") {
 			this.changeFacing("left");
 		}
-		this.sprite.x -= this.speed * this.refGame.time.physicsElapsed;
+		this.sprite.x -= this.speed * this.refGame.time.elapsed;
 	}
 	else {
 		//Right
 		if (this.facing == "left") {
 			this.changeFacing("right");
 		}
-	console.log("lol",this)
-		this.sprite.x += this.speed * this.refGame.time.now;
+		this.sprite.x += this.speed * this.refGame.time.elapsed;
 	}
 
 	if(this.currentState != "Move"){
@@ -72,11 +85,11 @@ Roach.prototype.moveToPlayer = function () {
 	//
 	if(this.x > this.refGame.character.sprite.x+(this.refGame.character.sprite.width*0.5)){
 		//Move left
-		this.sprite.x -= this.speed * this.refGame.time.physicsElapsed;
+		this.sprite.x -= this.speed * this.refGame.time.elapsed;
 	}
 	else {
 		//Move right
-		this.sprite.x += this.speed * this.refGame.time.physicsElapsed;
+		this.sprite.x += this.speed * this.refGame.time.elapsed;
 	}
 	return;
 };
