@@ -1,0 +1,44 @@
+{"frames": [
+
+{
+	"filename": "Perso anim marche 1 PNG.png",
+	"frame": {"x":2,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 2 PNG.png",
+	"frame": {"x":119,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 3 PNG.png",
+	"frame": {"x":236,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 4 PNG.png",
+	"frame": {"x":353,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "AnimPerso.png",
+	"format": "RGBA8888",
+	"size": {"w":470,"h":135},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:380a1db67d132aca14ba79f0d8818cbe:20c09f3dc4ee604b03853bd1170a25a0:4c8d485a57b6f36f2326861c0cb5e33d$"
+}
+}
