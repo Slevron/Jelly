@@ -1,11 +1,5 @@
 function Roach (game,x,y,waypoints){
-<<<<<<< HEAD
-	Enemy.call(game);
-	console.log(Enemy);
-=======
 	Enemy.call(this,game);
-
->>>>>>> 7ed2ebb9f5bff569a89351bdd9f777beadd790f3
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
 

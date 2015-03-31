@@ -39,10 +39,9 @@ window.onload = function()
 
 			//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
 			//bg.fixedToCamera = true;
-            new Map(game);
+            this.game.map = new Map(game);
 
             game.enemies = game.add.group();
-            console.log("try seb le noob srx")
 
             new Roach(game,100,100,[{x:-150,y:100},{x:150,y:100}]);
 
@@ -54,7 +53,7 @@ window.onload = function()
 		},
         update:function()
         {
-            game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
+            game.physics.arcade.collide(game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             this.game.character.update();
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
@@ -65,16 +64,11 @@ window.onload = function()
         //PRELOAD
         preload: function(){
           this.game.load.image('bg','src/assets/magic.jpg');
-          console.log("----PRELOAD DONE---");
         },
         create: function(){
             this.game.bg=this.game.add.button(0,0,"bg",this.goRun);
-          
-           console.log("----CREATE DONE---");
         },
         update:function(){
-        	 console.log("up");
-
         },
         goRun:function(){
             game.state.start('run');
