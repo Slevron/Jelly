@@ -15,11 +15,19 @@ function Character(game){
     this.cursors = game.input.keyboard.createCursorKeys();
     this.jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     this.shoots= [];
-
+    this.hitable = true;
+    this.timeSinceHit = 0;
+    this.invicibleTime = 1
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-   this.move();
+    if(this.hitable == false){
+        this.timeSinceHit += this.refGame.time.elapsed;
+        if(this.timeSinceHit >= this.invicibleTime){
+            
+        }
+    }
+    this.move();
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;

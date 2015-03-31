@@ -55,6 +55,12 @@ Enemy.prototype.changeFacing = function (dir) {
 	}
 	else{
 		this.facing = dir;
+		if(this.facing == "left"){
+			this.sprite.scale.x = -1;
+		}
+		else if (this.facing == "right"){
+			this.sprite.scale.x = 1;
+		}
 		return true;
 	}
 };
