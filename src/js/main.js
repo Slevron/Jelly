@@ -2,11 +2,11 @@ window.onload = function()
 {
 	var game = new Phaser.Game(1280, 700, Phaser.AUTO, '');
 
-
 	var map;
 	var tileset;
 	var layer;
 	var player;
+    var enemies;
 	
 	
 	var cursors;
@@ -48,6 +48,7 @@ window.onload = function()
 
 			layer.resizeWorld();
 
+            enemies = game.add.group();
 			
             this.game.character = new Character(game);
             game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -58,8 +59,6 @@ window.onload = function()
         {
             game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             this.game.character.update();
-	    	
-
 	   }
     }   
 

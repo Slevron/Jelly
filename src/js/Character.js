@@ -2,7 +2,6 @@
     JAUGE
 ********************************************/
 function Character(game){
-
     this.refGame=game;
     this.sprite = game.add.sprite(32, 32, 'dude');
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
@@ -21,7 +20,6 @@ function Character(game){
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-
    this.move();
 };
 Character.prototype.move =function(){
