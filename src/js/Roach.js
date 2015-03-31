@@ -2,6 +2,7 @@ function Roach (game,x,y,waypoints){
 	Enemy.call(this,game);
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
+	this.sprite.anchor.set(0.5);
 
 	this.speed = 0.1;
 
@@ -17,7 +18,7 @@ Roach.prototype = Object.create(Enemy.prototype);
 Roach.prototype.constructor = Roach;
 Roach.prototype.update = function () {
 	//
-	this.move()
+	this.move();
 	return;
 };
 Roach.prototype.move = function () {
@@ -36,7 +37,7 @@ Roach.prototype.checkIfWaypointReached = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
 	if(this.sprite.x <= waypoint.x+32 &&
-		this.sprite.x+this.sprite.width >= waypoint.x &&
+		this.sprite.x+(this.sprite.width*this.sprite.scale.x) >= waypoint.x &&
 		this.sprite.y <= waypoint.y+32 &&
 		this.sprite.y >= waypoint.y){
 		return true;

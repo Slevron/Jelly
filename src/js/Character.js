@@ -14,16 +14,28 @@ function Character(game){
     game.camera.follow(this.sprite);
     this.cursors = game.input.keyboard.createCursorKeys();
     this.jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    this.shootButton=  game.input.keyboard.addKey(Phaser.Keyboard.A);
     this.shoots= [];
+<<<<<<< HEAD
+    this.canshoot=true;
 
+=======
+    this.hitable = true;
+    this.timeSinceHit = 0;
+    this.invicibleTime = 1
+>>>>>>> origin/master
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-   this.move();
+    if(this.hitable == false){
+        this.timeSinceHit += this.refGame.time.elapsed;
+        if(this.timeSinceHit >= this.invicibleTime){
+            this.hitable = true;
+        }
+    }
    for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
    };
-   
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
@@ -34,7 +46,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'left';
-            //this.sprite.scale={x:-1,y:1};    
+            this.sprite.scale={x:-1,y:1};    
         }
     }
     else if (this.cursors.right.isDown)
@@ -44,7 +56,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'right';
-            //this.sprite.scale={x:1,y:1};
+            this.sprite.scale={x:1,y:1};
         }
     }
     else
@@ -66,11 +78,27 @@ Character.prototype.move =function(){
     if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
     {
         this.sprite.body.velocity.y = -800;
-        this.jumpTimer = this.refGame.time.now + 750;
+        this.jumpTimer = this.refGame.time.now + 750;   
+    }
+    else if(this.sprite.body.onFloor())
+    {
+        this.jumpTimer=0;
+    }
+
+    if(this.shootButton.isDown&& this.canshoot)
+    {
         this.launchShoot();
     }        
+    if(this.shootButton.isDown)
+    {
+        this.canshoot=false;
+    }
+    if(this.shootButton.isUp)
+    {
+        this.canshoot=true;
+    }
 };
 Character.prototype.launchShoot = function(){
 
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
 };
