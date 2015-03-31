@@ -16,16 +16,26 @@ function Character(game){
     this.jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     this.shootButton=  game.input.keyboard.addKey(Phaser.Keyboard.A);
     this.shoots= [];
+<<<<<<< HEAD
     this.canshoot=true;
 
+=======
+    this.hitable = true;
+    this.timeSinceHit = 0;
+    this.invicibleTime = 1
+>>>>>>> origin/master
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-   this.move();
+    if(this.hitable == false){
+        this.timeSinceHit += this.refGame.time.elapsed;
+        if(this.timeSinceHit >= this.invicibleTime){
+            this.hitable = true;
+        }
+    }
    for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
    };
-   
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
