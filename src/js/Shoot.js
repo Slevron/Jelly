@@ -4,7 +4,7 @@
 function Shoot(game){
 
     this.refGame=game;
-    this.sprite = game.add.sprite(32, 32, 'star2.png');
+    this.sprite = game.add.sprite(32, 32, 'starBig');
 
 };
 Shoot.prototype.constructor = Character;

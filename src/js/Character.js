@@ -20,7 +20,7 @@ function Character(game){
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
    this.move();
-   this.shoots();
+   
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
@@ -64,9 +64,10 @@ Character.prototype.move =function(){
     {
         this.sprite.body.velocity.y = -800;
         this.jumpTimer = this.refGame.time.now + 750;
+        this.launchShoot();
     }        
 };
-Character.prototype.shoots = function(){
+Character.prototype.launchShoot = function(){
 
-   this.shoots.push(new Shoot(game));
+   this.shoots.push(new Shoot(this.refGame));
 };
