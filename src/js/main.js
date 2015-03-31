@@ -40,7 +40,7 @@ window.onload = function()
 
             new Roach(game,100,100,[{x:-150,y:100},{x:150,y:100}]);
             this.game.character = new Character(game);
-            game.physics.startSystem(Phaser.Physics.P2JS);
+            game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
 
 

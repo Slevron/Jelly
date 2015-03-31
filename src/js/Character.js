@@ -14,7 +14,9 @@ function Character(game){
     game.camera.follow(this.sprite);
     this.cursors = game.input.keyboard.createCursorKeys();
     this.jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    this.shootButton=  game.input.keyboard.addKey(Phaser.Keyboard.A);
     this.shoots= [];
+    this.canshoot=true;
 
 };
 Character.prototype.constructor = Character;
@@ -34,7 +36,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'left';
-            //this.sprite.scale={x:-1,y:1};    
+            this.sprite.scale={x:-1,y:1};    
         }
     }
     else if (this.cursors.right.isDown)
@@ -44,7 +46,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'right';
-            //this.sprite.scale={x:1,y:1};
+            this.sprite.scale={x:1,y:1};
         }
     }
     else
@@ -66,11 +68,27 @@ Character.prototype.move =function(){
     if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
     {
         this.sprite.body.velocity.y = -800;
-        this.jumpTimer = this.refGame.time.now + 750;
+        this.jumpTimer = this.refGame.time.now + 750;   
+    }
+    else if(this.sprite.body.onFloor())
+    {
+        this.jumpTimer=0;
+    }
+
+    if(this.shootButton.isDown&& this.canshoot)
+    {
         this.launchShoot();
     }        
+    if(this.shootButton.isDown)
+    {
+        this.canshoot=false;
+    }
+    if(this.shootButton.isUp)
+    {
+        this.canshoot=true;
+    }
 };
 Character.prototype.launchShoot = function(){
 
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
 };
