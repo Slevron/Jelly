@@ -51,7 +51,9 @@ window.onload = function()
 
 			layer.resizeWorld();
 
-            enemies = game.add.group();
+            game.enemies = game.add.group();
+            console.log("try seb le noob srx")
+            new Roach(game,100,100,[{x:50,y:100},{x:150,y:100}]);
 			
             this.game.character = new Character(game);
             game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -62,6 +64,9 @@ window.onload = function()
         {
             game.physics.arcade.collide(game.character.sprite, layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             this.game.character.update();
+            this.game.enemies.forEach(function(current){
+                current.refThis.update();
+            });
 	   }
     }   
     var menu = {
