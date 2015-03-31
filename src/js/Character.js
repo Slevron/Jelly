@@ -30,7 +30,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'left';
-            this.sprite.scale={x:-1,y:1};    
+            //this.sprite.scale={x:-1,y:1};    
         }
     }
     else if (this.cursors.right.isDown)
@@ -40,7 +40,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'right';
-            this.sprite.scale={x:1,y:1};
+            //this.sprite.scale={x:1,y:1};
         }
     }
     else
