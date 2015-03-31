@@ -34,7 +34,7 @@ LevelState.prototype =
 			
             this.game.character = new Character(game);
             game.physics.startSystem(Phaser.Physics.ARCADE);
-            game.physics.arcade.gravity.y = 250;
+            game.physics.arcade.gravity.y = 1500;
 
 		},
         update:function()
