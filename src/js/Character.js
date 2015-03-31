@@ -20,6 +20,9 @@ function Character(game){
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
    this.move();
+   for (var i = 0; i < this.shoots.length; i++) {
+       this.shoots[i].update();
+   };
    
 };
 Character.prototype.move =function(){
@@ -69,5 +72,5 @@ Character.prototype.move =function(){
 };
 Character.prototype.launchShoot = function(){
 
-   this.shoots.push(new Shoot(this.refGame));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y));
 };
