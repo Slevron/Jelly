@@ -6,12 +6,12 @@ window.onload = function()
 	var tileset;
 	var layer;
 	var player;
-<<<<<<< HEAD
-=======
+
+
     var enemies;
 	
 	
->>>>>>> origin/master
+
 	var cursors;
 	var bg;
 	var run = {
