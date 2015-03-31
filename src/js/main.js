@@ -6,12 +6,11 @@ window.onload = function()
 	var tileset;
 	var layer;
 	var player;
+
     var enemies;
-	
 	
 	var cursors;
 	var bg;
-
 	var run = {
         //PRELOAD
         preload: function(){
@@ -30,13 +29,14 @@ window.onload = function()
             
             //
 
-        	this.game.bg=this.game.add.sprite(200,0,'bg');
+        	game.add.plugin(Phaser.Plugin.Debug);
         	
 
 			game.stage.backgroundColor = '#000000';
 
-			bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-			bg.fixedToCamera = true;
+			//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
+			//bg.fixedToCamera = true;
+
 
 			map = game.add.tilemap('level1');
 
@@ -61,8 +61,6 @@ window.onload = function()
             this.game.character.update();
 	   }
     }   
-
-
     var menu = {
         //PRELOAD
         preload: function(){
@@ -86,7 +84,7 @@ window.onload = function()
     //------------------STATS-----------------
     game.state.add('run',run);
     game.state.add('menu',menu);
-    game.state.start('menu',run);
+    game.state.start('menu');
 
     //---------------------------------------
 
