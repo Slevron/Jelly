@@ -1,17 +1,17 @@
 /********************************************
     JAUGE
 ********************************************/
-function Shoot(game){
+function Shoot(game,posx,posy){
 
     this.refGame=game;
-    this.sprite = game.add.sprite(32, 32, 'starBig');
-
+    this.sprite = game.add.sprite(posx, posy, 'starBig');
+    this.speed = 10;
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
    this.move();
 };
 Shoot.prototype.move =function(){
-    this.sprite.x +=0.5;
+    this.sprite.x +=this.speed;
      
 };
