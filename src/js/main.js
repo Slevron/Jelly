@@ -20,7 +20,7 @@ window.onload = function()
         	this.game.load.image('bg','src/assets/magic.jpg');
     		this.game.load.tilemap('level1', 'src/json/level2_test.json', null, Phaser.Tilemap.TILED_JSON);
    	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
-    		this.game.load.spritesheet('dude', 'src/assets/dude.png', 32, 48);
+    		this.game.load.spritesheet('dude', 'src/assets/dude.png', 115, 131);
     		this.game.load.spritesheet('droid', 'src/assets/droid.png', 32, 32);
     		this.game.load.image('starSmall', 'src/assets/star.png');
     		this.game.load.image('starBig', 'src/assets/star2.png');
@@ -35,7 +35,7 @@ window.onload = function()
         	game.add.plugin(Phaser.Plugin.Debug);
         	
 
-			game.stage.backgroundColor = '#000000';
+			game.stage.backgroundColor = '#FFFFFF';
 
 			//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
 			//bg.fixedToCamera = true;
