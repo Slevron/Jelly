@@ -26,6 +26,7 @@ function Character(game){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
+    
     console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
