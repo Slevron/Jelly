@@ -10,7 +10,8 @@ function Character(game){
     this.sprite.body.collideWorldBounds = true;
     this.sprite.body.setSize(80, 90,4,16);
     this.sprite.animations.add('left', [1, 2, 3, 4], 10, true);
-    this.sprite.animations.add('jump', [0], 10, true);
+    this.sprite.animations.add('hurt',[6, 7,8,9,10,11,6],false);
+    this.sprite.frame=5;
     //this.sprite.animations.add('turn', [4], 20, true);
     //this.sprite.animations.add('right', [5, 6, 7, 8], 10, true);
     game.camera.follow(this.sprite, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -47,6 +48,21 @@ Character.prototype.update = function(){
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
     
+    if(this.shootButton.isDown&& this.canshoot)
+    {
+        this.launchShoot();
+        this.sprite.animations.play('hurt');
+        
+    }        
+    if(this.shootButton.isDown)
+    {
+        this.canshoot=false;
+    }
+    if(this.shootButton.isUp)
+    {
+        this.canshoot=true;
+    }
+
     if (this.cursors.left.isDown){
         this.sprite.body.velocity.x = -250;
         if (this.facing != 'left')
@@ -99,33 +115,16 @@ Character.prototype.move =function(){
     }
     else if(!this.sprite.body.onFloor())
     {
-       this.sprite.animations.play('jump');
+       this.sprite.frame=0;
     }
     else if(this.sprite.body.onFloor&&(this.cursors.right.isDown||this.cursors.left.isDown)){
         this.sprite.animations.play("left")
     }
 
     
-
-
-    //---------------SHOOT.
-    if(this.shootButton.isDown&& this.canshoot)
-    {
-        this.launchShoot();
-    }        
-    if(this.shootButton.isDown)
-    {
-        this.canshoot=false;
-    }
-    if(this.shootButton.isUp)
-    {
-        this.canshoot=true;
-    }
 };
 Character.prototype.launchShoot = function(){
-   
    global.actionEtoile+=1;
-
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*70/100,this.sprite.scale.x));
    this.takeDamage(0.04);
    this.canInput=true;
