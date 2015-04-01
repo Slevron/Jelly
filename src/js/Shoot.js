@@ -6,7 +6,8 @@ function Shoot(game,posx,posy,dir){
     this.refGame=game;
     this.sprite = game.add.sprite(posx, posy, 'starBig');
     this.speed = 10;
-    this.direction=dir
+    this.direction=dir;
+    this.sprite.scale=game.character.sprite.scale;
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
