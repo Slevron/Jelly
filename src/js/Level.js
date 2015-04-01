@@ -3,7 +3,7 @@ LevelState.prototype =
 {
         //PRELOAD
         preload: function(){
-        	this.game.load.image('bg','src/assets/magic.jpg');
+        	this.game.load.image('bg','src/assets/bg.png');
     		this.game.load.tilemap('level1', 'src/json/leveltest.json', null, Phaser.Tilemap.TILED_JSON);
    	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
     		this.game.load.spritesheet('dude', 'src/assets/dude.png', 115, 131);
@@ -11,7 +11,7 @@ LevelState.prototype =
     		this.game.load.image('starSmall', 'src/assets/star.png');
     		this.game.load.image('starBig', 'src/assets/star2.png');
     		this.game.load.image('background', 'src/assets/background2.png');
-        
+            
         },
         create: function(){
             //--init des instance d'objets
@@ -20,7 +20,7 @@ LevelState.prototype =
 
         	game.add.plugin(Phaser.Plugin.Debug);
         	
-
+            game.add.sprite(0,0,"bg");
 			game.stage.backgroundColor = '#FFFFFF';
 
 			//bg = game.add.tileSprite(0, 0, 800, 600, 'background');
@@ -44,5 +44,10 @@ LevelState.prototype =
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
-	   }
+	   },
+       render:function() {
+
+        game.debug.body(game.character.sprite);
+         game.debug.spriteBounds(game.character.sprite);
+        }
     }   
