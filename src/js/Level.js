@@ -41,6 +41,7 @@ LevelState.prototype =
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
             //
+            
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
@@ -53,6 +54,7 @@ LevelState.prototype =
             for (var i = 0; i < phaserJSON.worms.length; i++) {
                 new Roach(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
+
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
