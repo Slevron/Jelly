@@ -7,17 +7,9 @@ LevelState.prototype =
         //PRELOAD
         
         preload: function(){
-<<<<<<< HEAD
         	this.game.load.image('bg','src/assets/bg.png');
-    		this.game.load.tilemap('level1', 'src/json/leveltest.json', null, Phaser.Tilemap.TILED_JSON);
-=======
-            console.log(idLevel)
-            this.game.load.json('config'+idLevel+'', 'src/json/config'+idLevel+'.json');
-        	this.game.load.image('bg','src/assets/magic.jpg');
-
-    		this.game.load.tilemap('level'+idLevel+'', 'src/json/level'+idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
-
->>>>>>> origin/master
+            this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
+    		this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
    	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
     		this.game.load.spritesheet('dude', 'src/assets/dude.png', 115, 131);
     		this.game.load.spritesheet('droid', 'src/assets/droid.png', 32, 32);
@@ -29,24 +21,21 @@ LevelState.prototype =
         create: function(){
             //--init des instance d'objets
             
-<<<<<<< HEAD
-            //
-
         	game.add.plugin(Phaser.Plugin.Debug);
         	
             game.add.sprite(0,0,"bg");
 			game.stage.backgroundColor = '#FFFFFF';
-=======
-            var phaserJSON = game.cache.getJSON('config'+idLevel+'');
+
+            var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
         
             game.add.plugin(Phaser.Plugin.Debug);
             
             game.stage.backgroundColor = '#FFFFFF';
->>>>>>> origin/master
+
 
             //bg = game.add.tileSprite(0, 0, 800, 600, 'background');
             //bg.fixedToCamera = true;
-            this.game.map = new Map(game,idLevel);
+            this.game.map = new Map(game,global.idLevel);
 
             game.enemies = game.add.group();
  
@@ -76,15 +65,6 @@ LevelState.prototype =
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
-<<<<<<< HEAD
-	   },
-       render:function() {
-
-        game.debug.body(game.character.sprite);
-         game.debug.spriteBounds(game.character.sprite);
-        }
-=======
-
             game.physics.arcade.overlap(game.character.sprite, game.enemies,function(characterOver,enemyOver){
                 if(characterOver.refThis.hitable){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
@@ -100,6 +80,14 @@ LevelState.prototype =
                     characterOver.refThis.takeDamage(0.1);
                 }
             });
+
+	   },
+       render:function() {
+
+        game.debug.body(game.character.sprite);
+         game.debug.spriteBounds(game.character.sprite);
+        
+
 	   }
->>>>>>> origin/master
+
     }   
