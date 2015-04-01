@@ -23,6 +23,12 @@
 				
 		}
 	],
+<<<<<<< HEAD
+	"cacahuete":{
+		"x": 100,
+		"y": 100
+	},
+=======
 	"spiders":[
 	{
 		"x": 900,
@@ -44,6 +50,7 @@
 		]
 	}
 	],
+>>>>>>> 6e39af07fd795e7a23deb0d897537d0eec593688
 	"reward":{
 		"cacahueteMax ": 0,
 		"timeMax ": 0,

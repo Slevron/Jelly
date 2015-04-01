@@ -104,5 +104,12 @@ Worm.prototype.playerInSight = function () {
     if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 300){
     	return true;
     }
+};
+Worm.prototype.startExplosion = function () {
+	//Create explosion
+};
 
+function Explosion(game,x,y,timeBeforeExplode){
+	this.sprite = game.add.sprite(x,y,"dude");
+	this.timeBeforeExplode = timeBeforeExplode;
 };
