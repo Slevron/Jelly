@@ -18,7 +18,7 @@ MenuState.prototype =
     update:function(){
     },
     goChapter:function(){
-        game.state.start('ScoreState');
+        game.state.start('ChapterState');
     },
     goOption:function(){
         game.state.start('OptionState');

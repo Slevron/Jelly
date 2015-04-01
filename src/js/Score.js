@@ -45,7 +45,7 @@ ScoreState.prototype =
         game.tabButton.y = 500;
         if(tabUnlockEtoile.length > 0){
             for (var i = 0; i < tabUnlockEtoile.length ; i++) {
-                if(tabUnlockEtoile[i].idLevel !== idLevel){
+                if(tabUnlockEtoile[i].idLevel !== global.idLevel){
                     game.oldTab = JSON.stringify(tabUnlockEtoile);
                         
                     game.newTab = oldTab.replace(']','') + ","+JSON.stringify(game.unlockLevel)+"]";
