@@ -1,0 +1,116 @@
+{"frames": [
+
+{
+	"filename": "Vers anim 1 PNG (0.2s).png",
+	"frame": {"x":2,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim 2 PNG (0.1s).png",
+	"frame": {"x":125,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim 3 PNG (0.1s).png",
+	"frame": {"x":248,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim 4 PNG (0.1s).png",
+	"frame": {"x":371,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim 5 PNG (0.1s).png",
+	"frame": {"x":494,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 1 PNG (0.1s).png",
+	"frame": {"x":617,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 2 PNG (0.1s).png",
+	"frame": {"x":740,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 3 PNG (0.1s).png",
+	"frame": {"x":863,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 4 PNG (0.1s).png",
+	"frame": {"x":986,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 5 PNG (0.1s).png",
+	"frame": {"x":1109,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 6 PNG (0.1s).png",
+	"frame": {"x":1232,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 7 PNG (0.1s).png",
+	"frame": {"x":1355,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Vers anim explosion 8 PNG (0.1s).png",
+	"frame": {"x":1478,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ver.png",
+	"format": "RGBA8888",
+	"size": {"w":1601,"h":109},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:19f3e6531af02d66537909ecf07d5573:ec1b80c92b9072c172ffe2388ef14c21:ad9ec972f3b2b8d7fd8834bd184400ba$"
+}
+}
