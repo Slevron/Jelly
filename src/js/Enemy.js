@@ -37,7 +37,8 @@ Enemy.prototype.takeDamage = function (damage) {
 
 Enemy.prototype.kill = function () {
 	//
-	this.changeCurrentState("Kill");
+	this.refGame.enemies.remove(this.sprite);
+	//this.changeCurrentState("Kill");
 };
 
 Enemy.prototype.sideComparedTo = function (x) {
