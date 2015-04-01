@@ -14,6 +14,8 @@ function Worm (game,x,y,waypoints){
 	}
 
 	this.nextWaypoint = 0;
+
+	this.exploding = false;
 };
 Worm.prototype = Object.create(Enemy.prototype);
 Worm.prototype.constructor = Worm;
@@ -21,6 +23,8 @@ Worm.prototype.update = function () {
 	//
 	if (this.playerInSight()){
 		console.log("BOOOOOOM")
+		//this.startExploding();
+		//return;
 	}
 	else{
 		if(this.checkIfWaypointReached()){
@@ -107,9 +111,36 @@ Worm.prototype.playerInSight = function () {
 };
 Worm.prototype.startExplosion = function () {
 	//Create explosion
+	new Explosion(this.refGame,this.sprite.x,this.sprite.y,1);
+	this.exploding = true;
 };
 
-function Explosion(game,x,y,timeBeforeExplode){
+function Explosion(game,x,y,timeBeforeEndExplode){
 	this.sprite = game.add.sprite(x,y,"dude");
-	this.timeBeforeExplode = timeBeforeExplode;
+	this.timeBeforeEndExplode = timeBeforeEndExplode;
+	this.update = function(){
+		game.arcade.physics.overlap(this.sprite, game.character,function(spriteOver,characterOver){
+			if(characterOver.refThis.hitable){
+                if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
+                    //right so bounce left
+                    characterOver.body.velocity.x = -1200;
+                    characterOver.body.velocity.y = -300;
+                }
+                else{
+                        //left so bounce right
+                    characterOver.body.velocity.x = 1200;
+                    characterOver.body.velocity.y = -300;
+                }
+                characterOver.refThis.takeDamage(0.1);
+            }
+		});
+
+		this.timeBeforeEndExplode -= game.time.deltaTime;
+		if(this.timeBeforeEndExplode <= 0){
+			//Kill the sprite
+			this.sprite.destroy();
+			delete this.timeBeforeEndExplode;
+		}
+	}
+
 };

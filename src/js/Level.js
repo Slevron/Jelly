@@ -57,8 +57,10 @@ LevelState.prototype =
             };
 
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
+
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
+
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
 
@@ -74,6 +76,7 @@ LevelState.prototype =
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
+            
             game.physics.arcade.overlap(this.game.character.sprite, game.enemies,function(characterOver,enemyOver){
                 if(characterOver.refThis.hitable){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
