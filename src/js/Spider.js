@@ -1,10 +1,16 @@
 function Spider (game,x,y,waypoints,maxDown){
 	Enemy.call(this,game);
-	this.sprite = game.enemies.create(x,y,"dude",5);
+	this.sprite = game.enemies.create(x,y,"spider",5);
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
+	
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = false;
+
+	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
+    this.sprite.animations.add('vertical', [5,6,7,8,9,10,11,12], 10, true);
+    this.sprite.animations.add("idle", [6],true);
+
 	this.speed = 100;
 
 	this.waypoints = [];
@@ -30,6 +36,7 @@ Spider.prototype.update = function () {
 		this.goUp();
 	}
 	else{
+		this.sprite.animations.play("walk");
 		if(this.checkIfWaypointReached()){
 			this.changeToNextWaypoint();
 		}
@@ -112,11 +119,13 @@ Spider.prototype.playerInSight = function(){
 };
 Spider.prototype.goDown = function () {
 	if(this.currentDown == this.maxDown){
+		this.sprite.animations.play("idle");
 		return;
 	}
 	if(!this.isDowned){
 		this.isDowned = true;
 	}
+	this.sprite.animations.play("vertical");
 
 	var speed = (this.speed * 0.9) * this.refGame.time.deltaTime;
 	this.sprite.y += speed;
@@ -132,6 +141,7 @@ Spider.prototype.goUp = function () {
 		return;
 	}
 
+	this.sprite.animations.play("vertical");
 	var speed = (this.speed * 0.75) * this.refGame.time.deltaTime;
 	this.sprite.y -= speed;
 	this.currentDown -= speed;

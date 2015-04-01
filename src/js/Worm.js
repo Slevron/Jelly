@@ -1,9 +1,12 @@
 function Worm (game,x,y,waypoints){
 	Enemy.call(this,game);
-	this.sprite = game.enemies.create(x,y,"dude",5);
+	this.sprite = game.enemies.create(x,y,"worm",0);
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+
+	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
+    
 
 	this.speed = 100;
 
@@ -16,6 +19,7 @@ function Worm (game,x,y,waypoints){
 	this.nextWaypoint = 0;
 
 	this.exploding = false;
+	this.sprite.animations.play("walk");
 };
 Worm.prototype = Object.create(Enemy.prototype);
 Worm.prototype.constructor = Worm;
@@ -23,7 +27,7 @@ Worm.prototype.update = function () {
 	//
 	if (this.playerInSight()){
 		console.log("BOOOOOOM")
-		//this.startExploding();
+		this.startExploding();
 		//return;
 	}
 	else{
@@ -109,17 +113,22 @@ Worm.prototype.playerInSight = function () {
     	return true;
     }
 };
-Worm.prototype.startExplosion = function () {
+Worm.prototype.startExploding = function () {
 	//Create explosion
-	new Explosion(this.refGame,this.sprite.x,this.sprite.y,1);
+	this.refGame.explosions.push(new Explosion(this.refGame,this.sprite,1));
 	this.exploding = true;
+	this.kill();
 };
 
-function Explosion(game,x,y,timeBeforeEndExplode){
-	this.sprite = game.add.sprite(x,y,"dude");
+function Explosion(game,spriteWorm,timeBeforeEndExplode){
+	this.sprite = game.add.sprite(spriteWorm.x,spriteWorm.y,"worm");
+	this.sprite.anchor.set(0.5);
+	this.sprite.x = spriteWorm.x;
+	this.sprite.y = spriteWorm.y;
+	this.sprite.animations.add('explosion', [5,6,7,8,9,10,11,12], 10, true);
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
 	this.update = function(){
-		game.arcade.physics.overlap(this.sprite, game.character,function(spriteOver,characterOver){
+		game.physics.arcade.overlap(this.sprite, game.character,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
                     //right so bounce left
@@ -137,10 +146,10 @@ function Explosion(game,x,y,timeBeforeEndExplode){
 
 		this.timeBeforeEndExplode -= game.time.deltaTime;
 		if(this.timeBeforeEndExplode <= 0){
-			//Kill the sprite
-			this.sprite.destroy();
-			delete this.timeBeforeEndExplode;
+			return true;
 		}
-	}
+		return false;
+	};
+	this.sprite.animations.play("explosion");
 
 };

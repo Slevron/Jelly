@@ -10,11 +10,20 @@ LevelState.prototype =
         preload: function(){
             this.game.load.image('bg','src/assets/bg.png');
             this.game.load.image('bg2','src/assets/bg2.png');
+
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
+
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
+<<<<<<< HEAD
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
+=======
+            this.game.load.spritesheet("spider", "src/assets/spider.png", 102, 121);
+            this.game.load.spritesheet("worm", "src/assets/ver.png",123,105);
+            this.game.load.spritesheet("roach", "src/assets/roach.png",121,105);
+
+>>>>>>> origin/master
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
@@ -52,12 +61,13 @@ LevelState.prototype =
                 new Spider(game,phaserJSON.spiders[i].x,phaserJSON.spiders[i].y,phaserJSON.spiders[i].waypoints,phaserJSON.spiders[i].maxDown);
             };
             for (var i = 0; i < phaserJSON.worms.length; i++) {
-                new Roach(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
+                new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
 
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
+            this.game.explosions = [];
 
-            game.add.sprite(0,-100,"bg2");
+           //game.add.sprite(0,-100,"bg2");
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
 
@@ -92,7 +102,15 @@ LevelState.prototype =
                     characterOver.refThis.takeDamage(0.1);
                 }
             });
-
+            
+            for(var i = 0; i < game.explosions.length; i++){
+                if(game.explosions[i].update()){
+                    game.explosions[i].sprite.destroy();
+                    game.explosions[i] = null;
+                    game.explosions.splice(i,1);
+                    i--;
+                }
+            };
        },
 
        render:function() {
