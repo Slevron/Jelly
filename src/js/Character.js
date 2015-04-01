@@ -40,6 +40,7 @@ Character.prototype.update = function(){
     };
     if(this.canInput)
     this.move();
+
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
@@ -105,7 +106,8 @@ Character.prototype.move =function(){
 };
 Character.prototype.launchShoot = function(){
    
-   
+   global.actionEtoile+=1;
+
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*40/100,this.sprite.scale.x));
    this.takeDamage(0.04);
 };
