@@ -30,19 +30,42 @@ LevelState.prototype =
             game.enemies = game.add.group();
 
             new Roach(game,100,100,[{x:-150,y:100},{x:150,y:100}]);
+            new Spider(game,400,400,[{x:-200,y:400},{x:200,y:400}]);
 
 			
-            this.game.character = new Character(game);
+            game.character = new Character(game);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
+            game.time.deltaTime = 0;
+            game.time.lastNow = game.time.now;
 
 		},
         update:function()
         {
+            game.time.deltaTime = game.time.elapsed/1000;
             game.physics.arcade.collide(game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
+            game.physics.arcade.collide(game.enemies, this.game.map.layer);
+
             this.game.character.update();
+
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
+            });
+
+            game.physics.arcade.overlap(game.character.sprite, game.enemies,function(characterOver,enemyOver){
+                if(characterOver.refThis.hitable){
+                    if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
+                        //right so bounce left
+                        characterOver.body.velocity.x = -1200;
+                        characterOver.body.velocity.y = -300;
+                    }
+                    else{
+                        //left so bounce right
+                        characterOver.body.velocity.x = 1200;
+                        characterOver.body.velocity.y = -300;
+                    }
+                    characterOver.refThis.takeDamage(0.1);
+                }
             });
 	   }
     }   
