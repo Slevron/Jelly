@@ -24,6 +24,7 @@ function Character(game){
     this.invicibleTime = 3;
     this.health = 1;
     this.scaleBase=1;
+    this.canInput=true;
     console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
@@ -37,6 +38,7 @@ Character.prototype.update = function(){
     for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
     };
+    if(this.canInput)
     this.move();
 };
 Character.prototype.move =function(){
@@ -103,25 +105,24 @@ Character.prototype.move =function(){
 };
 Character.prototype.launchShoot = function(){
    
-   var bodyOri = {x:this.sprite.body.x,y:this.sprite.body.y,width:this.sprite.body.width,height:this.sprite.body.height};
-   var spriteOri = {x:this.sprite.x,y:this.sprite.y,height:this.sprite.height,width:this.sprite.width};
-
-   var newScale={x:0,y:0};
-   var dir=0;
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
-   this.scaleBase -= this.scaleBase*0.04;
-   newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
-   newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
-
-   game.add.tween(this.sprite.scale).to({x:newScale.x,y:newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
-   console.log(this.sprite.body)
-   this.sprite.body.offset.x *= newScale.x;
-   this.sprite.body.offset.y = 16 * newScale.y;
-
+   
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*40/100,this.sprite.scale.x));
+   this.takeDamage(0.04);
 };
 Character.prototype.takeDamage = function(damage){
     this.health -= damage;
     this.hitable = false;
-    this.timeSinceHit = 0;
+    this.timeSinceHit = 0; 
+
+   var newScale={x:0,y:0};
+   var dir=0;
+   this.scaleBase -= this.scaleBase*damage;
+   newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
+   newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
+
+   game.add.tween(this.sprite.scale).to({x:newScale.x,y:newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
+   this.sprite.body.offset.x *= newScale.x;
+   this.sprite.body.offset.y = 16 * newScale.y;
+   console.log(this.sprite.scale)
 
 };

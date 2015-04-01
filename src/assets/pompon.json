@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "Perso anim pompon marche 1 PNG.png",
+	"frame": {"x":2,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim pompon marche 2 PNG.png",
+	"frame": {"x":119,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim pompon marche 3 PNG.png",
+	"frame": {"x":236,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim pompon marche 4 PNG.png",
+	"frame": {"x":353,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim tir pompon 1 PNG.png",
+	"frame": {"x":470,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim tir pompon 2 PNG.png",
+	"frame": {"x":587,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim tir pompon 3 PNG.png",
+	"frame": {"x":704,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso-anim-tir-pompon-GIF.gif",
+	"frame": {"x":821,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pompon.png",
+	"format": "RGBA8888",
+	"size": {"w":938,"h":135},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ee4e8e5d01f32ccc5652229322af3e73:4a7a63b0b1cc940f03d8d3d0658d124b:cfec8e008dbdc059abb2cde06e6947ed$"
+}
+}
