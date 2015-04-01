@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "anim araignée descente fil 1 PNG (0.1s).png",
+	"frame": {"x":2,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+},
+{
+	"filename": "anim araignée descente fil 2 PNG (0.1s).png",
+	"frame": {"x":106,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+},
+{
+	"filename": "anim araignée descente fil 3 PNG (0.1s).png",
+	"frame": {"x":210,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+},
+{
+	"filename": "anim araignée marche 1 PNG (0.1s).png",
+	"frame": {"x":314,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+},
+{
+	"filename": "anim araignée marche 2 PNG (0.1s).png",
+	"frame": {"x":418,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+},
+{
+	"filename": "anim araignée marche 3 PNG (0.1s).png",
+	"frame": {"x":522,"y":2,"w":102,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
+	"sourceSize": {"w":102,"h":121}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "spider.png",
+	"format": "RGBA8888",
+	"size": {"w":626,"h":125},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b718e18fa7ecdec5deda92b4b8a87cac:010c719feec0db4f696f2e95d4026091:1061686de59298529f6a4fc7550209ec$"
+}
+}
