@@ -1,7 +1,8 @@
-function Map(game){
+function Map(game,id){
     this.refGame=game;
     console.log(game);
-    this.map = game.add.tilemap('level1');
+    this.id = id;
+    this.map = game.add.tilemap('level'+id);
     this.map.addTilesetImage('tiles-1');
     this.map.setCollisionByExclusion([ 0 ]);
     this.layer = this.map.createLayer('Tile Layer 1');

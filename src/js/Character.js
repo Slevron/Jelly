@@ -2,6 +2,7 @@ function Character(game){
     this.refGame=game;
     this.sprite = game.add.sprite(470, 135, 'dude');
     this.sprite.anchor.setTo(0.5,0.5);
+    this.sprite.refThis = this;
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
@@ -20,14 +21,15 @@ function Character(game){
     this.canshoot=true;
     this.hitable = true;
     this.timeSinceHit = 0;
-    this.invicibleTime = 1;
+    this.invicibleTime = 3;
+    this.health = 1;
     this.scaleBase=1;
     console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
     if(this.hitable == false){
-        this.timeSinceHit += this.refGame.time.elapsed;
+        this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
             this.hitable = true;
         }
@@ -107,6 +109,7 @@ Character.prototype.launchShoot = function(){
    var newScale={x:0,y:0};
    var dir=0;
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
+<<<<<<< HEAD
    this.scaleBase -= this.scaleBase*0.04;
    newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
    newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
@@ -115,4 +118,15 @@ Character.prototype.launchShoot = function(){
    console.log(this.sprite.body)
    this.sprite.body.offset.x *= newScale.x;
    this.sprite.body.offset.y = 16 * newScale.y;
+=======
+   this.scaleBase -= this.scaleBase*0.02;
+   this.sprite.scale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
+   this.sprite.scale.y=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1); 
+
+};
+Character.prototype.takeDamage = function(damage){
+    this.health -= damage;
+    this.hitable = false;
+    this.timeSinceHit = 0;
+>>>>>>> origin/master
 };
