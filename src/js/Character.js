@@ -104,11 +104,10 @@ Character.prototype.move =function(){
 Character.prototype.launchShoot = function(){
    
    
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*40/100,this.sprite.scale.x));
    this.takeDamage(0.04);
 };
 Character.prototype.takeDamage = function(damage){
-    console.log("DAMAVE")
     this.health -= damage;
     this.hitable = false;
     this.timeSinceHit = 0; 
