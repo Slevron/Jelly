@@ -82,11 +82,6 @@ LevelState.prototype =
             });
 
 	   },
-       render:function() {
-        game.debug.body(game.character.sprite);
-        game.debug.spriteBounds(game.character.sprite);
-        
-
-	   }
+       
 
     }   
