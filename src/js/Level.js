@@ -1,4 +1,5 @@
 
+
 var LevelState = function(game,id) {
     global.idLevel = id;
 }; 
@@ -7,29 +8,22 @@ LevelState.prototype =
         //PRELOAD
         
         preload: function(){
-        	this.game.load.image('bg','src/assets/bg.png');
+            this.game.load.image('bg','src/assets/bg.png');
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
-    		this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
-   	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
-<<<<<<< HEAD
-    		this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
-    		this.game.load.image('starSmall', 'src/assets/star.png');
-    		this.game.load.image('starBig', 'src/assets/star2.png');
-            
-=======
-    		this.game.load.spritesheet('dude', 'src/assets/dude.png', 115, 131);
-    		this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
-    		this.game.load.image('starSmall', 'src/assets/star.png');
-    		this.game.load.image('starBig', 'src/assets/star2.png');
->>>>>>> origin/master
+            this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
+            this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
+            this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
+            this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
+            this.game.load.image('starSmall', 'src/assets/star.png');
+            this.game.load.image('starBig', 'src/assets/star2.png');
         },
         create: function(){
             //--init des instance d'objets
             
-        	game.add.plugin(Phaser.Plugin.Debug);
-        	
+            game.add.plugin(Phaser.Plugin.Debug);
+            
             game.add.sprite(0,0,"bg");
-			game.stage.backgroundColor = '#FFFFFF';
+            game.stage.backgroundColor = '#FFFFFF';
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
         
@@ -68,11 +62,11 @@ LevelState.prototype =
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
 
-		},
+        },
         update:function()
         {
             game.time.deltaTime = game.time.elapsed/1000;
-            game.physics.arcade.collide(game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
+            game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
 
             this.game.character.update();
@@ -80,7 +74,7 @@ LevelState.prototype =
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
-            game.physics.arcade.overlap(game.character.sprite, game.enemies,function(characterOver,enemyOver){
+            game.physics.arcade.overlap(this.game.character.sprite, game.enemies,function(characterOver,enemyOver){
                 if(characterOver.refThis.hitable){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
                         //right so bounce left
@@ -96,14 +90,11 @@ LevelState.prototype =
                 }
             });
 
-	   },
-<<<<<<< HEAD
+       },
+
        render:function() {
         
 
-	   }
+       }
 
-=======
-       
->>>>>>> 6e39af07fd795e7a23deb0d897537d0eec593688
     }   
