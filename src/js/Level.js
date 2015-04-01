@@ -10,7 +10,11 @@ LevelState.prototype =
             console.log(idLevel)
             this.game.load.json('config'+idLevel+'', 'src/json/config'+idLevel+'.json');
         	this.game.load.image('bg','src/assets/magic.jpg');
+<<<<<<< HEAD
     		this.game.load.tilemap('level'+idLevel+'', 'src/json/level'+idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
+=======
+    		this.game.load.tilemap('level1', 'src/json/leveltest.json', null, Phaser.Tilemap.TILED_JSON);
+>>>>>>> ecf4d38080d62308e528a64b528ab9fde9367a52
    	 		this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
     		this.game.load.spritesheet('dude', 'src/assets/dude.png', 115, 131);
     		this.game.load.spritesheet('droid', 'src/assets/droid.png', 32, 32);

@@ -15,10 +15,12 @@ Shoot.prototype.update = function(){
 Shoot.prototype.move =function(){
     if(this.direction>0)
     {
+        this.direction=1;
         this.sprite.x += this.speed;
     }
     if(this.direction<0)
     {
+        this.direction=-1;
         this.sprite.x += -this.speed;
     }
      
