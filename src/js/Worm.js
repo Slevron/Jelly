@@ -20,7 +20,7 @@ Worm.prototype.constructor = Worm;
 Worm.prototype.update = function () {
 	//
 	if (this.playerInSight()){
-		this.moveToPlayer();
+		console.log("BOOOOOOM")
 	}
 	else{
 		if(this.checkIfWaypointReached()){
@@ -101,5 +101,8 @@ Worm.prototype.moveToPlayer = function () {
 	return;
 };
 Worm.prototype.playerInSight = function () {
-	return false;
+    if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 300){
+    	return true;
+    }
+
 };

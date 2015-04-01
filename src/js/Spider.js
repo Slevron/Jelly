@@ -25,11 +25,9 @@ Spider.prototype.update = function () {
 	//
 	if (this.playerInSight()){
 		this.goDown();
-		console.log("IN SIGHT")
 	}
 	else if (!this.playerInSight() && this.isDowned){
 		this.goUp();
-		console.log("NOT IN SIGHT")
 	}
 	else{
 		if(this.checkIfWaypointReached()){
@@ -99,7 +97,6 @@ Spider.prototype.moveToNextWaypoint = function () {
 };
 Spider.prototype.playerInSight = function(){
 	var player = this.refGame.character.sprite;
-	console.log(this.sprite.x)
 
 	if(this.facing == "right"){
 		if(player.x > this.sprite.x && player.x < this.sprite.x+this.sprite.width){

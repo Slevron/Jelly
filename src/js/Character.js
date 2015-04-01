@@ -125,6 +125,4 @@ Character.prototype.takeDamage = function(damage){
    game.add.tween(this.sprite.scale).to({x:newScale.x,y:newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    this.sprite.body.offset.x *= newScale.x;
    this.sprite.body.offset.y = 16 * newScale.y;
-   console.log(this.sprite.scale)
-
 };
