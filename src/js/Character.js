@@ -55,6 +55,7 @@ Character.prototype.move =function(){
             this.facing = 'left';
             this.sprite.scale={x:-this.scaleBase,y:this.scaleBase};    
         }
+        
     }
     else if (this.cursors.right.isDown)
     {
