@@ -2,12 +2,15 @@
     JAUGE
 ********************************************/
 function Shoot(game,posx,posy,dir){
-    console.log("dfdsfsdfdfsfd")
     this.refGame=game;
-    this.sprite = game.add.sprite(posx, posy, 'starBig');
+    
+    this.sprite = game.shoots.create(posx, posy, 'starBig');
+    game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+    this.sprite.body.allowGravity = false;
+    this.sprite.scale=game.character.sprite.scale;
+
     this.speed = 10;
     this.direction=dir;
-    this.sprite.scale=game.character.sprite.scale;
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
