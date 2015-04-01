@@ -9,6 +9,7 @@ LevelState.prototype =
         
         preload: function(){
             this.game.load.image('bg','src/assets/bg.png');
+            this.game.load.image('bg2','src/assets/bg2.png');
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
@@ -35,20 +36,17 @@ LevelState.prototype =
             //bg = game.add.tileSprite(0, 0, 800, 600, 'background');
             //bg.fixedToCamera = true;
             this.game.map = new Map(game,global.idLevel);
-
             game.enemies = game.add.group();
             //Rewards
             global.cacahueteMax = phaserJSON.reward.cacahueteMax;
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
             //
-            
+            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
+            console.log(game.cacahuete);
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
-
-            new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
-            
             for (var i = 0; i < phaserJSON.spiders.length; i++) {
                 new Spider(game,phaserJSON.spiders[i].x,phaserJSON.spiders[i].y,phaserJSON.spiders[i].waypoints,phaserJSON.spiders[i].maxDown);
             };
@@ -57,6 +55,7 @@ LevelState.prototype =
             };
 
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
+            game.add.sprite(0,-100,"bg2");
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
             game.time.deltaTime = 0;
