@@ -9,11 +9,11 @@ function Character(game){
     this.sprite.body.bounce.y = 0;
     this.sprite.body.collideWorldBounds = true;
     this.sprite.body.setSize(80, 90,4,16);
-    this.sprite.animations.add('left', [0, 1, 2, 3], 10, true);
+    this.sprite.animations.add('left', [1, 2, 3, 4], 10, true);
+    this.sprite.animations.add('jump', [0], 10, true);
     //this.sprite.animations.add('turn', [4], 20, true);
     //this.sprite.animations.add('right', [5, 6, 7, 8], 10, true);
     game.camera.follow(this.sprite, Phaser.Camera.FOLLOW_PLATFORMER);
-    
     this.cursors = game.input.keyboard.createCursorKeys();
     this.jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     this.shootButton=  game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -33,6 +33,8 @@ Character.prototype.update = function(){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
             this.hitable = true;
+            this.canInput=true;
+
         }
     }
     for (var i = 0; i < this.shoots.length; i++) {
@@ -64,22 +66,7 @@ Character.prototype.move =function(){
             this.sprite.scale={x:this.scaleBase,y:this.scaleBase};
         }
     }
-    else
-    {
-        if (this.facing != 'idle')
-        {
-            this.sprite.animations.stop();
-            if (this.facing == 'left')
-            {
-                this.sprite.frame = 0;
-            }
-            else
-            {   
-               this.sprite.frame = 5;
-            }   
-            this.facing = 'idle';
-        }
-    }
+
     if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
     {
         this.sprite.body.velocity.y = -800;
@@ -89,6 +76,37 @@ Character.prototype.move =function(){
     {
         this.jumpTimer=0;
     }
+
+
+    if(this.sprite.body.onFloor()&&!this.cursors.right.isDown&&!this.cursors.left.isDown)
+    {
+        if(this.sprite.body.onFloor()){
+            if (this.facing != 'idle')
+            {
+                this.sprite.animations.stop();
+                if (this.facing == 'left')
+                {
+                    this.sprite.frame = 5;
+                }
+                else
+                {   
+                   this.sprite.frame = 5;
+                }   
+                this.facing = 'idle';
+            }
+
+        }
+    }
+    else if(!this.sprite.body.onFloor())
+    {
+       this.sprite.animations.play('jump');
+    }
+    else if(this.sprite.body.onFloor&&(this.cursors.right.isDown||this.cursors.left.isDown)){
+        this.sprite.animations.play("left")
+    }
+
+    
+
 
     //---------------SHOOT.
     if(this.shootButton.isDown&& this.canshoot)
@@ -108,14 +126,15 @@ Character.prototype.launchShoot = function(){
    
    global.actionEtoile+=1;
 
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*40/100,this.sprite.scale.x));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*70/100,this.sprite.scale.x));
    this.takeDamage(0.04);
+   this.canInput=true;
 };
 Character.prototype.takeDamage = function(damage){
     this.health -= damage;
     this.hitable = false;
     this.timeSinceHit = 0; 
-
+    this.canInput=false;
    var newScale={x:0,y:0};
    var dir=0;
    this.scaleBase -= this.scaleBase*damage;
