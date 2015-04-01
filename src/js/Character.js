@@ -24,6 +24,7 @@ function Character(game){
     this.invicibleTime = 3;
     this.health = 1;
     this.scaleBase=1;
+    this.canInput=true;
     console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
@@ -37,6 +38,7 @@ Character.prototype.update = function(){
     for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
     };
+    if(this.canInput)
     this.move();
 };
 Character.prototype.move =function(){
