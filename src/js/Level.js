@@ -16,14 +16,10 @@ LevelState.prototype =
             this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
-<<<<<<< HEAD
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
-=======
             this.game.load.spritesheet("spider", "src/assets/spider.png", 102, 121);
             this.game.load.spritesheet("worm", "src/assets/ver.png",123,105);
             this.game.load.spritesheet("roach", "src/assets/roach.png",121,105);
-
->>>>>>> origin/master
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
@@ -33,7 +29,8 @@ LevelState.prototype =
             
             game.add.plugin(Phaser.Plugin.Debug);
             
-            game.add.sprite(0,0,"bg");
+            game.background = game.add.sprite(0,0,"bg");
+            game.background.fixedToCamera = true;
             game.stage.backgroundColor = '#FFFFFF';
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
@@ -70,6 +67,8 @@ LevelState.prototype =
            //game.add.sprite(0,-100,"bg2");
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
+            game.forground = game.add.sprite(0,-100,"bg2");
+            game.forground.fixedToCamera = true;
 
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
@@ -82,7 +81,7 @@ LevelState.prototype =
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
 
             this.game.character.update();
-
+            game.cacahuete.update();
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
