@@ -23,10 +23,30 @@
 				
 		}
 	],
+	"spiders":[
+	{
+		"x": 900,
+		"y": 200,
+		"waypoints": [
+			{"x":-200,"y":300},
+			{"x":200,"y":300}
+		],
+		"maxDown": 100
+	}
+	],
+	"worms":[
+	{
+		"x": 900,
+		"y": 400,
+		"waypoints": [
+			{"x":-200,"y":400},
+			{"x":200,"y":400}
+		]
+	}
+	],
 	"reward":{
 		"cacahueteMax ": 0,
 		"timeMax ": 0,
 		"actionMax ": 0
 	}
-		
 }
