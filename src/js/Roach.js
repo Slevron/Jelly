@@ -3,8 +3,9 @@ function Roach (game,x,y,waypoints){
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
+	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 
-	this.speed = 0.1;
+	this.speed = 100;
 
 	this.waypoints = [];
 	for(var i = 0; i < waypoints.length; i++) {
@@ -18,10 +19,6 @@ Roach.prototype = Object.create(Enemy.prototype);
 Roach.prototype.constructor = Roach;
 Roach.prototype.update = function () {
 	//
-	this.move();
-	return;
-};
-Roach.prototype.move = function () {
 	if (this.playerInSight()){
 		this.moveToPlayer();
 	}
@@ -33,16 +30,31 @@ Roach.prototype.move = function () {
 	}
 	return;
 };
+Roach.prototype.move = function (dir) {
+	if(dir == "left"){
+		this.sprite.x -= this.speed * this.refGame.time.deltaTime;
+	}
+	else if (dir == "right"){
+		this.sprite.x += this.speed * this.refGame.time.deltaTime;
+	}
+	return;
+};
 Roach.prototype.checkIfWaypointReached = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
-	if(this.sprite.x <= waypoint.x+32 &&
-		this.sprite.x+(this.sprite.width*this.sprite.scale.x) >= waypoint.x &&
-		this.sprite.y <= waypoint.y+32 &&
-		this.sprite.y >= waypoint.y){
+
+	if((this.sprite.x >= waypoint.x + 6)      // trop à droite
+
+	    || (this.sprite.x + this.sprite.width <= waypoint.x) // trop à gauche
+
+	    || (this.sprite.y >= waypoint.y + 32) // trop en bas
+
+	    || (this.sprite.y + this.sprite.height <= waypoint.y)){
+		return false;
+	}
+	else{
 		return true;
 	}
-	return false;
 };
 Roach.prototype.changeToNextWaypoint = function () {
 	this.nextWaypoint++;
@@ -54,21 +66,21 @@ Roach.prototype.changeToNextWaypoint = function () {
 Roach.prototype.moveToNextWaypoint = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
-
+	
 	if (this.sprite.x > waypoint.x){
 
 		//Left
 		if (this.facing == "right") {
 			this.changeFacing("left");
 		}
-		this.sprite.x -= this.speed * this.refGame.time.elapsed;
+		this.move("left");
 	}
 	else {
 		//Right
 		if (this.facing == "left") {
 			this.changeFacing("right");
 		}
-		this.sprite.x += this.speed * this.refGame.time.elapsed;
+		this.move("right");
 	}
 
 	if(this.currentState != "Move"){
@@ -80,15 +92,14 @@ Roach.prototype.moveToPlayer = function () {
 	//
 	if(this.x > this.refGame.character.sprite.x+(this.refGame.character.sprite.width*0.5)){
 		//Move left
-		this.sprite.x -= this.speed * this.refGame.time.elapsed;
+		this.move("left");
 	}
 	else {
 		//Move right
-		this.sprite.x += this.speed * this.refGame.time.elapsed;
+		this.move("right");
 	}
 	return;
 };
-
 Roach.prototype.playerInSight = function () {
 	return false;
 };
