@@ -122,7 +122,6 @@ Character.prototype.move =function(){
     {
         this.canshoot=true;
     }
-    console.log(this.state);
     
     this.checkStateForAnim(this.state);
       this.checkStateForAnim(this.state);

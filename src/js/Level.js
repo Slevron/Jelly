@@ -63,6 +63,7 @@ LevelState.prototype =
 
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             this.game.explosions = [];
+            this.game.shoots = game.add.group();
 
            //game.add.sprite(0,-100,"bg2");
             game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -102,9 +103,10 @@ LevelState.prototype =
                 }
             });
 
-            game.physics.arcade.overlap(this.game.character.shoots, game.enemies, function(bulletOver,enemyOver){
+            game.physics.arcade.overlap(this.game.shoots, game.enemies, function(bulletOver,enemyOver){
                 console.log("ARG")
                 enemyOver.refThis.takeDamage(1);
+                game.shoots.remove(bulletOver);
             });
             
             for(var i = 0; i < game.explosions.length; i++){
