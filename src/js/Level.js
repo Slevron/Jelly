@@ -91,9 +91,6 @@ LevelState.prototype =
        render:function() {
         game.debug.body(game.character.sprite);
         game.debug.spriteBounds(game.character.sprite);
-        game.enemies.forEach(function(ene){
-            game.debug.geom(new Phaser.Rectangle(ene.x,ene.y,ene.width,ene.height), "rgba(255,0,0,0.5)");
-        });
 
 	   }
 

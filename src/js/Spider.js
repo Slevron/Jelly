@@ -23,7 +23,6 @@ Spider.prototype = Object.create(Enemy.prototype);
 Spider.prototype.constructor = Spider;
 Spider.prototype.update = function () {
 	//
-
 	if (this.playerInSight()){
 		this.goDown();
 		console.log("IN SIGHT")
@@ -100,10 +99,19 @@ Spider.prototype.moveToNextWaypoint = function () {
 };
 Spider.prototype.playerInSight = function(){
 	var player = this.refGame.character.sprite;
-	if(player.body.center.x < this.sprite.x+this.sprite.width &&
-	player.body.center.x > this.sprite.x && player.body.center.y > this.sprite.y){
-		return true;
+	console.log(this.sprite.x)
+
+	if(this.facing == "right"){
+		if(player.x > this.sprite.x && player.x < this.sprite.x+this.sprite.width){
+			return true;
+		}
 	}
+	else if (this.facing == "left"){
+		if(player.x < this.sprite.x && player.x > this.sprite.x+this.sprite.width){
+			return true;
+		}
+	}
+	return false;
 };
 Spider.prototype.goDown = function () {
 	if(this.currentDown == this.maxDown){
