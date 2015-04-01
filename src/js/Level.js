@@ -44,9 +44,18 @@ LevelState.prototype =
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
+<<<<<<< HEAD
 
             new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
             
+=======
+            for (var i = 0; i < phaserJSON.spiders.length; i++) {
+                new Spider(game,phaserJSON.spiders[i].x,phaserJSON.spiders[i].y,phaserJSON.spiders[i].waypoints,phaserJSON.spiders[i].maxDown);
+            };
+            for (var i = 0; i < phaserJSON.worms.length; i++) {
+                new Roach(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
+            };
+>>>>>>> 454b827aac157ea7163a5909925ba6e0a3841d72
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
