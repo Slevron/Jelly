@@ -1,9 +1,10 @@
-function Spider (game,x,y,waypoints){
+function Spider (game,x,y,waypoints,maxDown){
 	Enemy.call(this,game);
 	this.sprite = game.enemies.create(x,y,"dude",5);
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
-
+	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+	this.sprite.body.allowGravity = false;
 	this.speed = 100;
 
 	this.waypoints = [];
@@ -16,7 +17,7 @@ function Spider (game,x,y,waypoints){
 
 	this.isDowned = false;
 	this.currentDown = 0;
-	this.maxDown = 100;
+	this.maxDown = maxDown;
 };
 Spider.prototype = Object.create(Enemy.prototype);
 Spider.prototype.constructor = Spider;
@@ -100,7 +101,7 @@ Spider.prototype.moveToNextWaypoint = function () {
 Spider.prototype.playerInSight = function(){
 	var player = this.refGame.character.sprite;
 	if(player.body.center.x < this.sprite.x+this.sprite.width &&
-	player.body.center.x > this.sprite.x){
+	player.body.center.x > this.sprite.x && player.body.center.y > this.sprite.y){
 		return true;
 	}
 };
