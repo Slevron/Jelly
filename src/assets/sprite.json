@@ -1,15 +1,15 @@
 {"frames": [
 
 {
-	"filename": "Perso Saut PNG.png",
-	"frame": {"x":2,"y":2,"w":115,"h":128},
+	"filename": "Anim Marche/Perso anim marche 1 SP.png",
+	"frame": {"x":2,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":128},
-	"sourceSize": {"w":115,"h":128}
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso anim marche 1 SP.png",
+	"filename": "Anim Marche/Perso anim marche 2 SP.png",
 	"frame": {"x":119,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -17,7 +17,7 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso anim marche 2 SP.png",
+	"filename": "Anim Marche/Perso anim marche 3 SP.png",
 	"frame": {"x":236,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -25,7 +25,7 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso anim marche 3 SP.png",
+	"filename": "Anim Marche/Perso anim marche 4 SP.png",
 	"frame": {"x":353,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -33,7 +33,7 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso anim marche 4 SP.png",
+	"filename": "Perso attente PNG.png",
 	"frame": {"x":470,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso attente PNG.png",
+	"filename": "Perte Poils/Perso anim perte poils 1 PNG SP.png",
 	"frame": {"x":587,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -49,16 +49,8 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perte Poils/Perso anim perte poils 1 PNG SP.png",
-	"frame": {"x":704,"y":2,"w":115,"h":131},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
-	"sourceSize": {"w":115,"h":131}
-},
-{
 	"filename": "Perte Poils/Perso anim perte poils 2 PNG SP.png",
-	"frame": {"x":821,"y":2,"w":115,"h":131},
+	"frame": {"x":2,"y":135,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -66,7 +58,7 @@
 },
 {
 	"filename": "Perte Poils/Perso anim perte poils 3 PNG SP.png",
-	"frame": {"x":938,"y":2,"w":115,"h":131},
+	"frame": {"x":119,"y":135,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -74,7 +66,7 @@
 },
 {
 	"filename": "Perte Poils/Perso anim perte poils 4 PNG SP.png",
-	"frame": {"x":1055,"y":2,"w":115,"h":131},
+	"frame": {"x":236,"y":135,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -82,7 +74,7 @@
 },
 {
 	"filename": "Perte Poils/Perso anim perte poils 5 PNG SP.png",
-	"frame": {"x":1172,"y":2,"w":115,"h":131},
+	"frame": {"x":353,"y":135,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -90,7 +82,151 @@
 },
 {
 	"filename": "Perte Poils/Perso anim perte poils 6 PNG SP.png",
-	"frame": {"x":1289,"y":2,"w":115,"h":131},
+	"frame": {"x":470,"y":135,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Particule poil 1 PNG.png",
+	"frame": {"x":587,"y":135,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Particule poil 2 PNG.png",
+	"frame": {"x":2,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Particule poil 3 PNG.png",
+	"frame": {"x":119,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 1 PNG (0.1s).png",
+	"frame": {"x":236,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 2 PNG (0.1s).png",
+	"frame": {"x":353,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 3 PNG (0.1s).png",
+	"frame": {"x":470,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 4 PNG (0.1s).png",
+	"frame": {"x":587,"y":268,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 5 PNG (0.1s).png",
+	"frame": {"x":2,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Poils/Tas de Poils/Perso Anim Tas de poils 6 PNG (1s).png",
+	"frame": {"x":119,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Marche/Perso anim pompon marche 1 PNG.png",
+	"frame": {"x":236,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Marche/Perso anim pompon marche 2 PNG.png",
+	"frame": {"x":353,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Marche/Perso anim pompon marche 3 PNG.png",
+	"frame": {"x":470,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Marche/Perso anim pompon marche 4 PNG.png",
+	"frame": {"x":587,"y":401,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Tir/Boule de poils PNG.png",
+	"frame": {"x":2,"y":534,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Tir/Perso anim tir pompon 1 PNG.png",
+	"frame": {"x":119,"y":534,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Tir/Perso anim tir pompon 2 PNG.png",
+	"frame": {"x":236,"y":534,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Tir/Perso anim tir pompon 3 PNG.png",
+	"frame": {"x":353,"y":534,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Pompons/Pompon Tir/Perso-anim-tir-pompon-GIF.gif",
+	"frame": {"x":470,"y":534,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -101,8 +237,8 @@
 	"version": "1.0",
 	"image": "dude.png",
 	"format": "RGBA8888",
-	"size": {"w":1406,"h":135},
+	"size": {"w":704,"h":704},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:10ecd20e488345affb99f9d8a383a614:9dd0c85e2380876470b1d26888e3a3fd:561431ddcca49a980ec1fa96d9c37ae0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c74b025c1f1eec0c44e572838a291cf9:52571e927d1e5ffa8ed86ae7a094a041:561431ddcca49a980ec1fa96d9c37ae0$"
 }
 }

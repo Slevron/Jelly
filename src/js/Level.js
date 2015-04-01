@@ -82,9 +82,13 @@ LevelState.prototype =
             });
 
 	   },
+<<<<<<< HEAD
        render:function() {
         
 
 	   }
 
+=======
+       
+>>>>>>> 6e39af07fd795e7a23deb0d897537d0eec593688
     }   
