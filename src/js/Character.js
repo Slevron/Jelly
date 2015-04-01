@@ -22,6 +22,7 @@ function Character(game){
     this.timeSinceHit = 0;
     this.invicibleTime = 3;
     this.health = 1;
+    this.scaleBase=1;
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
@@ -31,10 +32,10 @@ Character.prototype.update = function(){
             this.hitable = true;
         }
     }
-    this.move();
-   for (var i = 0; i < this.shoots.length; i++) {
+    for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
-   };
+    };
+    this.move();
 };
 Character.prototype.move =function(){
     this.sprite.body.velocity.x=0;
@@ -45,7 +46,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'left';
-            this.sprite.scale={x:-1,y:1};    
+            this.sprite.scale={x:-this.scaleBase,y:this.scaleBase};    
         }
     }
     else if (this.cursors.right.isDown)
@@ -55,7 +56,7 @@ Character.prototype.move =function(){
         {
             this.sprite.animations.play('left');
             this.facing = 'right';
-            this.sprite.scale={x:1,y:1};
+            this.sprite.scale={x:this.scaleBase,y:this.scaleBase};
         }
     }
     else
@@ -84,6 +85,7 @@ Character.prototype.move =function(){
         this.jumpTimer=0;
     }
 
+    //---------------SHOOT.
     if(this.shootButton.isDown&& this.canshoot)
     {
         this.launchShoot();
@@ -99,10 +101,15 @@ Character.prototype.move =function(){
 };
 Character.prototype.launchShoot = function(){
 
+    var dir=0;
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y,this.sprite.scale.x));
+   this.scaleBase -= this.scaleBase*0.02;
+   this.sprite.scale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
+   this.sprite.scale.y=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1); 
+
 };
 Character.prototype.takeDamage = function(damage){
     this.health -= damage;
     this.hitable = false;
     this.timeSinceHit = 0;
-}
+};
