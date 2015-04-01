@@ -23,6 +23,10 @@
 				
 		}
 	],
+	"cacahuete":{
+		"x": 100,
+		"y": 100
+	},
 	"reward":{
 		"cacahueteMax ": 0,
 		"timeMax ": 0,

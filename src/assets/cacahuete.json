@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "Anim Cacahuète collectable 1 PNG (0.1s).png",
+	"frame": {"x":2,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Anim Cacahuète collectable 2 PNG (0.1s).png",
+	"frame": {"x":119,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Anim Cacahuète collectable 3 PNG (0.2s).png",
+	"frame": {"x":236,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Anim Cacahuète collectable 4 PNG (0.1s).png",
+	"frame": {"x":353,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Anim Cacahuète collectable 5 PNG (0.1s).png",
+	"frame": {"x":470,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "cacahuete.png",
+	"format": "RGBA8888",
+	"size": {"w":587,"h":135},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:08b5dbfd454a8dcc56c7621f3f06f4e7:0efbbfa6f38439d661e38e6af361c09c:49370fa22036b1ba020daa181b630cd1$"
+}
+}
