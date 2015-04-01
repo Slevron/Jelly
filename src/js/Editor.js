@@ -1,6 +1,5 @@
 function Editor(game,callback,callback2){
     this.refGame = game;
-    console.log(this.refGame)
     this.dude = game.add.button(0, 30,'dude',callback);
     this.dude.scale.setTo(0.5);
     this.roach = game.add.button(70, 30,'roach',callback);

@@ -46,7 +46,7 @@ LevelState.prototype =
             global.actionMax = phaserJSON.reward.actionMax;
 
             //Cacahuete
-            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
+            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide);
 
             //Enemies
             for (var i = 0; i < phaserJSON.roachs.length; i++) {

@@ -25,7 +25,8 @@
 	],
 	"cacahuete":{
 		"x": 630,
-		"y": 580
+		"y": 580,
+		"hide": true
 	},
 	"spiders":[
 		{
