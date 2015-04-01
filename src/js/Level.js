@@ -14,6 +14,7 @@ LevelState.prototype =
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
+            this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
