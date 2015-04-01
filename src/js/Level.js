@@ -31,26 +31,24 @@ LevelState.prototype =
             
             game.background = game.add.sprite(0,0,"bg");
             game.background.fixedToCamera = true;
-            game.stage.backgroundColor = '#FFFFFF';
+            game.editorSprite = null;
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
         
             game.add.plugin(Phaser.Plugin.Debug);
-            
-            game.stage.backgroundColor = '#FFFFFF';
-
-
-            //bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-            //bg.fixedToCamera = true;
+            //Map
             this.game.map = new Map(game,global.idLevel);
             game.enemies = game.add.group();
+
             //Rewards
             global.cacahueteMax = phaserJSON.reward.cacahueteMax;
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
-            //
+
+            //Cacahuete
             game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
-            console.log(game.cacahuete);
+
+            //Enemies
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
@@ -61,19 +59,24 @@ LevelState.prototype =
                 new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
 
+            //Player
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             this.game.explosions = [];
             this.game.shoots = game.add.group();
 
-           //game.add.sprite(0,-100,"bg2");
+            //Physics
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
+
+            //Forground
             game.forground = game.add.sprite(0,-100,"bg2");
             game.forground.fixedToCamera = true;
 
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
 
+            //Editor
+            game.editor = new Editor(game,this.goSprite,this.onDragStop);
         },
         update:function()
         {
@@ -117,11 +120,21 @@ LevelState.prototype =
                     i--;
                 }
             };
+            game.editor.update();
+       },
+
+       onDragStop:function(){
+            game.result = sprite.key + " dropped at x:" + sprite.x + " y: " + sprite.y;
        },
 
        render:function() {
-        
+            game.debug.text(game.result, 10, 20);
+       },
+
+       goSprite:function() {
+            game.editorSprite = this.key;
 
        }
+
 
     }   
