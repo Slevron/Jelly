@@ -93,5 +93,4 @@ LevelState.prototype =
         game.debug.spriteBounds(game.character.sprite);
 
 	   }
-
     }   
