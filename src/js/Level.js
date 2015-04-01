@@ -91,16 +91,21 @@ LevelState.prototype =
                 if(characterOver.refThis.hitable){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
                         //right so bounce left
-                        characterOver.body.velocity.x = -1200;
+                        characterOver.body.velocity.x = -600;
                         characterOver.body.velocity.y = -300;
                     }
                     else{
                         //left so bounce right
-                        characterOver.body.velocity.x = 1200;
+                        characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
                     characterOver.refThis.takeDamage(0.1);
                 }
+            });
+
+            game.physics.arcade.overlap(this.game.character.shoots, game.enemies, function(bulletOver,enemyOver){
+                console.log("ARG")
+                enemyOver.refThis.takeDamage(1);
             });
             
             for(var i = 0; i < game.explosions.length; i++){
