@@ -51,7 +51,6 @@ Roach.prototype.move = function (dir) {
 Roach.prototype.checkIfWaypointReached = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
-	console.log(waypoint, this.sprite)
 
 	if((this.sprite.x >= waypoint.x + 6)      // trop à droite
 
