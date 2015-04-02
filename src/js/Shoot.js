@@ -8,7 +8,6 @@ function Shoot(game,posx,posy,dir){
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.sprite.body.allowGravity = false;
     this.sprite.scale = game.character.sprite.scale;
-    this.sprite.outOfBoundsKill = true;
 
     this.speed = 10;
 
@@ -21,6 +20,7 @@ function Shoot(game,posx,posy,dir){
     game.add.tween(this.sprite.scale).to({x:1,y:1}, 500, Phaser.Easing.Cubic.Out,true);
 
     this.sprite.body.setSize(this.sprite.body.width*0.4,this.sprite.body.height*0.4,30*dir);
+
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
