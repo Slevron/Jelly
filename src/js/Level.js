@@ -164,6 +164,9 @@ LevelState.prototype =
             /*game.shoots.forEach(function(cur){
                 game.debug.body(cur);
             });*/
+                game.tadPoils.forEach(function(cur){
+                game.debug.body(cur);
+            });
        },
 
        goSprite:function() {
