@@ -85,8 +85,12 @@ LevelState.prototype =
             game.time.deltaTime = game.time.elapsed/1000;
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
-            game.physics.arcade.collide(this.game.shoots, this.game.map.layer);
-
+            for (var i = 0; i < game.shoots.children.length; i++) {
+                game.physics.arcade.collide(game.shoots.children[i].sprite, this.game.map.layer, function(bulletOver,enemyOver){
+                   console.log(bulletOver)
+                });
+            };
+            
             this.game.character.update();
             game.cacahuete.update();
             this.game.enemies.forEach(function(current){
