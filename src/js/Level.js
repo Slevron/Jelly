@@ -84,10 +84,7 @@ LevelState.prototype =
             game.time.deltaTime = game.time.elapsed/1000;
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
-<<<<<<< HEAD
             game.physics.arcade.collide(this.game.shoots, this.game.map.layer);
-=======
->>>>>>> e130df1fd408447a359c47700c6c787be8564e29
 
             this.game.character.update();
             game.cacahuete.update();
