@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "bouton replay 1 PNG (0.1s).png",
+	"frame": {"x":2,"y":2,"w":76,"h":91},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":91},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton replay 2 PNG (0.1s).png",
+	"frame": {"x":158,"y":2,"w":76,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":90},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton replay 3 PNG (0.1s).png",
+	"frame": {"x":314,"y":2,"w":76,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":88},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton replay 4 PNG (0.1s).png",
+	"frame": {"x":236,"y":2,"w":76,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":90},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton replay.png",
+	"frame": {"x":80,"y":2,"w":76,"h":91},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":91},
+	"sourceSize": {"w":78,"h":95}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "replay.png",
+	"format": "RGBA8888",
+	"size": {"w":392,"h":95},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:693b624e3a2deef2f9453f7462ecf741:4de9c31b70520b2564a459c9156af022:d0532171923eda8e31321cfa6eca9946$"
+}
+}
