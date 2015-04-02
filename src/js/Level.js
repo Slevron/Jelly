@@ -13,7 +13,7 @@ LevelState.prototype =
 
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
-            this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
+            this.game.load.image('tiles', 'src/assets/tiles.png');
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
@@ -58,9 +58,9 @@ LevelState.prototype =
             for (var i = 0; i < phaserJSON.worms.length; i++) {
                 new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
+            this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
 
             //Player
-            this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             this.game.explosions = [];
             this.game.shoots = game.add.group();
 
