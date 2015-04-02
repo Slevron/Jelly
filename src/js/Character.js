@@ -40,11 +40,10 @@ function Character(game){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
-    console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-        if(this.hitable == false){
+    if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
             this.hitable = true;

@@ -14,7 +14,7 @@ function Shoot(game,posx,posy,dir){
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
-   this.move();
+   this.move(); 
 };
 Shoot.prototype.move =function(){
     if(this.direction>0)

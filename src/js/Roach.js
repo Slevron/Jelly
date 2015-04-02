@@ -1,8 +1,10 @@
 function Roach (game,x,y,waypoints){
 	Enemy.call(this,game);
-	this.sprite = game.enemies.create(x,y,"dude",5);
+	this.sprite = game.enemies.create(x,y,"roach",5);
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
+	
+	this.sprite.animations.add("walk", [0,1,2], 10, true);
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 
 	this.speed = 100;
@@ -12,7 +14,7 @@ function Roach (game,x,y,waypoints){
 		this.waypoints[i] = {x:this.sprite.x,y:this.sprite.y};
 		this.waypoints[i].x += waypoints[i].x;
 	}
-
+	this.sprite.animations.play("walk");
 	this.nextWaypoint = 0;
 };
 Roach.prototype = Object.create(Enemy.prototype);
