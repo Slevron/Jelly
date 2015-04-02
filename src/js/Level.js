@@ -13,7 +13,7 @@ LevelState.prototype =
 
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
-            this.game.load.image('tiles', 'src/assets/tiles.png');
+            this.game.load.image('tiles', 'src/assets/tileset.png');
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
