@@ -29,27 +29,26 @@ LevelState.prototype =
             
             game.add.plugin(Phaser.Plugin.Debug);
             
-            game.add.sprite(0,0,"bg");
-            game.stage.backgroundColor = '#FFFFFF';
+            game.background = game.add.sprite(0,0,"bg");
+            game.background.fixedToCamera = true;
+            game.editorSprite = null;
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
         
             game.add.plugin(Phaser.Plugin.Debug);
-            
-            game.stage.backgroundColor = '#FFFFFF';
-
-
-            //bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-            //bg.fixedToCamera = true;
+            //Map
             this.game.map = new Map(game,global.idLevel);
             game.enemies = game.add.group();
+
             //Rewards
             global.cacahueteMax = phaserJSON.reward.cacahueteMax;
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
-            //
-            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y);
-            console.log(game.cacahuete);
+
+            //Cacahuete
+            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide);
+
+            //Enemies
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
@@ -60,16 +59,25 @@ LevelState.prototype =
                 new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
 
+            //Player
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
             this.game.explosions = [];
+            this.game.shoots = game.add.group();
 
-           //game.add.sprite(0,-100,"bg2");
+            //Physics
             game.physics.startSystem(Phaser.Physics.ARCADE);
             game.physics.arcade.gravity.y = 1500;
+
+            //Forground
+            game.forground = game.add.sprite(0,-100,"bg2");
+            game.forground.fixedToCamera = true;
 
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
 
+            //Editor
+            game.editor = new Editor(game,this.goSprite,this.onDragStop);
+            
         },
         update:function()
         {
@@ -78,7 +86,7 @@ LevelState.prototype =
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
 
             this.game.character.update();
-
+            game.cacahuete.update();
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
             });
@@ -87,16 +95,22 @@ LevelState.prototype =
                 if(characterOver.refThis.hitable){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
                         //right so bounce left
-                        characterOver.body.velocity.x = -1200;
+                        characterOver.body.velocity.x = -600;
                         characterOver.body.velocity.y = -300;
                     }
                     else{
                         //left so bounce right
-                        characterOver.body.velocity.x = 1200;
+                        characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
                     characterOver.refThis.takeDamage(0.1);
                 }
+            });
+
+            game.physics.arcade.overlap(this.game.shoots, game.enemies, function(bulletOver,enemyOver){
+                console.log("ARG")
+                enemyOver.refThis.takeDamage(1);
+                game.shoots.remove(bulletOver);
             });
             
             for(var i = 0; i < game.explosions.length; i++){
@@ -107,11 +121,21 @@ LevelState.prototype =
                     i--;
                 }
             };
+            game.editor.update();
+       },
+
+       onDragStop:function(){
+            game.result = sprite.key + " dropped at x:" + sprite.x + " y: " + sprite.y;
        },
 
        render:function() {
-        
+            game.debug.text(game.result, 10, 20);
+       },
+
+       goSprite:function() {
+            game.editorSprite = this.key;
 
        }
+
 
     }   

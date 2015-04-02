@@ -7,9 +7,9 @@ function Spider (game,x,y,waypoints,maxDown){
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = false;
 
-	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
-    this.sprite.animations.add('vertical', [5,6,7,8,9,10,11,12], 10, true);
-    this.sprite.animations.add("idle", [6],true);
+	this.sprite.animations.add("walk", [3,4,5], 10, true);
+    this.sprite.animations.add("vertical", [0,1,2], 10, true);
+    this.sprite.animations.add("idle", [0],true);
 
 	this.speed = 100;
 

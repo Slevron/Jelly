@@ -36,7 +36,7 @@ function Character(game){
     this.canshoot=true;
     this.hitable = true;
     this.timeSinceHit = 0;
-    this.invicibleTime = 3;
+    this.invicibleTime = 0.7;
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
@@ -121,7 +121,6 @@ Character.prototype.move =function(){
     {
         this.canshoot=true;
     }
-    console.log(this.state);
     
     this.checkStateForAnim(this.state);
       this.checkStateForAnim(this.state);
