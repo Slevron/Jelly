@@ -25,5 +25,5 @@ MenuState.prototype =
     },
     goCredit:function(){
         game.state.start('CreditState');
-    },    
+    },
 };

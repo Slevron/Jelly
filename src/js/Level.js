@@ -28,6 +28,7 @@ LevelState.prototype =
             this.game.load.image('fur2','src/assets/poil2.png');
             this.game.load.image('fur3','src/assets/poil3.png');
             this.game.load.spritesheet("tadPoil", "src/assets/taspoil.png",117,135);
+            this.game.load.spritesheet("coeur", "src/assets/hud/coeur.png",60,59);
         },
         create: function(){
             
@@ -93,6 +94,8 @@ LevelState.prototype =
 
             //Editor
             game.editor = new Editor(game,this.goSprite,this.onDragStop);
+
+            game.leHude = new Hud(game);
             
         },
         update:function()

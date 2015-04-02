@@ -61,6 +61,12 @@ Character.prototype.update = function(){
     if(!this.alive){
         return;
     }
+    if(this.health <= 0.6){
+        this.refGame.leHude.changeAnim("coeur","bad")
+    }
+    else if (this.health > 0.6){
+        this.refGame.leHude.changeAnim("coeur","good");
+    }
     if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
