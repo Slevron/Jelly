@@ -1,10 +1,11 @@
-function Cacahuete(game,x,y,hide){
+function Cacahuete(game,x,y,hide,forground){
     this.refGame=game;
     this.sprite = game.add.sprite(x, y, 'cacahuete');
     this.sprite.animations.add('run');
     this.sprite.animations.play('run', 5, true);
     this.hidePoussiere = hide;
     this.sprite.alpha = this.hidePoussiere === true ? 0.3 : 1;
+    this.activeForground = forground
 };
 Cacahuete.prototype.constructor = Cacahuete;
 Cacahuete.prototype.update = function(){
@@ -15,7 +16,7 @@ Cacahuete.prototype.update = function(){
         game.add.tween(this.sprite).to( { x: 0, y: 0 }, 1000 , Phaser.Easing.Elastic.Out, true);
         this.sprite.destroy();
     }
-    if(this.refGame.forground.hide === true){
+    if(this.activeForground === true){
         if(player.x > this.sprite.x && player.x < this.sprite.x+250 && 
             player.y > this.sprite.y && player.y < this.sprite.y+this.sprite.height && this.hidePoussiere === true){
             tween = game.add.tween(this.refGame.forground).to( { alpha: 0.2 }, 1000 , Phaser.Easing.Elastic.Out, true);

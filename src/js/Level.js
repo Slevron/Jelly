@@ -49,7 +49,7 @@ LevelState.prototype =
             global.actionMax = phaserJSON.reward.actionMax;
 
             //Cacahuete
-            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide);
+            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide,phaserJSON.forground);
 
             //Enemies
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
@@ -75,8 +75,6 @@ LevelState.prototype =
             if(phaserJSON.forground === true){
                 game.forground = game.add.sprite(0,-100,"bg2");
                 game.forground.fixedToCamera = true;
-                game.forground.hide = phaserJSON.forground;
-            }else{
                 game.forground.hide = phaserJSON.forground;
             }
 
