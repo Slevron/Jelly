@@ -1,68 +1,84 @@
 {"frames": [
 
 {
-	"filename": "mort cafard 1 PNG (0.1s).png",
-	"frame": {"x":2,"y":2,"w":102,"h":121},
+	"filename": "Cafard anim  1 PNG (0.1s).png",
+	"frame": {"x":2,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Cafard anim 2 PNG (0.1s).png",
+	"frame": {"x":125,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "Cafard anim 3 PNG (0.1s).png",
+	"frame": {"x":248,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 1 PNG (0.1s).png",
+	"frame": {"x":371,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 },
 {
 	"filename": "mort cafard 2 PNG (0.1s).png",
-	"frame": {"x":106,"y":2,"w":102,"h":121},
+	"frame": {"x":494,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 },
 {
 	"filename": "mort cafard 3 PNG (0.1s).png",
-	"frame": {"x":210,"y":2,"w":102,"h":121},
+	"frame": {"x":617,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 },
 {
 	"filename": "mort cafard 4 PNG (0.1s).png",
-	"frame": {"x":314,"y":2,"w":102,"h":121},
+	"frame": {"x":740,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 },
 {
 	"filename": "mort cafard 5 PNG (0.1s).png",
-	"frame": {"x":418,"y":2,"w":102,"h":121},
+	"frame": {"x":863,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 },
 {
 	"filename": "mort cafard 6 PNG (0.1s).png",
-	"frame": {"x":522,"y":2,"w":102,"h":121},
+	"frame": {"x":986,"y":2,"w":121,"h":105},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
-	"sourceSize": {"w":102,"h":121}
-},
-{
-	"filename": "roach.png",
-	"frame": {"x":626,"y":2,"w":371,"h":109},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":371,"h":109},
-	"sourceSize": {"w":371,"h":109}
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 }],
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "roach.png",
 	"format": "RGBA8888",
-	"size": {"w":999,"h":125},
+	"size": {"w":1109,"h":109},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:49a310cde9ef79b2a54b952fd77487da:910e8f961e1bf67b8aa6dcd094c6ed1f:ef6da9558b554a23610c6dea65559b53$"
+	"smartupdate": "$TexturePacker:SmartUpdate:bad9482edc312d2873f71b640596e6d3:283be1016d966d66a37c4f4c62d670cc:ef6da9558b554a23610c6dea65559b53$"
 }
 }
