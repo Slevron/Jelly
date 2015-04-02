@@ -51,12 +51,13 @@ Roach.prototype.move = function (dir) {
 Roach.prototype.checkIfWaypointReached = function () {
 	//
 	var waypoint = this.waypoints[this.nextWaypoint];
+	console.log(waypoint, this.sprite)
 
 	if((this.sprite.x >= waypoint.x + 6)      // trop à droite
 
 	    || (this.sprite.x + this.sprite.width <= waypoint.x) // trop à gauche
 
-	    || (this.sprite.y >= waypoint.y + 32) // trop en bas
+	    || (this.sprite.y >= waypoint.y + 64) // trop en bas
 
 	    || (this.sprite.y + this.sprite.height <= waypoint.y)){
 		return false;
@@ -79,15 +80,15 @@ Roach.prototype.moveToNextWaypoint = function () {
 	if (this.sprite.x > waypoint.x){
 
 		//Left
-		if (this.facing == "right") {
-			this.changeFacing("left");
+		if (this.facing == "left") {
+			this.changeFacing("right");
 		}
 		this.move("left");
 	}
 	else {
 		//Right
-		if (this.facing == "left") {
-			this.changeFacing("right");
+		if (this.facing == "right") {
+			this.changeFacing("left");
 		}
 		this.move("right");
 	}
