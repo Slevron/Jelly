@@ -77,6 +77,7 @@ LevelState.prototype =
 
             //Editor
             game.editor = new Editor(game,this.goSprite,this.onDragStop);
+            
         },
         update:function()
         {
