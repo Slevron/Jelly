@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "cube decor.png",
+	"filename": "cube decor (1).png",
 	"frame": {"x":0,"y":0,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -87,6 +87,6 @@
 	"format": "RGBA8888",
 	"size": {"w":384,"h":64},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:8d63e555e5c753bc0a31b3053e37ec6d:4200a86998bb0e1af25b057c40bfe4fc:ace0e5e82375743ccde85e973fd84fb5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eaee06d49c2c45205791c2aaed1f7cc5:fe5c4242ebf5c5d6bb4044c3d4d8ea00:ace0e5e82375743ccde85e973fd84fb5$"
 }
 }
