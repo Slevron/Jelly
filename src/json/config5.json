@@ -1,0 +1,31 @@
+{
+	"player":{
+		"x": 47,
+		"y": 501
+	},
+	"roachs":[
+		
+		
+
+	],
+
+	"cacahuete":{
+		"x": 75,
+		"y": 582,
+		"hide": true
+	},
+
+	"spiders":[
+			
+	],
+
+	"worms":[
+		
+	],
+
+	"reward":{
+		"cacahueteMax ": 0,
+		"timeMax ": 0,
+		"actionMax ": 0
+	}
+}
