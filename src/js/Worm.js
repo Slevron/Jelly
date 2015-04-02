@@ -54,7 +54,7 @@ Worm.prototype.checkIfWaypointReached = function () {
 
 	    || (this.sprite.x + this.sprite.width <= waypoint.x) // trop à gauche
 
-	    || (this.sprite.y >= waypoint.y + 32) // trop en bas
+	    || (this.sprite.y >= waypoint.y + 64) // trop en bas
 
 	    || (this.sprite.y + this.sprite.height <= waypoint.y)){
 		return false;
