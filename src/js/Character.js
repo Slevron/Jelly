@@ -67,6 +67,7 @@ Character.prototype.update = function(){
         this.refGame.leHude.changeAnim("coeur","bad")
     }
     else{
+
         this.refGame.leHude.changeAnim("coeur","good");
     }
 
@@ -169,7 +170,6 @@ Character.prototype.launchShoot = function(){
     gotween.onComplete.add(replace,this)
 };
 Character.prototype.takeDamage = function(damage,isAHit){
-    
     if(isAHit == true){
         console.log("aie")
         this.state="hurt";
@@ -197,6 +197,7 @@ Character.prototype.takeDamage = function(damage,isAHit){
             console.log(lel,lal);
         });
    });*/
+
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
 
    this.sprite.body.offset.x *= this.newScale.x;
