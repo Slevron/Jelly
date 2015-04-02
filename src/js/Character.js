@@ -4,6 +4,18 @@ function Character(game,x,y){
     this.sprite.anchor.setTo(0.5,0.5);
     this.sprite.refThis = this;
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+    this.particles = game.add.emitter(game.world.centerX, game.world.centerY, 250);
+    this.particles.makeParticles(['fur1','fur2','fur3']);
+    //this.particles.body.setSize(10,10,0,0);
+    this.particles.minParticleSpeed.setTo(-200, -300);
+    this.particles.maxParticleSpeed.setTo(200, -400);
+    this.particles.gravity=0;
+    this.particles.angularDrag=30;
+
+    
+   console.log(this.particles);
+    
+    //this.particle.start(false, 8000, 400);
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
     this.sprite.body.bounce.y = 0;
@@ -57,7 +69,8 @@ Character.prototype.update = function(){
     for (var i = 0; i < this.shoots.length; i++) {
        this.shoots[i].update();
     };
-    
+    this.particlesUpdate();
+    game.physics.arcade.collide(this.particles, this.refGame.map.layer);
     this.move();
     this.ponponUpdate();
 
@@ -140,22 +153,21 @@ Character.prototype.launchShoot = function(){
     gotween.onComplete.add(replace,this)
 };
 Character.prototype.takeDamage = function(damage){
+    this.particles.start(true, 2000, null, 10);
     this.state="hurt";
     this.ponponSprite.animations.play("shoot");
     this.health -= damage;
     this.hitable = false;
     this.timeSinceHit = 0; 
-    this.canInput=false;
-   
+    this.canInput=false; 
    var dir=0;
    this.scaleBase -= this.scaleBase*damage;
    this.newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
    this.newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
-
    game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    this.sprite.body.offset.x *= this.newScale.x;
-    this.sprite.body.offset.y = 16 * this.newScale.y;
+   this.sprite.body.offset.y = 16 * this.newScale.y;
    if(Math.abs(this.sprite.scale.x) < 0.4)
     {
         if(!this.safeOnTime)
@@ -187,4 +199,9 @@ Character.prototype.kill = function(){
 }
  function replace(){
   game.character.ponponSprite.rotation=0;
+}
+Character.prototype.particlesUpdate= function()
+{
+    this.particles.x =this.sprite.x;
+    this.particles.y =this.sprite.y;
 }
