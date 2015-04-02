@@ -4,6 +4,7 @@ function Worm (game,x,y,waypoints){
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+	this.sprite.body.setSize(this.sprite.body.width,this.sprite.body.height*0.5)
 
 	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
     

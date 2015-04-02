@@ -84,7 +84,7 @@ LevelState.prototype =
             game.time.deltaTime = game.time.elapsed/1000;
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
-            game.physics.arcade.collide(game.shoots, this.game.map.layer, function(shootOver,wallOver){
+            game.physics.arcade.overlap(game.enemies, this.game.map.layer, function(shootOver,wallOver){
                 console.log("hit wall/bullet");
             });
 
@@ -133,6 +133,12 @@ LevelState.prototype =
 
        render:function() {
             game.debug.text(game.result, 10, 20);
+            game.enemies.forEach(function(cur){
+                game.debug.body(cur);
+            });
+            game.shoots.forEach(function(cur){
+                game.debug.body(cur);
+            });
        },
 
        goSprite:function() {
