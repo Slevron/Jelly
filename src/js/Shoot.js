@@ -28,5 +28,10 @@ Shoot.prototype.update = function(){
    this.move();
 };
 Shoot.prototype.move = function(){
-    this.sprite.x += this.speed * this.direction;
+    var dir = 0;
+    if(this.direction > 0)
+        dir = 1;
+    if(this.direction < 0)
+        dir = -1;
+    this.sprite.x += this.speed * dir;
 };
