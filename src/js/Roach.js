@@ -6,6 +6,7 @@ function Roach (game,x,y,waypoints){
 	
 	this.sprite.animations.add("walk", [0,1,2], 10, true);
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+	this.sprite.body.setSize(this.sprite.body.width,this.sprite.body.height*0.4);
 
 	this.speed = 100;
 
