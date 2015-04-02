@@ -101,12 +101,20 @@ LevelState.prototype =
 
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
+            game.physics.arcade.collide(game.tadPoils, this.game.map.layer);
             game.physics.arcade.collide(game.shoots, this.game.map.layer,function(bulletOver,mapOver){
                 game.character.shoots.splice(bulletOver.refThis.indexArray);
                 game.shoots.remove(bulletOver);
             });
             
             this.game.character.update();
+            game.physics.arcade.overlap(game.character.sprite, game.tadPoils,function(charOver,tadPoilOver){
+                console.log(game.character.scaleBase)
+                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1));
+                game.tadPoils.remove(tadPoilOver);
+                console.log(game.character.scaleBase)
+            });
+
             game.cacahuete.update();
             this.game.enemies.forEach(function(current){
                 current.refThis.update();
