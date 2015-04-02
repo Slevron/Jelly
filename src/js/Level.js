@@ -18,6 +18,7 @@ LevelState.prototype =
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
             this.game.load.spritesheet("spider", "src/assets/spider.png", 1250/12, 121);
+            this.game.load.image("fil", "src/assets/fil.png");
             this.game.load.spritesheet("worm", "src/assets/ver.png",123,105);
             this.game.load.spritesheet("roach", "src/assets/roach.png",123,105);
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
@@ -28,7 +29,6 @@ LevelState.prototype =
             this.game.load.image('fur3','src/assets/poil3.png');
         },
         create: function(){
-            //--init des instance d'objets
             
             game.add.plugin(Phaser.Plugin.Debug);
             
@@ -61,6 +61,7 @@ LevelState.prototype =
             for (var i = 0; i < phaserJSON.worms.length; i++) {
                 new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
+
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
 
             //Player
@@ -85,8 +86,10 @@ LevelState.prototype =
         update:function()
         {
             game.time.deltaTime = game.time.elapsed/1000;
+
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
+
             for (var i = 0; i < game.shoots.children.length; i++) {
                 game.physics.arcade.collide(game.shoots.children[i].sprite, this.game.map.layer, function(bulletOver,enemyOver){
                    console.log(bulletOver)
