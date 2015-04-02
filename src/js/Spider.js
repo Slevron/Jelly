@@ -26,6 +26,8 @@ function Spider (game,x,y,waypoints,maxDown){
 	this.isDowned = false;
 	this.currentDown = 0;
 	this.maxDown = maxDown;
+	this.fil = this.refGame.add.sprite(this.sprite.x,this.sprite.y,"fil");
+	this.fil.height = 0;
 };
 Spider.prototype = Object.create(Enemy.prototype);
 Spider.prototype.constructor = Spider;
@@ -129,12 +131,21 @@ Spider.prototype.goDown = function () {
 	}
 	if(!this.isDowned){
 		this.isDowned = true;
+		this.fil.y = this.sprite.y;
+		this.fil.x = this.sprite.x;
+		this.fil.y -= this.sprite.height*0.35;
+		if(this.sprite.scale.x >0)
+			this.fil.x += 1;
+		if(this.sprite.scale.x <0)
+			this.fil.x -= 5;
+		this.fil.height = 0;
 	}
 	this.sprite.animations.play("vertical");
 
 	var speed = (this.speed * 0.9) * this.refGame.time.deltaTime;
 	this.sprite.y += speed;
 	this.currentDown += speed;
+	this.fil.height += speed;
 	if(this.currentDown > this.maxDown){
 		this.sprite.y -= this.currentDown - this.maxDown;
 		this.currentDown = this.maxDown;
@@ -150,9 +161,18 @@ Spider.prototype.goUp = function () {
 	var speed = (this.speed * 0.75) * this.refGame.time.deltaTime;
 	this.sprite.y -= speed;
 	this.currentDown -= speed;
+	this.fil.height -= speed;
 	if(this.currentDown <= 0){
 		this.sprite.y += this.currentDown;
 		this.isDowned = false;
 		this.currentDown = 0;
+		this.fil.height = 0;
 	}
+};
+
+Spider.prototype.kill = function () {
+	//
+	this.refGame.enemies.remove(this.sprite);
+	this.fil.destroy();
+	//this.changeCurrentState("Kill");
 };

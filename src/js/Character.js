@@ -13,7 +13,8 @@ function Character(game,x,y){
     this.sprite.animations.add('jump', [0], 10, true);
     this.sprite.animations.add('idle',[5],10,true);
     this.sprite.animations.add('hurt',[7,8,9,10,11,6],20,true);
-    this.sprite.animations.add('death',[12,13,14,16],20,true);
+    var anim = this.sprite.animations.add('death',[12,13,14,16],20,false);
+    anim.onComplete.add(this.kill,this);
     this.newScale={x:0,y:0};
     this.sprite.frame=5;
     this.minimumlife=0.5;
@@ -39,10 +40,13 @@ function Character(game,x,y){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
-
+    this.alive = true;
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
+    if(!this.alive){
+        return;
+    }
     if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
@@ -159,11 +163,8 @@ Character.prototype.takeDamage = function(damage){
             this.state ="death";
         }
         else{
-
             this.safeOnTime=false;
             this.sprite.scale={x:0.41,y:0.41};
-            console.log(this.sprite);
-            
         }
     } 
 };
@@ -179,6 +180,11 @@ Character.prototype.checkStateForAnim= function(state){
     }
 
 };
+Character.prototype.kill = function(){
+    this.sprite.destroy();
+    this.ponponSprite.destroy();
+    this.alive = false;
+}
  function replace(){
   game.character.ponponSprite.rotation=0;
 }
