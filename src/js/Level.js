@@ -17,9 +17,9 @@ LevelState.prototype =
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
-            this.game.load.spritesheet("spider", "src/assets/spider.png", 102, 121);
+            this.game.load.spritesheet("spider", "src/assets/spider.png", 1250/12, 121);
             this.game.load.spritesheet("worm", "src/assets/ver.png",123,105);
-            this.game.load.spritesheet("roach", "src/assets/roach.png",121,105);
+            this.game.load.spritesheet("roach", "src/assets/roach.png",111,121);
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
@@ -133,9 +133,9 @@ LevelState.prototype =
 
        render:function() {
             game.debug.text(game.result, 10, 20);
-            game.enemies.forEach(function(cur){
+            /*game.enemies.forEach(function(cur){
                 game.debug.body(cur);
-            });
+            });*/
             game.shoots.forEach(function(cur){
                 game.debug.body(cur);
             });

@@ -40,12 +40,12 @@ Worm.prototype.update = function () {
 	return;
 };
 Worm.prototype.move = function (dir) {
-	if(dir == "left"){
+	/*if(dir == "left"){
 		this.sprite.x -= this.speed * this.refGame.time.deltaTime;
 	}
 	else if (dir == "right"){
 		this.sprite.x += this.speed * this.refGame.time.deltaTime;
-	}
+	}*/
 	return;
 };
 Worm.prototype.checkIfWaypointReached = function () {
@@ -123,12 +123,14 @@ Worm.prototype.startExploding = function () {
 
 function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.sprite = game.add.sprite(spriteWorm.x,spriteWorm.y,"worm");
-	this.sprite.anchor.set(0.5);
+	this.sprite.anchor.set(0.5,0.5);
 	this.sprite.x = spriteWorm.x;
 	this.sprite.y = spriteWorm.y;
 	this.sprite.animations.add('explosion', [5,6,7,8,9,10,11,12], 10, true);
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
 	this.update = function(){
+		this.sprite.scale.x *= 1.02;
+		this.sprite.scale.y *= 1.02;
 		game.physics.arcade.overlap(this.sprite, game.character,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
