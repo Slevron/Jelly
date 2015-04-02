@@ -40,11 +40,10 @@ function Character(game){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
-    console.log(this.sprite);
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-        if(this.hitable == false){
+    if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
             this.hitable = true;
@@ -59,7 +58,6 @@ Character.prototype.update = function(){
     this.ponponUpdate();
 
 
-
 };
 Character.prototype.move =function(){
      this.ponponSprite.scale=this.sprite.scale;
@@ -68,7 +66,7 @@ Character.prototype.move =function(){
         this.sprite.body.velocity.x=0;
         if (this.cursors.left.isDown&&!this.cursors.right.isDown){
             if(this.ponponSprite.frame<4)
-            this.ponponSprite.animations.play("shoot");
+            this.ponponSprite.animations.play("idle");
             this.state="walk";
             this.lastInput=250
             this.sprite.body.velocity.x = -250;
@@ -78,7 +76,7 @@ Character.prototype.move =function(){
             this.state="walk";
 
             if(this.ponponSprite.frame<4)
-          this.ponponSprite.animations.play("shoot");
+          this.ponponSprite.animations.play("idle");
             this.lastInput=-250;
             this.sprite.body.velocity.x = 250;
             this.sprite.scale={x:this.scaleBase,y:this.scaleBase};
@@ -128,10 +126,13 @@ Character.prototype.move =function(){
    
 };
 Character.prototype.launchShoot = function(){
+   var dir;
    global.actionEtoile+=1;
-   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*70/100,this.sprite.scale.x));
+   this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*30/100,this.sprite.scale.x));
    this.takeDamage(0.04);
    this.canInput=true;
+    var gotween = game.add.tween(this.ponponSprite).to({rotation : (dir= this.sprite.scale.x > 0 ? 1 : -1)}, 100, Phaser.Easing.Cubic.Out,true).yoyo(true, 0)
+    gotween.onComplete.add(replace,this)
 };
 Character.prototype.takeDamage = function(damage){
      this.state="hurt";
@@ -147,7 +148,6 @@ Character.prototype.takeDamage = function(damage){
    this.newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
 
    game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
-
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    this.sprite.body.offset.x *= this.newScale.x;
    this.sprite.body.offset.y = 16 * this.newScale.y;
@@ -162,7 +162,14 @@ Character.prototype.checkStateForAnim= function(state){
   if(this.sprite.frame<7){
     this.sprite.animations.play(state);
     
-  }
+    }
+
 
 
 };
+ function replace(){
+  
+  game.character.ponponSprite.rotation=0;
+    
+  
+}
