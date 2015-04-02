@@ -169,3 +169,10 @@ Spider.prototype.goUp = function () {
 		this.fil.height = 0;
 	}
 };
+
+Spider.prototype.kill = function () {
+	//
+	this.refGame.enemies.remove(this.sprite);
+	this.fil.destroy();
+	//this.changeCurrentState("Kill");
+};
