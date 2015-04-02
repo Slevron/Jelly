@@ -27,6 +27,7 @@ Enemy.prototype.hit = function () {
 
 Enemy.prototype.takeDamage = function (damage) {
 	this.health -= damage;
+	this.changeCurrentState("Taking Damage");
 
 	if (this.health <= 0) {
 		this.alive = false;
