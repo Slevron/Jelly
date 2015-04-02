@@ -22,7 +22,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"..\/assets\/tileset.png",
+         "image":"..\/assets\/tiles.png",
          "imageheight":64,
          "imagewidth":384,
          "margin":0,
