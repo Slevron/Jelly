@@ -12,6 +12,10 @@ function Character(game,x,y){
     this.particles.gravity=0;
     this.particles.angularDrag=30;
     console.log(this.particles);
+
+    
+ 
+
     //this.particle.start(false, 8000, 400);
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
@@ -50,6 +54,7 @@ function Character(game,x,y){
     this.scaleBase=1;
     this.canInput=true;
     this.alive = true;
+    this.distanceJump=-800;
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
@@ -78,6 +83,7 @@ Character.prototype.move =function(){
         this.sprite.body.velocity.x=0;
         if (this.cursors.left.isDown&&!this.cursors.right.isDown){
             if(this.ponponSprite.frame<4)
+                this.jumpTimer=0;
             this.ponponSprite.animations.play("idle");
             this.state="walk";
             this.lastInput=250
@@ -88,6 +94,7 @@ Character.prototype.move =function(){
             this.state="walk";
 
             if(this.ponponSprite.frame<4)
+                this.jumpTimer=0;
           this.ponponSprite.animations.play("idle");
             this.lastInput=-250;
             this.sprite.body.velocity.x = 250;
@@ -101,13 +108,14 @@ Character.prototype.move =function(){
         {
             this.ponponSprite.frame=0;
             this.state="isJumping";
-            this.sprite.body.velocity.y = -800;
+            this.sprite.body.velocity.y = this.distanceJump;
             this.jumpTimer = this.refGame.time.now + 750;   
         }
         else if((this.sprite.body.onFloor()&& this.state!="walk")||(!this.cursors.right.isDown&&!this.cursors.left.isDown)&&this.sprite.body.onFloor())
         {
             this.ponponSprite.frame=0;
             this.state="idle";
+            
             this.jumpTimer=0;
         }
         else if(!this.sprite.body.onFloor())
@@ -133,10 +141,8 @@ Character.prototype.move =function(){
         this.canshoot=true;
     }
     
-    this.checkStateForAnim(this.state);
       this.checkStateForAnim(this.state);
-
-      console.log(this.sprite.body.velocity.y)
+      this.checkStateForAnim(this.state);
       if(this.sprite.body.velocity.y > 700)
       {
         this.sprite.body.velocity.y= 600;
@@ -154,7 +160,9 @@ Character.prototype.launchShoot = function(){
     gotween.onComplete.add(replace,this)
 };
 Character.prototype.takeDamage = function(damage){
-    this.particles.start(true, 2000, null, 10);
+
+    
+    this.particles.start(true, 1000, 10, 5);
     this.state="hurt";
     this.ponponSprite.animations.play("shoot");
     this.health -= damage;
@@ -169,13 +177,21 @@ Character.prototype.takeDamage = function(damage){
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    this.sprite.body.offset.x *= this.newScale.x;
    this.sprite.body.offset.y = 16 * this.newScale.y;
+    
+   if(this.distanceJump<-520)
+   {
+    this.distanceJump+=40;
+   }
+
+   console.log(this.distanceJump)
    if(Math.abs(this.sprite.scale.x) < 0.4)
     {
         if(!this.safeOnTime)
         {
-            this.state ="death";
+            this.state="death";
         }
         else{
+
             this.safeOnTime=false;
             this.sprite.scale={x:0.41,y:0.41};
         }
