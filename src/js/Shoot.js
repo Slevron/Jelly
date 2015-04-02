@@ -23,7 +23,6 @@ Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
    this.sprite.rotation += 0.1
    this.move();
-
 };
 Shoot.prototype.move =function(){
     if(this.direction>0)

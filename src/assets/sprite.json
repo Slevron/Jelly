@@ -1,16 +1,104 @@
 {"frames": [
 
 {
-	"filename": "dude.png",
-	"frame": {"x":2,"y":2,"w":1406,"h":135},
+	"filename": "Perso Saut PNG.png",
+	"frame": {"x":2,"y":2,"w":115,"h":128},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":1406,"h":135},
-	"sourceSize": {"w":1406,"h":135}
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":128},
+	"sourceSize": {"w":115,"h":128}
+},
+{
+	"filename": "Perso anim marche 1 SP.png",
+	"frame": {"x":119,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 2 SP.png",
+	"frame": {"x":236,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 3 SP.png",
+	"frame": {"x":353,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim marche 4 SP.png",
+	"frame": {"x":470,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 1 PNG SP.png",
+	"frame": {"x":587,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 2 PNG SP.png",
+	"frame": {"x":704,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 3 PNG SP.png",
+	"frame": {"x":821,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 4 PNG SP.png",
+	"frame": {"x":938,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 5 PNG SP.png",
+	"frame": {"x":1055,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso anim perte poils 6 PNG SP.png",
+	"frame": {"x":1172,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "Perso attente PNG.png",
+	"frame": {"x":1289,"y":2,"w":115,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
+	"sourceSize": {"w":115,"h":131}
 },
 {
 	"filename": "morts perso 1 PNG (0.1s).png",
-	"frame": {"x":1410,"y":2,"w":102,"h":121},
+	"frame": {"x":1406,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -18,7 +106,7 @@
 },
 {
 	"filename": "morts perso 2 PNG (0.1s).png",
-	"frame": {"x":1514,"y":2,"w":102,"h":121},
+	"frame": {"x":1510,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -26,7 +114,7 @@
 },
 {
 	"filename": "morts perso 3 PNG (0.1s).png",
-	"frame": {"x":1618,"y":2,"w":102,"h":121},
+	"frame": {"x":1614,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -34,7 +122,7 @@
 },
 {
 	"filename": "morts perso 4 PNG (0.1s).png",
-	"frame": {"x":1722,"y":2,"w":102,"h":121},
+	"frame": {"x":1718,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -42,7 +130,7 @@
 },
 {
 	"filename": "morts perso 5 PNG (0.1s).png",
-	"frame": {"x":1826,"y":2,"w":102,"h":121},
+	"frame": {"x":1822,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -50,7 +138,7 @@
 },
 {
 	"filename": "morts perso 6 PNG (0.1s).png",
-	"frame": {"x":1930,"y":2,"w":102,"h":121},
+	"frame": {"x":1926,"y":2,"w":102,"h":121},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":121},
@@ -61,8 +149,8 @@
 	"version": "1.0",
 	"image": "dude.png",
 	"format": "RGBA8888",
-	"size": {"w":2034,"h":139},
+	"size": {"w":2030,"h":135},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:587edf31c26fe7b4ca8b41ace72d67bd:2c45665997cb100fb138b371aa1b8ae7:561431ddcca49a980ec1fa96d9c37ae0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eb7c3b6b59fd0738c3545c871419b543:e1086df938759b8eb3985f2ea09910d2:561431ddcca49a980ec1fa96d9c37ae0$"
 }
 }
