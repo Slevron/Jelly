@@ -39,10 +39,7 @@ function Character(game){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
-<<<<<<< HEAD
-   
-=======
->>>>>>> origin/master
+
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
