@@ -16,14 +16,10 @@ LevelState.prototype =
             this.game.load.image('tiles-1', 'src/assets/tiles-1.png');
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
-<<<<<<< HEAD
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
-=======
             this.game.load.spritesheet("spider", "src/assets/spider.png", 102, 121);
             this.game.load.spritesheet("worm", "src/assets/ver.png",123,105);
             this.game.load.spritesheet("roach", "src/assets/roach.png",121,105);
-
->>>>>>> origin/master
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
