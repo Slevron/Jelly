@@ -84,9 +84,7 @@ LevelState.prototype =
             game.time.deltaTime = game.time.elapsed/1000;
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
-            game.physics.arcade.overlap(game.enemies, this.game.map.layer, function(shootOver,wallOver){
-                console.log("hit wall/bullet");
-            });
+            game.physics.arcade.collide(this.game.shoots, this.game.map.layer);
 
             this.game.character.update();
             game.cacahuete.update();
