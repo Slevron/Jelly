@@ -177,6 +177,10 @@ LevelState.prototype =
                 game.debug.body(cur);
             });*/
             game.debug.body(game.character.sprite);
+            for(var i = 0; i< game.explosions.length; i++){
+                console.log("okokokokokokokokokokkokokkk")
+                game.debug.body(game.explosions[i].sprite);
+            }
        },
 
        goSprite:function() {

@@ -171,14 +171,12 @@ Character.prototype.launchShoot = function(){
 };
 Character.prototype.takeDamage = function(damage,isAHit){
     if(isAHit == true){
-        console.log("aie")
         this.state="hurt";
         this.particles.start(true, 1000, 10, 5);
         this.ponponSprite.animations.play("shoot");
         this.timeSinceHit = 0;
     }
     else{
-        console.log("cool",this.sprite)
         this.timeSinceHit = 0
         this.safeOnTime = true;
     }
@@ -187,8 +185,7 @@ Character.prototype.takeDamage = function(damage,isAHit){
    var dir=0;
    this.scaleBase -= this.scaleBase*damage;
    this.newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
-   this.newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
-   console.log(this.scaleBase*damage,this.newScale.x,this.newScale.y)
+   this.newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1);
 
    var tweenChar = game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    var that = this;
@@ -208,7 +205,7 @@ Character.prototype.takeDamage = function(damage,isAHit){
     this.distanceJump+=40;
    }
 
-   if(Math.abs(this.sprite.scale.x) < 0.4 || !this.safeOnTime && isAHit)
+   if((Math.abs(this.sprite.scale.x) < 0.4 || !this.safeOnTime) && isAHit)
     {
         if(!this.safeOnTime)
         {
