@@ -15,14 +15,15 @@ Cacahuete.prototype.update = function(){
         game.add.tween(this.sprite).to( { x: 0, y: 0 }, 1000 , Phaser.Easing.Elastic.Out, true);
         this.sprite.destroy();
     }
-
-    if(player.x > this.sprite.x && player.x < this.sprite.x+250 && 
-        player.y > this.sprite.y && player.y < this.sprite.y+this.sprite.height && this.hidePoussiere === true){
-        tween = game.add.tween(this.refGame.forground).to( { alpha: 0.2 }, 1000 , Phaser.Easing.Elastic.Out, true);
-        tween2 = game.add.tween(this.sprite).to( { alpha: 1 }, 1000 , Phaser.Easing.Elastic.Out, true);        
-    }else{
-        tween = game.add.tween(this.refGame.forground).to( { alpha: 1 }, 1000 , Phaser.Easing.Elastic.Out, true);
-        tween2 = game.add.tween(this.sprite).to( { alpha: 0.3 }, 1000 , Phaser.Easing.Elastic.Out, true);
-    }  
+    if(this.refGame.forground.hide === true){
+        if(player.x > this.sprite.x && player.x < this.sprite.x+250 && 
+            player.y > this.sprite.y && player.y < this.sprite.y+this.sprite.height && this.hidePoussiere === true){
+            tween = game.add.tween(this.refGame.forground).to( { alpha: 0.2 }, 1000 , Phaser.Easing.Elastic.Out, true);
+            tween2 = game.add.tween(this.sprite).to( { alpha: 1 }, 1000 , Phaser.Easing.Elastic.Out, true);        
+        }else{
+            tween = game.add.tween(this.refGame.forground).to( { alpha: 1 }, 1000 , Phaser.Easing.Elastic.Out, true);
+            tween2 = game.add.tween(this.sprite).to( { alpha: 0.3 }, 1000 , Phaser.Easing.Elastic.Out, true);
+        }  
+    }
 };
 

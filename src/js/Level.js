@@ -75,6 +75,7 @@ LevelState.prototype =
             if(phaserJSON.forground === true){
                 game.forground = game.add.sprite(0,-100,"bg2");
                 game.forground.fixedToCamera = true;
+                game.forground.hide = phaserJSON.forground;
             }
 
             game.time.deltaTime = 0;
