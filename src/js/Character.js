@@ -1,7 +1,7 @@
 function Character(game,x,y){
     this.refGame=game;
     this.sprite = game.add.sprite(x, y, 'dude');
-    this.sprite.anchor.setTo(0.5,0.5);
+    
     this.sprite.refThis = this;
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.particles = game.add.emitter(game.world.centerX, game.world.centerY, 250);
