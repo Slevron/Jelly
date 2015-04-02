@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "étoile 1 PNG (0.1s).png",
+	"frame": {"x":2,"y":2,"w":190,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":190,"h":199},
+	"sourceSize": {"w":200,"h":200}
+},
+{
+	"filename": "étoile 2 PNG (0.1s).png",
+	"frame": {"x":194,"y":2,"w":190,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":190,"h":199},
+	"sourceSize": {"w":200,"h":200}
+},
+{
+	"filename": "étoile 3 PNG (0.1s).png",
+	"frame": {"x":386,"y":2,"w":190,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":190,"h":199},
+	"sourceSize": {"w":200,"h":200}
+},
+{
+	"filename": "étoile 4 PNG (0.1s).png",
+	"frame": {"x":578,"y":2,"w":190,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":190,"h":199},
+	"sourceSize": {"w":200,"h":200}
+},
+{
+	"filename": "étoile 5 PNG (0.1s).png",
+	"frame": {"x":770,"y":2,"w":190,"h":199},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":190,"h":199},
+	"sourceSize": {"w":200,"h":200}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "etoile.png",
+	"format": "RGBA8888",
+	"size": {"w":962,"h":203},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7c13ce4ab32bd118f56420e04a2748dc:1536cb26ea19db0c891854231c69b288:58e20f2ddc2dee50155994599251945e$"
+}
+}

@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "bouton Play PNG.png",
+	"frame": {"x":2,"y":2,"w":76,"h":91},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":91},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton play 1 PNG (0.1s).png",
+	"frame": {"x":80,"y":2,"w":76,"h":91},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":91},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton play 2 PNG (0.1s).png",
+	"frame": {"x":158,"y":2,"w":76,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":90},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton play 3 PNG (0.1s).png",
+	"frame": {"x":314,"y":2,"w":76,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":88},
+	"sourceSize": {"w":78,"h":95}
+},
+{
+	"filename": "bouton play 4 PNG (0.1s).png",
+	"frame": {"x":236,"y":2,"w":76,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":90},
+	"sourceSize": {"w":78,"h":95}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "play.png",
+	"format": "RGBA8888",
+	"size": {"w":392,"h":95},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:28e3cff941fc314a1490fbb45333314e:31fb9e2efd0a3e14db1caad496204c77:bce21bcb14ad290568d052e2cf9f5964$"
+}
+}
