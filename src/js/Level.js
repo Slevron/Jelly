@@ -27,6 +27,7 @@ LevelState.prototype =
             this.game.load.image('fur1','src/assets/poil1.png');
             this.game.load.image('fur2','src/assets/poil2.png');
             this.game.load.image('fur3','src/assets/poil3.png');
+            this.game.load.spritesheet("tadPoil", "src/assets/taspoil.png",117,135);
         },
         create: function(){
             
@@ -50,21 +51,28 @@ LevelState.prototype =
 
             //Cacahuete
             game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide,phaserJSON.forground);
+            game.tadPoils = game.add.group();
 
-            //Enemies
+            //Roach
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
                 new Roach(game,phaserJSON.roachs[i].x,phaserJSON.roachs[i].y,phaserJSON.roachs[i].waypoints);
             };
+            //Spider
             for (var i = 0; i < phaserJSON.spiders.length; i++) {
                 new Spider(game,phaserJSON.spiders[i].x,phaserJSON.spiders[i].y,phaserJSON.spiders[i].waypoints,phaserJSON.spiders[i].maxDown);
             };
+            //Worm
             for (var i = 0; i < phaserJSON.worms.length; i++) {
                 new Worm(game,phaserJSON.worms[i].x,phaserJSON.worms[i].y,phaserJSON.worms[i].waypoints);
             };
-
+            //TadPoil
+            for (var i = 0; i < phaserJSON.tadPoils.length; i++) {
+                new TadPoil(game,phaserJSON.tadPoils[i].x,phaserJSON.tadPoils[i].y);
+            };
+            //Character
             this.game.character = new Character(game,phaserJSON.player.x,phaserJSON.player.y);
 
-            //Player
+            //Explosions
             this.game.explosions = [];
             game.shoots = game.add.group();
             game.physics.enable(this.game.shoots, Phaser.Physics.ARCADE);
@@ -95,7 +103,6 @@ LevelState.prototype =
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
             game.physics.arcade.collide(game.shoots, this.game.map.layer,function(bulletOver,mapOver){
                 game.character.shoots.splice(bulletOver.refThis.indexArray);
-
                 game.shoots.remove(bulletOver);
             });
             
@@ -146,9 +153,9 @@ LevelState.prototype =
             /*game.enemies.forEach(function(cur){
                 game.debug.body(cur);
             });*/
-            game.shoots.forEach(function(cur){
+            /*game.shoots.forEach(function(cur){
                 game.debug.body(cur);
-            });
+            });*/
        },
 
        goSprite:function() {

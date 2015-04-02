@@ -6,6 +6,7 @@ function Spider (game,x,y,waypoints,maxDown){
 	
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = false;
+	this.sprite.body.setSize(this.sprite.body.width*0.70,this.sprite.body.height*0.70)
 
 	this.sprite.animations.add("walk", [3,4,5], 10, true);
     this.sprite.animations.add("vertical", [0,1,2], 10, true);
@@ -171,8 +172,6 @@ Spider.prototype.goUp = function () {
 };
 
 Spider.prototype.kill = function () {
-	//
 	this.refGame.enemies.remove(this.sprite);
 	this.fil.destroy();
-	//this.changeCurrentState("Kill");
 };
