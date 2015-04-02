@@ -7,7 +7,6 @@ function Worm (game,x,y,waypoints){
 	this.sprite.body.setSize(this.sprite.body.width,this.sprite.body.height*0.5)
 
 	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
-    
 
 	this.speed = 100;
 
@@ -27,7 +26,6 @@ Worm.prototype.constructor = Worm;
 Worm.prototype.update = function () {
 	//
 	if (this.playerInSight()){
-		console.log("BOOOOOOM")
 		this.startExploding();
 		//return;
 	}
@@ -110,7 +108,7 @@ Worm.prototype.moveToPlayer = function () {
 	return;
 };
 Worm.prototype.playerInSight = function () {
-    if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 300){
+    if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 200){
     	return true;
     }
 };
@@ -119,6 +117,13 @@ Worm.prototype.startExploding = function () {
 	this.refGame.explosions.push(new Explosion(this.refGame,this.sprite,1));
 	this.exploding = true;
 	this.kill();
+};
+Worm.prototype.takeDamage = function (damage) {
+	this.health -= damage;
+	if (this.health <= 0) {
+		this.startExploding();
+	}
+	return;
 };
 
 function Explosion(game,spriteWorm,timeBeforeEndExplode){
