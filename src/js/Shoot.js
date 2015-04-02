@@ -16,7 +16,7 @@ function Shoot(game,posx,posy,dir){
     this.sprite.scale = {x:0,y:0};
     
     game.add.tween(this.sprite.scale).to({x:1,y:1}, 500, Phaser.Easing.Cubic.Out,true);
-    this.sprite.body.setSize(this.sprite.body.width*0.5,this.sprite.body.height*0.5);
+    this.sprite.body.setSize(this.sprite.body.width*0.4,this.sprite.body.height*0.4,30*dir);
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){

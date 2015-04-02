@@ -5,6 +5,9 @@ function Roach (game,x,y,waypoints){
 	this.sprite.anchor.set(0.5);
 	
 	this.sprite.animations.add("walk", [0,1,2], 10, true);
+	var anim = this.sprite.animations.add("death", [3,4,5,6,7,8], 10, false);
+	anim.onComplete.add(this.kill,this);
+
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.setSize(this.sprite.body.width,this.sprite.body.height*0.4);
 
@@ -22,6 +25,9 @@ Roach.prototype = Object.create(Enemy.prototype);
 Roach.prototype.constructor = Roach;
 Roach.prototype.update = function () {
 	//
+	if(!this.alive){
+		return;
+	}
 	if (this.playerInSight()){
 		this.moveToPlayer();
 	}
