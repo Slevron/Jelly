@@ -23,6 +23,7 @@ LevelState.prototype =
             this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
             this.game.load.image('starSmall', 'src/assets/star.png');
             this.game.load.image('starBig', 'src/assets/star2.png');
+            this.game.load.spritesheet('fur','src/assets/poil.png',353/3,135);
         },
         create: function(){
             //--init des instance d'objets
