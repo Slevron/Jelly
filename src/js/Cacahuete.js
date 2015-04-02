@@ -4,7 +4,7 @@ function Cacahuete(game,x,y,hide){
     this.sprite.animations.add('run');
     this.sprite.animations.play('run', 5, true);
     this.hidePoussiere = hide;
-    this.sprite.alpha = this.hidePoussiere === true ? 0.3 : 1
+    this.sprite.alpha = this.hidePoussiere === true ? 0.3 : 1;
 };
 Cacahuete.prototype.constructor = Cacahuete;
 Cacahuete.prototype.update = function(){

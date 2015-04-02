@@ -13,18 +13,17 @@ function Character(game){
     this.sprite.animations.add('jump', [0], 10, true);
     this.sprite.animations.add('idle',[5],10,true);
     this.sprite.animations.add('hurt',[7,8,9,10,11,6],20,true);
+    this.sprite.animations.add('death',[12,13,14,16],20,true);
     this.newScale={x:0,y:0};
-      this.sprite.frame=5;
-
+    this.sprite.frame=5;
+    this.minimumlife=0.5;
+    this.safeOnTime=true;//save l'ennemi lorsqu'il s'apprete a mourir une fois, permet de passer en alerte
     //ponpon
     this.ponponSprite=game.add.sprite(this.sprite.x,this.sprite.y,'ponpon');
     this.ponponSprite.animations.add("idle",[0,1,2,3],10,true);
     this.ponponSprite.animations.add("shoot",[4,5,6,7,3],10,true);
     this.ponponSprite.anchor.set(0.5,0.5);
     this.sprite.bringToTop();
-
-    
-  
     //this.sprite.animations.add('turn', [4], 20, true);
     //this.sprite.animations.add('right', [5, 6, 7, 8], 10, true);
     game.camera.follow(this.sprite, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -40,11 +39,11 @@ function Character(game){
     this.health = 1;
     this.scaleBase=1;
     this.canInput=true;
-    console.log(this.sprite);
+
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-        if(this.hitable == false){
+    if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
             this.hitable = true;
@@ -130,14 +129,14 @@ Character.prototype.launchShoot = function(){
    var dir;
    global.actionEtoile+=1;
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*30/100,this.sprite.scale.x));
-   this.takeDamage(0.04);
+   this.takeDamage(0.1);
    this.canInput=true;
     var gotween = game.add.tween(this.ponponSprite).to({rotation : (dir= this.sprite.scale.x > 0 ? 1 : -1)}, 100, Phaser.Easing.Cubic.Out,true).yoyo(true, 0)
     gotween.onComplete.add(replace,this)
 };
 Character.prototype.takeDamage = function(damage){
-     this.state="hurt";
-     this.ponponSprite.animations.play("shoot");
+    this.state="hurt";
+    this.ponponSprite.animations.play("shoot");
     this.health -= damage;
     this.hitable = false;
     this.timeSinceHit = 0; 
@@ -151,7 +150,21 @@ Character.prototype.takeDamage = function(damage){
    game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
    this.sprite.body.offset.x *= this.newScale.x;
-   this.sprite.body.offset.y = 16 * this.newScale.y;
+    this.sprite.body.offset.y = 16 * this.newScale.y;
+   if(Math.abs(this.sprite.scale.x) < 0.4)
+    {
+        if(!this.safeOnTime)
+        {
+            this.state ="death";
+        }
+        else{
+
+            this.safeOnTime=false;
+            this.sprite.scale={x:0.41,y:0.41};
+            console.log(this.sprite);
+            
+        }
+    } 
 };
 Character.prototype.ponponUpdate = function(){
     this.ponponSprite.x=this.sprite.x;
@@ -162,15 +175,9 @@ Character.prototype.checkStateForAnim= function(state){
   
   if(this.sprite.frame<7){
     this.sprite.animations.play(state);
-    
     }
-
-
 
 };
  function replace(){
-  
   game.character.ponponSprite.rotation=0;
-    
-  
 }

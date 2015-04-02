@@ -10,6 +10,8 @@ function Spider (game,x,y,waypoints,maxDown){
 	this.sprite.animations.add("walk", [3,4,5], 10, true);
     this.sprite.animations.add("vertical", [0,1,2], 10, true);
     this.sprite.animations.add("idle", [0],true);
+    var anim = this.sprite.animations.add("death", [6,7,8,9,10,11], 10, false);
+    anim.onComplete.add(this.kill,this);
 
 	this.speed = 100;
 
@@ -29,6 +31,9 @@ Spider.prototype = Object.create(Enemy.prototype);
 Spider.prototype.constructor = Spider;
 Spider.prototype.update = function () {
 	//
+	if(!this.alive){
+		return;
+	}
 	if (this.playerInSight()){
 		this.goDown();
 	}

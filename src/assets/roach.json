@@ -23,14 +23,62 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
 	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 1 PNG (0.1s).png",
+	"frame": {"x":371,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 2 PNG (0.1s).png",
+	"frame": {"x":494,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 3 PNG (0.1s).png",
+	"frame": {"x":617,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 4 PNG (0.1s).png",
+	"frame": {"x":740,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 5 PNG (0.1s).png",
+	"frame": {"x":863,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
+},
+{
+	"filename": "mort cafard 6 PNG (0.1s).png",
+	"frame": {"x":986,"y":2,"w":121,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":105},
+	"sourceSize": {"w":121,"h":105}
 }],
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "roach.png",
 	"format": "RGBA8888",
-	"size": {"w":371,"h":109},
+	"size": {"w":1109,"h":109},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:bc84a5bc052824c6b181abec37765d37:c6383db843cef0572e2a39363eb9fd02:ef6da9558b554a23610c6dea65559b53$"
+	"smartupdate": "$TexturePacker:SmartUpdate:bad9482edc312d2873f71b640596e6d3:283be1016d966d66a37c4f4c62d670cc:ef6da9558b554a23610c6dea65559b53$"
 }
 }

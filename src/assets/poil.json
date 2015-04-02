@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "Perso Anim Tas de poils 1 PNG (0.1s).png",
+	"filename": "Particule poil 1 PNG.png",
 	"frame": {"x":2,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -9,7 +9,7 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso Anim Tas de poils 2 PNG (0.1s).png",
+	"filename": "Particule poil 2 PNG.png",
 	"frame": {"x":119,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
@@ -17,32 +17,8 @@
 	"sourceSize": {"w":115,"h":131}
 },
 {
-	"filename": "Perso Anim Tas de poils 3 PNG (0.1s).png",
+	"filename": "Particule poil 3 PNG.png",
 	"frame": {"x":236,"y":2,"w":115,"h":131},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
-	"sourceSize": {"w":115,"h":131}
-},
-{
-	"filename": "Perso Anim Tas de poils 4 PNG (0.1s).png",
-	"frame": {"x":353,"y":2,"w":115,"h":131},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
-	"sourceSize": {"w":115,"h":131}
-},
-{
-	"filename": "Perso Anim Tas de poils 5 PNG (0.1s).png",
-	"frame": {"x":470,"y":2,"w":115,"h":131},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
-	"sourceSize": {"w":115,"h":131}
-},
-{
-	"filename": "Perso Anim Tas de poils 6 PNG (1s).png",
-	"frame": {"x":587,"y":2,"w":115,"h":131},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":131},
@@ -53,8 +29,8 @@
 	"version": "1.0",
 	"image": "poil.png",
 	"format": "RGBA8888",
-	"size": {"w":704,"h":135},
+	"size": {"w":353,"h":135},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d8a1720942c7ec56f46cac78d730dcea:5e7ce0102574eee6a25bec1e13773813:2bdfb52b806b6b1b935cfd09b29683e8$"
+	"smartupdate": "$TexturePacker:SmartUpdate:4a1a293fa1d17b614416bb5120706de7:546a4b74c533d32ebd5c65475d5771c1:2bdfb52b806b6b1b935cfd09b29683e8$"
 }
 }

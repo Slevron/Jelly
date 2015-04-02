@@ -4,9 +4,9 @@ function Worm (game,x,y,waypoints){
 	this.sprite.refThis = this;
 	this.sprite.anchor.set(0.5);
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+	this.sprite.body.setSize(this.sprite.body.width,this.sprite.body.height*0.5)
 
 	this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
-    
 
 	this.speed = 100;
 
@@ -26,7 +26,6 @@ Worm.prototype.constructor = Worm;
 Worm.prototype.update = function () {
 	//
 	if (this.playerInSight()){
-		console.log("BOOOOOOM")
 		this.startExploding();
 		//return;
 	}
@@ -39,12 +38,12 @@ Worm.prototype.update = function () {
 	return;
 };
 Worm.prototype.move = function (dir) {
-	if(dir == "left"){
+	/*if(dir == "left"){
 		this.sprite.x -= this.speed * this.refGame.time.deltaTime;
 	}
 	else if (dir == "right"){
 		this.sprite.x += this.speed * this.refGame.time.deltaTime;
-	}
+	}*/
 	return;
 };
 Worm.prototype.checkIfWaypointReached = function () {
@@ -109,7 +108,7 @@ Worm.prototype.moveToPlayer = function () {
 	return;
 };
 Worm.prototype.playerInSight = function () {
-    if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 300){
+    if(this.refGame.physics.arcade.distanceBetween(this.sprite,this.refGame.character.sprite) < 200){
     	return true;
     }
 };
@@ -119,15 +118,24 @@ Worm.prototype.startExploding = function () {
 	this.exploding = true;
 	this.kill();
 };
+Worm.prototype.takeDamage = function (damage) {
+	this.health -= damage;
+	if (this.health <= 0) {
+		this.startExploding();
+	}
+	return;
+};
 
 function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.sprite = game.add.sprite(spriteWorm.x,spriteWorm.y,"worm");
-	this.sprite.anchor.set(0.5);
+	this.sprite.anchor.set(0.5,0.5);
 	this.sprite.x = spriteWorm.x;
 	this.sprite.y = spriteWorm.y;
 	this.sprite.animations.add('explosion', [5,6,7,8,9,10,11,12], 10, true);
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
 	this.update = function(){
+		this.sprite.scale.x *= 1.02;
+		this.sprite.scale.y *= 1.02;
 		game.physics.arcade.overlap(this.sprite, game.character,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){

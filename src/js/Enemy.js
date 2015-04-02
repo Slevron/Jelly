@@ -30,7 +30,8 @@ Enemy.prototype.takeDamage = function (damage) {
 	this.changeCurrentState("Taking Damage");
 
 	if (this.health <= 0) {
-		this.kill();
+		this.alive = false;
+		this.sprite.animations.play("death");
 	}
 	return;
 };
