@@ -1,0 +1,44 @@
+{"frames": [
+
+{
+	"filename": "vie animation 1 PNG (2s).png",
+	"frame": {"x":2,"y":2,"w":58,"h":55},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":43,"w":58,"h":55},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "vie animation 2 PNG (0.1s).png",
+	"frame": {"x":62,"y":2,"w":58,"h":55},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":43,"w":58,"h":55},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "vie malade 1 PNG (2s).png",
+	"frame": {"x":122,"y":2,"w":58,"h":55},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":43,"w":58,"h":55},
+	"sourceSize": {"w":115,"h":131}
+},
+{
+	"filename": "vie malade 2 PNG (0.1s).png",
+	"frame": {"x":182,"y":2,"w":58,"h":55},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":43,"w":58,"h":55},
+	"sourceSize": {"w":115,"h":131}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "coeur.png",
+	"format": "RGBA8888",
+	"size": {"w":242,"h":59},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e15ba02588a4d406763f62943ba26b59:35f38fef028e8586a3d9c1b5ba03316b:39542b0b68c890758afbf7333d12dbfc$"
+}
+}
