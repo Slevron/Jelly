@@ -41,10 +41,10 @@ Roach.prototype.update = function () {
 };
 Roach.prototype.move = function (dir) {
 	if(dir == "left"){
-		this.sprite.x -= this.speed * this.refGame.time.deltaTime;
+		this.sprite.body.velocity.x = -this.speed;
 	}
 	else if (dir == "right"){
-		this.sprite.x += this.speed * this.refGame.time.deltaTime;
+		this.sprite.body.velocity.x = this.speed;
 	}
 	return;
 };
@@ -55,10 +55,7 @@ Roach.prototype.checkIfWaypointReached = function () {
 	if((this.sprite.x >= waypoint.x + 6)      // trop à droite
 
 	    || (this.sprite.x + this.sprite.width <= waypoint.x) // trop à gauche
-
-	    || (this.sprite.y >= waypoint.y + 64) // trop en bas
-
-	    || (this.sprite.y + this.sprite.height <= waypoint.y)){
+	    ){
 		return false;
 	}
 	else{
