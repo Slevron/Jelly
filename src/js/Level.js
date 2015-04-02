@@ -96,7 +96,7 @@ LevelState.prototype =
             });
             
             game.physics.arcade.overlap(this.game.character.sprite, game.enemies,function(characterOver,enemyOver){
-                if(characterOver.refThis.hitable){
+                if(characterOver.refThis.hitable && enemyOver.refThis.alive){
                     if(enemyOver.x > characterOver.x+(characterOver.width*0.5)){
                         //right so bounce left
                         characterOver.body.velocity.x = -600;
