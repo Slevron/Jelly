@@ -15,6 +15,9 @@ function Editor(game,callback,callback2){
     this.cacahuete = game.add.button(70 * 4, 30,'cacahuete',callback);
     this.cacahuete.scale.setTo(0.5);
     this.cacahuete.fixedToCamera = true;
+    this.tadPoil = game.add.button(70 * 5, 30,'tadPoil',callback);
+    this.tadPoil.scale.setTo(0.5);
+    this.tadPoil.fixedToCamera = true;
 
     this.callbackDrag = callback2;
 };

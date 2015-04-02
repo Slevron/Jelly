@@ -11,10 +11,7 @@ function Character(game,x,y){
     this.particles.maxParticleSpeed.setTo(200, -400);
     this.particles.gravity=0;
     this.particles.angularDrag=30;
-
-    
-   console.log(this.particles);
-    
+    console.log(this.particles);
     //this.particle.start(false, 8000, 400);
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
@@ -73,8 +70,6 @@ Character.prototype.update = function(){
     game.physics.arcade.collide(this.particles, this.refGame.map.layer);
     this.move();
     this.ponponUpdate();
-
-
 };
 Character.prototype.move =function(){
      this.ponponSprite.scale=this.sprite.scale;
@@ -140,6 +135,12 @@ Character.prototype.move =function(){
     
     this.checkStateForAnim(this.state);
       this.checkStateForAnim(this.state);
+
+      console.log(this.sprite.body.velocity.y)
+      if(this.sprite.body.velocity.y > 700)
+      {
+        this.sprite.body.velocity.y= 600;
+      }
    
 };
 Character.prototype.launchShoot = function(){
