@@ -8,8 +8,10 @@ LevelState.prototype =
         //PRELOAD
         
         preload: function(){
-            this.game.load.image('bg','src/assets/bg.png');
-            this.game.load.image('bg2','src/assets/bg2.png');
+            this.game.load.image('background1','src/assets/background1.png');
+            this.game.load.image('background2','src/assets/background2.png');
+            this.game.load.image('background3','src/assets/background3.png');
+            this.game.load.image('background4','src/assets/background4.png');
 
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
@@ -33,9 +35,14 @@ LevelState.prototype =
         create: function(){
             
             game.add.plugin(Phaser.Plugin.Debug);
+
+            game.backgrounds = [];
+            for(var i = 0; i < 4; i++){
+                game.backgrounds[i]= game.add.sprite(i*1280,0,"background"+(Math.floor((Math.random() * 4) + 1)));
+            }
             
-            game.background = game.add.sprite(0,0,"bg");
-            game.background.fixedToCamera = true;
+            /*game.background = game.add.sprite(0,0,"bg");
+            game.background.fixedToCamera = true;*/
             game.editorSprite = null;
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
@@ -112,8 +119,7 @@ LevelState.prototype =
             
             this.game.character.update();
             game.physics.arcade.overlap(game.character.sprite, game.tadPoils,function(charOver,tadPoilOver){
-                console.log(game.character.scaleBase)
-                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1));
+                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1),false);
                 game.tadPoils.remove(tadPoilOver);
                 console.log(game.character.scaleBase)
             });
@@ -135,7 +141,7 @@ LevelState.prototype =
                         characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
-                    characterOver.refThis.takeDamage(0.1);
+                    characterOver.refThis.takeDamage(0.1,true);
                 }
             });
 
@@ -167,9 +173,10 @@ LevelState.prototype =
             /*game.shoots.forEach(function(cur){
                 game.debug.body(cur);
             });*/
-                game.tadPoils.forEach(function(cur){
+            /*    game.tadPoils.forEach(function(cur){
                 game.debug.body(cur);
-            });
+            });*/
+            game.debug.body(game.character.sprite);
        },
 
        goSprite:function() {

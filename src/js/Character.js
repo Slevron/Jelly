@@ -3,6 +3,7 @@ function Character(game,x,y){
     this.sprite = game.add.sprite(x, y, 'dude');
     
     this.sprite.refThis = this;
+    this.sprite.anchor.setTo(0.5,0.5)
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.particles = game.add.emitter(game.world.centerX, game.world.centerY, 250);
     this.particles.makeParticles(['fur1','fur2','fur3']);
@@ -61,12 +62,14 @@ Character.prototype.update = function(){
     if(!this.alive){
         return;
     }
-    if(this.health <= 0.6){
+    //LeHude
+    if(!this.safeOnTime){
         this.refGame.leHude.changeAnim("coeur","bad")
     }
-    else if (this.health > 0.6){
+    else{
         this.refGame.leHude.changeAnim("coeur","good");
     }
+
     if(this.hitable == false){
         this.timeSinceHit += this.refGame.time.deltaTime;
         if(this.timeSinceHit >= this.invicibleTime){
@@ -160,27 +163,42 @@ Character.prototype.launchShoot = function(){
    global.actionEtoile+=1;
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*30/100,this.sprite.scale.x));
    this.shoots[this.shoots.length-1].indexArray = this.shoots.length-1;
-   this.takeDamage(0.1);
+   this.takeDamage(0.1,true);
    this.canInput=true;
     var gotween = game.add.tween(this.ponponSprite).to({rotation : (dir= this.sprite.scale.x > 0 ? 1 : -1)}, 100, Phaser.Easing.Cubic.Out,true).yoyo(true, 0)
     gotween.onComplete.add(replace,this)
 };
-Character.prototype.takeDamage = function(damage){
-
+Character.prototype.takeDamage = function(damage,isAHit){
     
-    this.particles.start(true, 1000, 10, 5);
-    this.state="hurt";
-    this.ponponSprite.animations.play("shoot");
-    this.health -= damage;
+    if(isAHit == true){
+        console.log("aie")
+        this.state="hurt";
+        this.particles.start(true, 1000, 10, 5);
+        this.ponponSprite.animations.play("shoot");
+        this.timeSinceHit = 0;
+    }
+    else{
+        console.log("cool",this.sprite)
+        this.timeSinceHit = 0
+        this.safeOnTime = true;
+    }
     this.hitable = false;
-    this.timeSinceHit = 0; 
     this.canInput=false; 
    var dir=0;
    this.scaleBase -= this.scaleBase*damage;
    this.newScale.x=this.scaleBase* (dir= this.sprite.scale.x > 0 ? 1 : -1);
    this.newScale.y=this.scaleBase* (dir= this.sprite.scale.y > 0 ? 1 : -1); 
-   game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
+   console.log(this.scaleBase*damage,this.newScale.x,this.newScale.y)
+
+   var tweenChar = game.add.tween(this.sprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
+   var that = this;
+  /* tweenChar.onComplete.add(function(){
+        that.refGame.physics.arcade.collide(that.sprite,that.refGame.map.layer,function(lel,lal){
+            console.log(lel,lal);
+        });
+   });*/
    game.add.tween(this.ponponSprite.scale).to({x:this.newScale.x,y:this.newScale.y}, 1000, Phaser.Easing.Cubic.Out,true);
+
    this.sprite.body.offset.x *= this.newScale.x;
    this.sprite.body.offset.y = 16 * this.newScale.y;
     
@@ -189,17 +207,15 @@ Character.prototype.takeDamage = function(damage){
     this.distanceJump+=40;
    }
 
-   console.log(this.distanceJump)
-   if(Math.abs(this.sprite.scale.x) < 0.4)
+   if(Math.abs(this.sprite.scale.x) < 0.4 || !this.safeOnTime && isAHit)
     {
         if(!this.safeOnTime)
         {
             this.state="death";
         }
         else{
-
             this.safeOnTime=false;
-            this.sprite.scale={x:0.41,y:0.41};
+            this.sprite.scale={x:0.401,y:0.401};
         }
     } 
 };
