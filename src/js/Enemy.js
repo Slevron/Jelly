@@ -30,6 +30,8 @@ Enemy.prototype.takeDamage = function (damage) {
 	this.changeCurrentState("Taking Damage");
 
 	if (this.health <= 0) {
+		this.sprite.body.velocity.x = 0;
+		this.sprite.body.velocity.y = 0;
 		this.alive = false;
 		this.sprite.animations.play("death");
 	}

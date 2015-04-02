@@ -7,7 +7,7 @@ function init(){
   game.state.add('ChapterState' ,ChapterState);
   game.state.add('ScoreState' ,ScoreState);
   //on lance le mainmenu
-  game.state.start('MenuState');
+  game.state.start('ChapterState');
 }
 var global = [];
 global.idLevel;

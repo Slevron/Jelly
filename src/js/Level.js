@@ -112,8 +112,7 @@ LevelState.prototype =
             
             this.game.character.update();
             game.physics.arcade.overlap(game.character.sprite, game.tadPoils,function(charOver,tadPoilOver){
-                console.log(game.character.scaleBase)
-                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1));
+                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1),false);
                 game.tadPoils.remove(tadPoilOver);
                 console.log(game.character.scaleBase)
             });
@@ -135,7 +134,7 @@ LevelState.prototype =
                         characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
-                    characterOver.refThis.takeDamage(0.1);
+                    characterOver.refThis.takeDamage(0.1,true);
                 }
             });
 
