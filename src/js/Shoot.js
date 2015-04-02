@@ -12,7 +12,7 @@ function Shoot(game,posx,posy,dir){
     this.sprite.scale = game.character.sprite.scale;
     this.sprite.outOfBoundsKill = true;
 
-    this.speed = 400;
+    this.speed = 800;
 
     this.direction = dir;
     this.sprite.scale = game.character.sprite.scale;
