@@ -72,8 +72,10 @@ LevelState.prototype =
             game.physics.arcade.gravity.y = 1500;
 
             //Forground
-            game.forground = game.add.sprite(0,-100,"bg2");
-            game.forground.fixedToCamera = true;
+            if(phaserJSON.forground === true){
+                game.forground = game.add.sprite(0,-100,"bg2");
+                game.forground.fixedToCamera = true;
+            }
 
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
