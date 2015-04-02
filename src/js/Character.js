@@ -129,6 +129,7 @@ Character.prototype.launchShoot = function(){
    var dir;
    global.actionEtoile+=1;
    this.shoots.push(new Shoot(this.refGame,this.sprite.x,this.sprite.y-this.sprite.height*30/100,this.sprite.scale.x));
+   this.shoots[this.shoots.length-1].indexArray = this.shoots.length-1;
    this.takeDamage(0.1);
    this.canInput=true;
     var gotween = game.add.tween(this.ponponSprite).to({rotation : (dir= this.sprite.scale.x > 0 ? 1 : -1)}, 100, Phaser.Easing.Cubic.Out,true).yoyo(true, 0)

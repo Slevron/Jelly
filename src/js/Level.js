@@ -65,7 +65,8 @@ LevelState.prototype =
 
             //Player
             this.game.explosions = [];
-            this.game.shoots = game.add.group();
+            game.shoots = game.add.group();
+            game.physics.enable(this.game.shoots, Phaser.Physics.ARCADE);
 
             //Physics
             game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -91,12 +92,11 @@ LevelState.prototype =
             
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
+            game.physics.arcade.collide(game.shoots, this.game.map.layer,function(bulletOver,mapOver){
+                game.character.shoots.splice(bulletOver.refThis.indexArray);
 
-            for (var i = 0; i < game.shoots.children.length; i++) {
-                game.physics.arcade.collide(game.shoots.children[i].sprite, this.game.map.layer, function(bulletOver,enemyOver){
-                   console.log(bulletOver)
-                });
-            };
+                game.shoots.remove(bulletOver);
+            });
             
             this.game.character.update();
             game.cacahuete.update();

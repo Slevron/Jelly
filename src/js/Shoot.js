@@ -5,12 +5,14 @@ function Shoot(game,posx,posy,dir){
     this.refGame = game;
     
     this.sprite = game.shoots.create(posx, posy, 'starBig');
+    this.sprite.refThis= this;
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
     this.sprite.body.allowGravity = false;
+    this.sprite.body.setSize(this.sprite.body.width*0.2,this.sprite.body.height*0.2,30*dir);
     this.sprite.scale = game.character.sprite.scale;
     this.sprite.outOfBoundsKill = true;
 
-    this.speed = 10;
+    this.speed = 400;
 
     this.direction = dir;
     this.sprite.scale = game.character.sprite.scale;
@@ -19,8 +21,6 @@ function Shoot(game,posx,posy,dir){
     this.sprite.scale = {x:0,y:0};
     
     game.add.tween(this.sprite.scale).to({x:1,y:1}, 500, Phaser.Easing.Cubic.Out,true);
-
-    this.sprite.body.setSize(this.sprite.body.width*0.4,this.sprite.body.height*0.4,30*dir);
 };
 Shoot.prototype.constructor = Character;
 Shoot.prototype.update = function(){
@@ -33,5 +33,5 @@ Shoot.prototype.move = function(){
         dir = 1;
     if(this.direction < 0)
         dir = -1;
-    this.sprite.x += this.speed * dir;
+    this.sprite.body.velocity.x = this.speed * dir;
 };
