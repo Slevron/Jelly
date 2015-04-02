@@ -38,12 +38,12 @@ Worm.prototype.update = function () {
 	return;
 };
 Worm.prototype.move = function (dir) {
-	/*if(dir == "left"){
+	if(dir == "left"){
 		this.sprite.x -= this.speed * this.refGame.time.deltaTime;
 	}
 	else if (dir == "right"){
 		this.sprite.x += this.speed * this.refGame.time.deltaTime;
-	}*/
+	}
 	return;
 };
 Worm.prototype.checkIfWaypointReached = function () {
@@ -77,15 +77,15 @@ Worm.prototype.moveToNextWaypoint = function () {
 	if (this.sprite.x > waypoint.x){
 
 		//Left
-		if (this.facing == "right") {
-			this.changeFacing("left");
+		if (this.facing == "left") {
+			this.changeFacing("right");
 		}
 		this.move("left");
 	}
 	else {
 		//Right
-		if (this.facing == "left") {
-			this.changeFacing("right");
+		if (this.facing == "right") {
+			this.changeFacing("left");
 		}
 		this.move("right");
 	}
