@@ -13,7 +13,7 @@ LevelState.prototype =
 
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
-            this.game.load.image('tiles', 'src/assets/tiles.png');
+            this.game.load.image('tiles', 'src/assets/tileset.png');
 
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
@@ -49,7 +49,7 @@ LevelState.prototype =
             global.actionMax = phaserJSON.reward.actionMax;
 
             //Cacahuete
-            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide);
+            game.cacahuete = new Cacahuete(game,phaserJSON.cacahuete.x,phaserJSON.cacahuete.y,phaserJSON.cacahuete.hide,phaserJSON.forground);
 
             //Enemies
             for (var i = 0; i < phaserJSON.roachs.length; i++) {
@@ -73,8 +73,11 @@ LevelState.prototype =
             game.physics.arcade.gravity.y = 1500;
 
             //Forground
-            game.forground = game.add.sprite(0,-100,"bg2");
-            game.forground.fixedToCamera = true;
+            if(phaserJSON.forground === true){
+                game.forground = game.add.sprite(0,-100,"bg2");
+                game.forground.fixedToCamera = true;
+                game.forground.hide = phaserJSON.forground;
+            }
 
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
