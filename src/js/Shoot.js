@@ -7,7 +7,7 @@ function Shoot(game,posx,posy,dir){
     this.sprite = game.shoots.create(posx, posy, 'starBig');
     this.sprite.refThis= this;
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-    this.sprite.body.allowGravity = false;
+    this.sprite.body.allowGravity = true;
     this.sprite.body.setSize(this.sprite.body.width*0.2,this.sprite.body.height*0.2,30*dir);
     this.sprite.scale = game.character.sprite.scale;
     this.sprite.outOfBoundsKill = true;

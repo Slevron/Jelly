@@ -125,16 +125,23 @@ Worm.prototype.takeDamage = function (damage) {
 
 function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.sprite = game.add.sprite(spriteWorm.x,spriteWorm.y,"worm");
+	this.refGame = game;
+
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = false;
+	
 	this.sprite.anchor.set(0.5,0.5);
+	
 	this.sprite.x = spriteWorm.x;
 	this.sprite.y = spriteWorm.y;
+
 	this.sprite.animations.add('explosion', [5,6,7,8,9,10,11,12], 10, true);
+
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
+
 	this.update = function(){
-		this.sprite.scale.x *= 1.1;
-		this.sprite.scale.y *= 1.1;
+		this.sprite.scale.x *= 1+ (0.7 * this.refGame.time.deltaTime);
+		this.sprite.scale.y *= 1+ (0.7 * this.refGame.time.deltaTime);
 		game.physics.arcade.overlap(this.sprite, game.character.sprite,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
@@ -143,7 +150,7 @@ function Explosion(game,spriteWorm,timeBeforeEndExplode){
                     characterOver.body.velocity.y = -300;
                 }
                 else{
-                        //left so bounce right
+                    //left so bounce right
                     characterOver.body.velocity.x = 1200;
                     characterOver.body.velocity.y = -300;
                 }

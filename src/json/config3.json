@@ -27,7 +27,7 @@
 	"cacahuete":{
 		"x": 1044,
 		"y": -15,
-		"hide": true
+		"hide": false
 	},
 
 	"spiders":[
@@ -76,8 +76,8 @@
 	},
     "tadPoils" : [
         {
-            "x": 300,
-            "y": 200
+            "x": 2407,
+            "y": 481
         }
     ]
 }

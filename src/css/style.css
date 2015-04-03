@@ -5,8 +5,13 @@ html{
 body{
 	height: 100%;
 	margin: 0;
+	background-color: black;
+	background-image: url("contours.png");
+	background-attachment: fixed;
 }
 
 canvas{
 	margin: auto;
+	margin-top: 200px;
 }
+

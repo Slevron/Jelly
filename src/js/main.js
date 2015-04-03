@@ -8,7 +8,7 @@ function init(){
   game.state.add('ScoreState' ,ScoreState);
   game.state.add('GameOverState' ,GameOverState);
   //on lance le mainmenu
-  game.state.start('ScoreState');
+  game.state.start('MenuState');
 }
 var global = [];
 global.idLevel;
