@@ -34,6 +34,7 @@ LevelState.prototype =
             this.game.load.image('credit','src/assets/decor/credit.png');
             this.game.load.spritesheet("tadPoil", "src/assets/taspoil.png",117,135);
             this.game.load.spritesheet("coeur", "src/assets/hud/coeur.png",60,59);
+            this.game.load.spritesheet('replay', "src/assets/bouton/replay.png",78,94);
         },
         create: function(){
             
@@ -183,20 +184,7 @@ LevelState.prototype =
 
        render:function() {
             game.debug.text(global.timeEtoile|0, 1280*0.5, 20);
-            /*game.enemies.forEach(function(cur){
-                game.debug.body(cur);
-            });*/
-            /*game.shoots.forEach(function(cur){
-                game.debug.body(cur);
-            });*/
-            /*    game.tadPoils.forEach(function(cur){
-                game.debug.body(cur);
-            });*/
-            game.debug.body(game.character.sprite);
-            for(var i = 0; i< game.explosions.length; i++){
-                console.log("okokokokokokokokokokkokokkk")
-                game.debug.body(game.explosions[i].sprite);
-            }
+
        },
 
        goSprite:function() {
