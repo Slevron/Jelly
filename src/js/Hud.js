@@ -13,6 +13,7 @@ function Hud(game){
 	this.sprites.pause.fixedToCamera = true;
 
 	this.sprites.fil = game.add.sprite(1166 , 0,"fil");
+	this.sprites.fil.height -= 15;
 	this.sprites.fil.fixedToCamera = true;
 
 	this.sprites.pause.inputEnabled = true;
@@ -28,7 +29,7 @@ function Hud(game){
 		this.sprites[nameObjectToChange].play(animName);
 	}
 };
-HUD.prototype.constructor = HUD;
-HUD.prototype.show = function(){
+Hud.prototype.constructor = Hud;
+Hud.prototype.show = function(){
     game.add.sprite(0 , 0,"credit");
 }

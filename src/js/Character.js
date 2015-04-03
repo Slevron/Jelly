@@ -56,10 +56,12 @@ function Character(game,x,y){
     this.canInput=true;
     this.alive = true;
     this.distanceJump=-800;
+    this.timeBeforeGameOver = 3;
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
     if(!this.alive ){
+        this.timeBeforeGameOver -= this.refGame.time.deltaTime;
         return;
     }
     if(!this.sprite.inCamera && this.alive){
@@ -69,7 +71,6 @@ Character.prototype.update = function(){
         this.sprite.body.velocity.y = 0;
         this.particles.minParticleSpeed.setTo(-400, -800);
         this.particles.start(true, 1000, 10, 5);
-        console.log("hello pute")
     }
     //LeHude
     if(!this.safeOnTime){

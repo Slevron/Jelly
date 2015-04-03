@@ -161,8 +161,8 @@ LevelState.prototype =
                 }
             };
             game.editor.update();
-            if(this.game.character.alive === false){
-                game.state.start('GameOverState')
+            if(this.game.character.alive == false && this.game.character.timeBeforeGameOver <= 0){
+                game.state.start('GameOverState');
             }
        },
 
