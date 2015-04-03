@@ -19,6 +19,7 @@ MenuState.prototype =
         this.game.load.image('toile','src/assets/titre/toile.png');
         this.game.load.image('great','src/assets/titre/great.png');
         this.game.load.image('escape','src/assets/titre/escape.png');
+         this.game.load.image('cup','src/assets/titre/cup.png');
         this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
         this.game.load.image("fil", "src/assets/fil.png");
         game.load.audio('intro','src/assets/bgm/intro.mp3');
@@ -65,10 +66,15 @@ MenuState.prototype =
         this.bgTween = game.add.tween(this.srpiteBg).to({x:0,y:0}, 1500, Phaser.Easing.Cubic.In,true,6000);
         this.bgTween.onComplete.add(onComplete, this);
 
+
         this.furball=game.add.sprite(game.world.centerX-100,-2000,'furball');
         this.furball.anchor.setTo(0.5,0.5);
         this.furball = game.add.tween(this.furball).to({x:game.world.centerX-100,y:game.world.centerY-100}, 2000, Phaser.Easing.Cubic.Out,true,1000);
 
+        this.cup=game.add.sprite(-200,560,'cup');
+        this.cup.scale={x:0.5,y:0.5};
+         this.cup = game.add.tween(this.cup).to({x:100,y:560}, 2000, Phaser.Easing.Cubic.Out,true,10000);
+        
 
         this.great=game.add.sprite(game.world.centerX,game.world.centerY-10,'great');
         this.great.anchor.setTo(0.5,0.5);
