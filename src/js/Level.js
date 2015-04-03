@@ -61,8 +61,7 @@ LevelState.prototype =
             game.enemies = game.add.group();
 
             //Rewards
-            global.cacahueteMax = phaserJSON.reward.cacahueteMax;
-            console.log(phaserJSON.reward.c);
+            global.test = phaserJSON.reward.cacahueteMax;
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
 
@@ -107,9 +106,6 @@ LevelState.prototype =
             global.timeEtoile = 0;
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
-
-            //Editor
-            game.editor = new Editor(game,this.goSprite,this.onDragStop);
 
             game.leHude = new Hud(game);
                 game.input.gamepad.start();
@@ -171,7 +167,6 @@ LevelState.prototype =
                     i--;
                 }
             };
-            game.editor.update();
             if(this.game.character.alive == false && this.game.character.timeBeforeGameOver <= 0){
                 game.state.start('GameOverState');
             }

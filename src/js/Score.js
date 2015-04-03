@@ -27,18 +27,19 @@ ScoreState.prototype =
         }
         game.tabEtoile = game.add.group();
         //game.bgScore = game.add.sprite(0, 0, 'decor');
-        game.nbEtoile = 0;
-        if(global.cacahueteEtoile == global.cacahueteMax && global.timeEtoile === global.timeMax && global.actionEtoile === global.actionMax){
+        game.nbEtoile = 3;
+        if(global.cacahueteEtoile == global.cacahueteMax && global.timeEtoile <= global.timeMax && global.actionEtoile<= global.actionMax){
             game.nbEtoile = 3;
-        }else if(global.timeEtoile === global.timeMax && global.actionEtoile === global.actionMax ||
-                 global.cacahueteEtoile === global.cacahueteMax && global.actionEtoile === global.actionMax ||
-                 global.timeEtoile === global.timeMax && global.cacahueteEtoile === global.cacahueteMax){
-            game.nbEtoile = 2;
-        }else if(global.actionEtoile === global.actionMax ||
-                 global.timeEtoile === global.timeMax || 
+        }else if(global.timeEtoile <= global.timeMax && global.actionEtoile <= global.actionMax ||
+                 global.cacahueteEtoile === global.cacahueteMax && global.actionEtoile <= global.actionMax ||
+                 global.timeEtoile <= global.timeMax && global.cacahueteEtoile === global.cacahueteMax){
+            game.nbEtoile = 3;
+        }else if(global.actionEtoile <= global.actionMax ||
+                 global.timeEtoile <= global.timeMax || 
                  global.cacahueteEtoile === global.cacahueteMax){
-            game.nbEtoile = 1;
+            game.nbEtoile = 3;
         }
+        console.log(global.actionEtoile)
         game.unlockLevel = {};
         game.unlockLevel.idLevel = global.idLevel;
         game.unlockLevel.nbEtoile = game.nbEtoile;
@@ -86,7 +87,6 @@ ScoreState.prototype =
         }   
     },
     update:function(){
-        console.log(global.timeEtoile,global);
     },
     goChapter:function(){
         game.state.start('ChapterState')
