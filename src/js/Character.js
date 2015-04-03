@@ -91,7 +91,8 @@ Character.prototype.move =function(){
      if(this.canInput)
     {
         this.sprite.body.velocity.x=0;
-        if (this.cursors.left.isDown&&!this.cursors.right.isDown){
+        if (this.cursors.left.isDown&&!this.cursors.right.isDown ||
+            this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1){
             if(this.ponponSprite.frame<4)
                 this.jumpTimer=0;
             this.ponponSprite.animations.play("idle");
@@ -100,7 +101,8 @@ Character.prototype.move =function(){
             this.sprite.body.velocity.x = -250;
             this.sprite.scale={x:-this.scaleBase,y:this.scaleBase};
         }
-        else if (this.cursors.right.isDown&&!this.cursors.left.isDown){
+        else if (this.cursors.right.isDown&&!this.cursors.left.isDown ||
+            this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > -0.1){
             this.state="walk";
 
             if(this.ponponSprite.frame<4)
@@ -114,7 +116,8 @@ Character.prototype.move =function(){
             this.sprite.body.velocity.x =this.lastInput;
         }
 
-        if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
+        if (this.jumpButton.isDown && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer || 
+            this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_A) && this.sprite.body.onFloor() && this.refGame.time.now > this.jumpTimer)
         {
             this.ponponSprite.frame=0;
             this.state="isJumping";
@@ -136,17 +139,17 @@ Character.prototype.move =function(){
         }
     }    
     //---------------SHOOT.
-    if(this.shootButton.isDown&& this.canshoot&&this.state!="hurt")
+    if(this.shootButton.isDown&& this.canshoot&&this.state!="hurt" || this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10) && this.canshoot&&this.state!="hurt")
     {
        
         this.launchShoot();
         
     }        
-    if(this.shootButton.isDown)
+    if(this.shootButton.isDown || this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
     {
         this.canshoot=false;
     }
-    if(this.shootButton.isUp)
+    if(this.shootButton.isUp || !this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
     {
         this.canshoot=true;
     }

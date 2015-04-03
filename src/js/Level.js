@@ -36,6 +36,10 @@ LevelState.prototype =
         create: function(){
             
             game.add.plugin(Phaser.Plugin.Debug);
+            game.input.gamepad.start();
+
+            // To listen to buttons from a specific pad listen directly on that pad game.input.gamepad.padX, where X = pad 1-4
+            game.pad = game.input.gamepad.pad1;
 
             game.pauseGame = false;
 
@@ -106,6 +110,10 @@ LevelState.prototype =
             game.editor = new Editor(game,this.goSprite,this.onDragStop);
 
             game.leHude = new Hud(game);
+                game.input.gamepad.start();
+
+    // To listen to buttons from a specific pad listen directly on that pad game.input.gamepad.padX, where X = pad 1-4
+    pad1 = game.input.gamepad.pad1;
         },
         update:function()
         {
