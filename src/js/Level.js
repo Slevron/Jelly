@@ -12,12 +12,11 @@ LevelState.prototype =
             this.game.load.image('background2','src/assets/background2.png');
             this.game.load.image('background3','src/assets/background3.png');
             this.game.load.image('background4','src/assets/background4.png');
-            game.load.spritesheet('playButton', 'src/assets/bouton/play.png', 392/5, 95);
-
+            game.load.spritesheet('pause', 'src/assets/bouton/pause.png', 392/5, 95);
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('tiles', 'src/assets/tileset.png');
-
+            this.game.load.spritesheet('button1', "src/assets/bouton/replay.png",78,94);
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
             this.game.load.spritesheet("spider", "src/assets/spider.png", 1250/12, 121);
@@ -30,6 +29,7 @@ LevelState.prototype =
             this.game.load.image('fur1','src/assets/poil1.png');
             this.game.load.image('fur2','src/assets/poil2.png');
             this.game.load.image('fur3','src/assets/poil3.png');
+            this.game.load.image('credit','src/assets/decor/credit.png');
             this.game.load.spritesheet("tadPoil", "src/assets/taspoil.png",117,135);
             this.game.load.spritesheet("coeur", "src/assets/hud/coeur.png",60,59);
         },
@@ -106,12 +106,10 @@ LevelState.prototype =
             game.editor = new Editor(game,this.goSprite,this.onDragStop);
 
             game.leHude = new Hud(game);
-            
         },
         update:function()
         {
             game.time.deltaTime = game.time.elapsed/1000;
-
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
             game.physics.arcade.collide(game.tadPoils, this.game.map.layer);
@@ -162,6 +160,9 @@ LevelState.prototype =
                 }
             };
             game.editor.update();
+            if(this.game.character.alive === false){
+                game.state.start('GameOverState')
+            }
        },
 
        onDragStop:function(){
@@ -190,6 +191,4 @@ LevelState.prototype =
             game.editorSprite = this.key;
 
        }
-
-
     }   
