@@ -33,9 +33,9 @@
     "worms":[
     ],
     "reward":{
-        "cacahueteMax ": 0,
-        "timeMax ": 0,
-        "actionMax ": 0
+        "cacahueteMax ": 1,
+        "timeMax ": 60,
+        "actionMax ": 5
     },
     "tadPoils" : [
         {
