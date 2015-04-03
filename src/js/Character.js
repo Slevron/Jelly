@@ -111,7 +111,7 @@ Character.prototype.move =function(){
             this.sprite.scale={x:-this.scaleBase,y:this.scaleBase};
         }
         else if (this.cursors.right.isDown&&!this.cursors.left.isDown ||
-            this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > -0.1){
+            this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1){
             this.state="walk";
 
             if(this.ponponSprite.frame<4)
