@@ -5,6 +5,7 @@ function Character(game,x,y){
     this.sprite.refThis = this;
     this.sprite.anchor.setTo(0.5,0.5)
     game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
+
     this.particles = game.add.emitter(game.world.centerX, game.world.centerY, 250);
     this.particles.makeParticles(['fur1','fur2','fur3']);
     //this.particles.body.setSize(10,10,0,0);
@@ -12,7 +13,6 @@ function Character(game,x,y){
     this.particles.maxParticleSpeed.setTo(200, -400);
     this.particles.gravity=0;
     this.particles.angularDrag=30;
-    console.log(this.particles);
 
     
  
@@ -21,7 +21,7 @@ function Character(game,x,y){
     this.jumpTimer = 0;
     this.facing = 'left'; // la direction du regard du player
     this.sprite.body.bounce.y = 0;
-    this.sprite.body.collideWorldBounds = true;
+    this.sprite.body.collideWorldBounds = false;
     this.sprite.body.setSize(80, 90,4,16);
     this.sprite.animations.add('walk', [1, 2, 3, 4], 10, true);
     this.sprite.animations.add('jump', [0], 10, true);
@@ -59,8 +59,17 @@ function Character(game,x,y){
 };
 Character.prototype.constructor = Character;
 Character.prototype.update = function(){
-    if(!this.alive){
+    if(!this.alive ){
         return;
+    }
+    if(!this.sprite.inCamera && this.alive){
+        this.alive = false;
+        this.canInput = false;
+        this.sprite.body.velocity.x = 0;
+        this.sprite.body.velocity.y = 0;
+        this.particles.minParticleSpeed.setTo(-400, -800);
+        this.particles.start(true, 1000, 10, 5);
+        console.log("hello pute")
     }
     //LeHude
     if(!this.safeOnTime){
@@ -179,6 +188,7 @@ Character.prototype.takeDamage = function(damage,isAHit){
     else{
         this.timeSinceHit = 0
         this.safeOnTime = true;
+        this.distanceJump = -800;
     }
     this.hitable = false;
     this.canInput=false; 
@@ -200,7 +210,7 @@ Character.prototype.takeDamage = function(damage,isAHit){
    this.sprite.body.offset.x *= this.newScale.x;
    this.sprite.body.offset.y = 16 * this.newScale.y;
     
-   if(this.distanceJump<-520)
+   if(this.distanceJump<-520 && isAHit)
    {
     this.distanceJump+=40;
    }

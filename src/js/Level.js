@@ -12,6 +12,7 @@ LevelState.prototype =
             this.game.load.image('background2','src/assets/background2.png');
             this.game.load.image('background3','src/assets/background3.png');
             this.game.load.image('background4','src/assets/background4.png');
+            game.load.spritesheet('playButton', 'src/assets/bouton/play.png', 392/5, 95);
 
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
@@ -35,6 +36,8 @@ LevelState.prototype =
         create: function(){
             
             game.add.plugin(Phaser.Plugin.Debug);
+
+            game.pauseGame = false;
 
             game.backgrounds = [];
             for(var i = 0; i < 4; i++){
