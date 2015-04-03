@@ -125,6 +125,7 @@ Worm.prototype.takeDamage = function (damage) {
 
 function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.sprite = game.add.sprite(spriteWorm.x,spriteWorm.y,"worm");
+	this.refGame = game;
 
 	game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = false;
@@ -139,8 +140,6 @@ function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
 
 	this.update = function(){
-		this.sprite.scale.x *= 1.07;
-		this.sprite.scale.y *= 1.07;
 		game.physics.arcade.overlap(this.sprite, game.character.sprite,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
