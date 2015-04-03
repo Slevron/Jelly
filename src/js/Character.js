@@ -100,8 +100,8 @@ Character.prototype.move =function(){
      if(this.canInput)
     {
         this.sprite.body.velocity.x=0;
-        if (this.cursors.left.isDown&&!this.cursors.right.isDown ||
-            this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1){
+        if ((this.cursors.left.isDown&&!this.cursors.right.isDown) ||
+            (this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.1)){
             if(this.ponponSprite.frame<4)
                 this.jumpTimer=0;
             this.ponponSprite.animations.play("idle");
@@ -110,7 +110,7 @@ Character.prototype.move =function(){
             this.sprite.body.velocity.x = -250;
             this.sprite.scale={x:-this.scaleBase,y:this.scaleBase};
         }
-        else if (this.cursors.right.isDown&&!this.cursors.left.isDown ||
+        else if ((this.cursors.right.isDown&&!this.cursors.left.isDown)||
             this.refGame.pad.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.1){
             this.state="walk";
 
@@ -152,13 +152,14 @@ Character.prototype.move =function(){
     {
        
         this.launchShoot();
+        game.shoot.play("",0,1);
         
     }        
-    if(this.shootButton.isDown || this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
+    if((this.shootButton.isDown && this.refGame.pad.connected == false)|| this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
     {
         this.canshoot=false;
     }
-    if(this.shootButton.isUp || !this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
+    if(!this.shootButton.isDown || (this.refGame.pad.connected == true && !this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10)))
     {
         this.canshoot=true;
     }

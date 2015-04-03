@@ -15,6 +15,7 @@ Cacahuete.prototype.update = function(){
         global.cacahueteEtoile = 1;
         game.add.tween(this.sprite).to( { x: 0, y: 0 }, 1000 , Phaser.Easing.Elastic.Out, true);
         this.sprite.destroy();
+         this.refGame.rire.play("",0,1);
     }
     if(this.activeForground === true){
         if(player.x > this.sprite.x && player.x < this.sprite.x+250 && 
