@@ -69,7 +69,7 @@ MenuState.prototype =
         
         this.fil=game.add.sprite(650,480,'fil');
         this.fil.height=0;
-        this.fil = game.add.tween(this.fil).to({height:100}, 650, Phaser.Easing.Linear.Out,true,10000);
+        this.fil = game.add.tween(this.fil).to({height:100}, 600, Phaser.Easing.Linear.Out,true,9800);
 
         this.escape=game.add.sprite(game.world.centerX+100,1000,'escape');
         this.escape.anchor.setTo(0.5,0.5);
@@ -120,7 +120,7 @@ function onComplete(){
         this.particles.y=this.characterInmenu.y+200
         this.ponponSprite.destroy();
         this.characterInmenu.destroy();
-        this.particles.start(true,10000, 10, 50);
+        this.particles.start(true,10000,10,50);
         game.yooSound2.play("",0,1);
 
 } 
