@@ -158,7 +158,7 @@ Character.prototype.move =function(){
     {
         this.canshoot=false;
     }
-    if(this.shootButton.isUp || !this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))
+    if(!this.shootButton.isDown || (this.refGame.pad.connected == true && !this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10)))
     {
         this.canshoot=true;
     }
