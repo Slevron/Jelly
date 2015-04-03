@@ -11,10 +11,7 @@ function Character(game,x,y){
     this.particles.maxParticleSpeed.setTo(200, -400);
     this.particles.gravity=0;
     this.particles.angularDrag=30;
-    console.log(this.particles);
-
-    
- 
+    console.log(this.particles);    
 
     //this.particle.start(false, 8000, 400);
     this.jumpTimer = 0;
