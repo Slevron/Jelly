@@ -19,6 +19,7 @@ MenuState.prototype =
         this.game.load.image('toile','src/assets/titre/toile.png');
         this.game.load.image('great','src/assets/titre/great.png');
         this.game.load.image('escape','src/assets/titre/escape.png');
+         this.game.load.image('scotch','src/assets/titre/sctoch.png');
          this.game.load.image('cup','src/assets/titre/cup.png');
         this.game.load.atlasJSONHash('cacahuete', 'src/assets/cacahuete.png', 'src/assets/cacahuete.json');
         this.game.load.image("fil", "src/assets/fil.png");
@@ -65,6 +66,18 @@ MenuState.prototype =
         this.srpiteBg=game.add.sprite(0,-2000,'bgMenu');
         this.bgTween = game.add.tween(this.srpiteBg).to({x:0,y:0}, 1500, Phaser.Easing.Cubic.In,true,6000);
         this.bgTween.onComplete.add(onComplete, this);
+
+
+        this.scotch=game.add.sprite(900,-800,'scotch');
+        this.scotch.anchor.setTo(0.5,0.5);
+        this.scotch = game.add.tween(this.scotch).to({x:900,y:100}, 1500, Phaser.Easing.Cubic.In,true,6000);
+        this.scotch.onComplete.add(onComplete, this);
+
+        this.scotch=game.add.sprite(900,-800,'scotch');
+        this.scotch.anchor.setTo(0.5,0.5);
+        this.scotch.scale.x=-1;
+        this.scotch = game.add.tween(this.scotch).to({x:900,y:100}, 1500, Phaser.Easing.Cubic.In,true,6000);
+        this.scotch.onComplete.add(onComplete, this);
 
 
         this.furball=game.add.sprite(game.world.centerX-100,-2000,'furball');
@@ -135,7 +148,7 @@ function onComplete(){
         this.particles.y=this.characterInmenu.y+200
         this.ponponSprite.destroy();
         this.characterInmenu.destroy();
-        this.particles.start(true,10000,10,50);
+        this.particles.start(true,10000,10,35);
         game.yooSound2.play("",0,1);
 
 } 

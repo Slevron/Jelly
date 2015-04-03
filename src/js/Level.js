@@ -183,7 +183,7 @@ LevelState.prototype =
        },
 
        render:function() {
-            game.debug.text(global.timeEtoile|0, 1280*0.5, 20);
+           // game.debug.text(global.timeEtoile|0, 1280*0.5, 20);
 
        },
 
