@@ -62,6 +62,7 @@ LevelState.prototype =
 
             //Rewards
             global.cacahueteMax = phaserJSON.reward.cacahueteMax;
+            console.log(phaserJSON.reward.c);
             global.timeMax = phaserJSON.reward.timeMax;
             global.actionMax = phaserJSON.reward.actionMax;
 

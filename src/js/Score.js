@@ -4,10 +4,6 @@ ScoreState.prototype =
     //PRELOAD
     preload: function(){
         
-        
-        this.game.load.image('button0','src/assets/chapter.png');
-        this.game.load.image('button1','src/assets/chapter.png');
-        this.game.load.image('button2','src/assets/chapter.png');
         this.game.load.image('decor','src/assets/decor/score.png');
         this.game.load.spritesheet("etoile", "src/assets/hud/etoile.png",192,199);
         this.game.load.image("hide", "src/assets/hud/cacahueteHide.png",115,131);
