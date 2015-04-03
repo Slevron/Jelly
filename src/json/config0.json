@@ -1,7 +1,7 @@
 {
     "player":{
-        "x": -5,
-        "y": 529
+        "x": 75,
+        "y": 521
     },
     "forground":false,
     "roachs":[

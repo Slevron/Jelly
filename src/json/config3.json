@@ -27,7 +27,7 @@
 	"cacahuete":{
 		"x": 1044,
 		"y": -15,
-		"hide": true
+		"hide": false
 	},
 
 	"spiders":[
