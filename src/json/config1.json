@@ -62,9 +62,9 @@
 
 	],
 	"reward":{
-		"cacahueteMax ": 0,
+		"cacahueteMax ": 1,
 		"timeMax ": 0,
-		"actionMax ": 0
+		"actionMax ": 7
 	},
     "tadPoils" : [
         {

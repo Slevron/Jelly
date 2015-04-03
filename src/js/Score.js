@@ -86,6 +86,7 @@ ScoreState.prototype =
         }   
     },
     update:function(){
+        console.log(global.timeEtoile,global);
     },
     goChapter:function(){
         game.state.start('ChapterState')
