@@ -103,7 +103,7 @@ LevelState.prototype =
                 game.forground.fixedToCamera = true;
                 game.forground.hide = phaserJSON.forground;
             }
-
+            global.timeEtoile = 0;
             game.time.deltaTime = 0;
             game.time.lastNow = game.time.now;
 
@@ -119,6 +119,8 @@ LevelState.prototype =
         update:function()
         {
             game.time.deltaTime = game.time.elapsed/1000;
+            global.timeEtoile += game.time.deltaTime/5;
+
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
             game.physics.arcade.collide(game.tadPoils, this.game.map.layer);
@@ -182,7 +184,7 @@ LevelState.prototype =
        },
 
        render:function() {
-            game.debug.text(game.result, 10, 20);
+            game.debug.text(global.timeEtoile|0, 1280*0.5, 20);
             /*game.enemies.forEach(function(cur){
                 game.debug.body(cur);
             });*/
