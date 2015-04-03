@@ -152,6 +152,7 @@ Character.prototype.move =function(){
     {
        
         this.launchShoot();
+        game.shoot.play("",0,1);
         
     }        
     if(this.shootButton.isDown || this.refGame.pad.justPressed(Phaser.Gamepad.XBOX360_B,10))

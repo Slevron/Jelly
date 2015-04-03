@@ -8,6 +8,7 @@ LevelState.prototype =
         //PRELOAD
         
         preload: function(){
+
             this.game.load.image('background1','src/assets/background1.png');
             this.game.load.image('background2','src/assets/background2.png');
             this.game.load.image('background3','src/assets/background3.png');
@@ -154,6 +155,7 @@ LevelState.prototype =
                         characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
+                    game.hurt.play("",0,1);
                     characterOver.refThis.takeDamage(0.1,true);
                 }
             });

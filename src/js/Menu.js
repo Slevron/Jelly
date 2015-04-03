@@ -23,14 +23,22 @@ MenuState.prototype =
         this.game.load.image("fil", "src/assets/fil.png");
         game.load.audio('intro','src/assets/bgm/intro.mp3');
         game.load.audio('splash','src/assets/bgm/splash.mp3');
+        game.load.audio('go','src/assets/bgm/overworld.mp3');
+        game.load.audio('shoot','src/assets/bgm/win.wav');
+        game.load.audio('hurt','src/assets/bgm/loose.wav');
+        game.load.audio('rire','src/assets/bgm/cacahuete.mp3');
 
 
     },
     create: function(){
         
+        game.rire=game.add.audio('rire');
         game.yooSound=game.add.audio('intro');
         game.yooSound.play("",0,1);
         game.yooSound2=game.add.audio('splash');
+        game.yooSound3=game.add.audio('go');
+        game.shoot=game.add.audio('shoot');
+        game.hurt=game.add.audio('hurt');
         
         this.ponponSprite=game.add.sprite(0,0,'ponpon');
         this.ponponSprite.animations.add("idle",[0,1,2,3],10,true);
@@ -42,7 +50,7 @@ MenuState.prototype =
         this.cacahuete.animations.play('run', 5, true);
         
 
-        this.characterInmenu= game.add.sprite(100 ,game.world.height- 58, 'dude');
+        this.characterInmenu= game.add.sprite(0 ,game.world.height- 58, 'dude');
         this.characterInmenu.animations.add('walk', [1, 2, 3, 4], 5, true);
         this.characterInmenu.animations.play('walk');
         this.characterInmenu.anchor.setTo(0.5,0.5);
@@ -106,6 +114,7 @@ MenuState.prototype =
         this.characterInmenu.x+=1;
     },
     goChapter:function(){
+        game.yooSound3.play("",0,1);
         game.state.start('ChapterState');
     },
     goOption:function(){
