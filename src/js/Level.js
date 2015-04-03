@@ -164,6 +164,9 @@ LevelState.prototype =
             if(this.game.character.alive == false && this.game.character.timeBeforeGameOver <= 0){
                 game.state.start('GameOverState');
             }
+            else if(this.game.character.alive == false && this.game.character.sprite.x > this.game.camera.x+this.game.camera.width){
+                game.state.start("ScoreState");
+            }
        },
 
        onDragStop:function(){

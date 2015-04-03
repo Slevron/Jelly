@@ -99,8 +99,8 @@ ScoreState.prototype =
         game.state.start('LevelState')
     },
     goNext:function(){
-        idLevel+=1;
-        new LevelState(game,idLevel);
+        global.idLevel+=1;
+        new LevelState(game,global.idLevel);
         game.state.start('LevelState')
     },    
 };
