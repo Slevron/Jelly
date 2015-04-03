@@ -6,17 +6,18 @@ function init(){
   game.state.add('LevelState' ,LevelState);
   game.state.add('ChapterState' ,ChapterState);
   game.state.add('ScoreState' ,ScoreState);
+  game.state.add('GameOverState' ,GameOverState);
   //on lance le mainmenu
-  game.state.start('MenuState');
+  game.state.start('ScoreState');
 }
 var global = [];
 global.idLevel;
 global.cacahueteEtoile = 0;
 global.timeEtoile = 0;
 global.actionEtoile = 0;
-global.cacahueteMax; 
-global.timeMax;
-global.actionMax;
+global.cacahueteMax = 0; 
+global.timeMax = 0;
+global.actionMax = 0;
 var tabUnlockEtoile = [];
 for (var i = 0; i < JSON.parse(localStorage['unlock']).length; i++) {
     tabUnlockEtoile.push(JSON.parse(localStorage['unlock'])[i]);

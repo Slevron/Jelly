@@ -113,8 +113,7 @@ MenuState.prototype =
     },
     goCredit:function(){
         game.state.start('CreditState');
-    },
-         
+    },     
 };
 function onComplete(){
         this.particles.x=this.characterInmenu.x
@@ -122,6 +121,10 @@ function onComplete(){
         this.ponponSprite.destroy();
         this.characterInmenu.destroy();
         this.particles.start(true,10000, 10, 50);
+<<<<<<< HEAD
         game.yooSound2.play("",0,1);
 
 } 
+=======
+}
+>>>>>>> origin/master

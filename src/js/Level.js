@@ -8,13 +8,16 @@ LevelState.prototype =
         //PRELOAD
         
         preload: function(){
-            this.game.load.image('bg','src/assets/bg.png');
-            this.game.load.image('bg2','src/assets/bg2.png');
-
+            this.game.load.image('background1','src/assets/background1.png');
+            this.game.load.image('background2','src/assets/background2.png');
+            this.game.load.image('background3','src/assets/background3.png');
+            this.game.load.image('background4','src/assets/background4.png');
+            game.load.spritesheet('playButton', 'src/assets/bouton/play.png', 392/5, 95);
+            game.load.spritesheet('pause', 'src/assets/bouton/pause.png', 392/5, 95);
             this.game.load.json('config'+global.idLevel+'', 'src/json/config'+global.idLevel+'.json');
             this.game.load.tilemap('level'+global.idLevel+'', 'src/json/level'+global.idLevel+'.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image('tiles', 'src/assets/tileset.png');
-
+            this.game.load.spritesheet('button1', "src/assets/bouton/replay.png",78,94);
             this.game.load.spritesheet('dude', 'src/assets/dude.png', 117, 131);
             this.game.load.spritesheet('ponpon', 'src/assets/ponpon.png', 117, 131);
             this.game.load.spritesheet("spider", "src/assets/spider.png", 1250/12, 121);
@@ -27,14 +30,23 @@ LevelState.prototype =
             this.game.load.image('fur1','src/assets/poil1.png');
             this.game.load.image('fur2','src/assets/poil2.png');
             this.game.load.image('fur3','src/assets/poil3.png');
+            this.game.load.image('credit','src/assets/decor/credit.png');
             this.game.load.spritesheet("tadPoil", "src/assets/taspoil.png",117,135);
+            this.game.load.spritesheet("coeur", "src/assets/hud/coeur.png",60,59);
         },
         create: function(){
             
             game.add.plugin(Phaser.Plugin.Debug);
+
+            game.pauseGame = false;
+
+            game.backgrounds = [];
+            for(var i = 0; i < 4; i++){
+                game.backgrounds[i]= game.add.sprite(i*1280,0,"background"+(Math.floor((Math.random() * 4) + 1)));
+            }
             
-            game.background = game.add.sprite(0,0,"bg");
-            game.background.fixedToCamera = true;
+            /*game.background = game.add.sprite(0,0,"bg");
+            game.background.fixedToCamera = true;*/
             game.editorSprite = null;
 
             var phaserJSON = game.cache.getJSON('config'+global.idLevel+'');
@@ -93,12 +105,12 @@ LevelState.prototype =
 
             //Editor
             game.editor = new Editor(game,this.goSprite,this.onDragStop);
-            
+
+            game.leHude = new Hud(game);
         },
         update:function()
         {
             game.time.deltaTime = game.time.elapsed/1000;
-
             game.physics.arcade.collide(this.game.character.sprite, this.game.map.layer); //CALCUL DE LA PHYSIC SE PASSE ICI
             game.physics.arcade.collide(game.enemies, this.game.map.layer);
             game.physics.arcade.collide(game.tadPoils, this.game.map.layer);
@@ -109,8 +121,7 @@ LevelState.prototype =
             
             this.game.character.update();
             game.physics.arcade.overlap(game.character.sprite, game.tadPoils,function(charOver,tadPoilOver){
-                console.log(game.character.scaleBase)
-                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1));
+                charOver.refThis.takeDamage(-((1/game.character.scaleBase)-1),false);
                 game.tadPoils.remove(tadPoilOver);
                 console.log(game.character.scaleBase)
             });
@@ -132,7 +143,7 @@ LevelState.prototype =
                         characterOver.body.velocity.x = 600;
                         characterOver.body.velocity.y = -300;
                     }
-                    characterOver.refThis.takeDamage(0.1);
+                    characterOver.refThis.takeDamage(0.1,true);
                 }
             });
 
@@ -150,6 +161,9 @@ LevelState.prototype =
                 }
             };
             game.editor.update();
+            if(this.game.character.alive == false && this.game.character.timeBeforeGameOver <= 0){
+                game.state.start('GameOverState');
+            }
        },
 
        onDragStop:function(){
@@ -164,15 +178,18 @@ LevelState.prototype =
             /*game.shoots.forEach(function(cur){
                 game.debug.body(cur);
             });*/
-                game.tadPoils.forEach(function(cur){
+            /*    game.tadPoils.forEach(function(cur){
                 game.debug.body(cur);
-            });
+            });*/
+            game.debug.body(game.character.sprite);
+            for(var i = 0; i< game.explosions.length; i++){
+                console.log("okokokokokokokokokokkokokkk")
+                game.debug.body(game.explosions[i].sprite);
+            }
        },
 
        goSprite:function() {
             game.editorSprite = this.key;
 
        }
-
-
     }   
