@@ -140,6 +140,8 @@ function Explosion(game,spriteWorm,timeBeforeEndExplode){
 	this.timeBeforeEndExplode = timeBeforeEndExplode;
 
 	this.update = function(){
+		this.sprite.scale.x *= 1+ (0.7 * this.refGame.time.deltaTime);
+		this.sprite.scale.y *= 1+ (0.7 * this.refGame.time.deltaTime);
 		game.physics.arcade.overlap(this.sprite, game.character.sprite,function(spriteOver,characterOver){
 			if(characterOver.refThis.hitable){
                 if(spriteOver.x > characterOver.x+(characterOver.width*0.5)){
