@@ -6,16 +6,29 @@ function Hud(game){
 	this.sprites.coeur.animations.add("good",[0,0,0,0,0,0,0,00,0,0,1,0,1],8,true);
 	this.sprites.coeur.animations.add("bad",[2,2,2,2,2,2,3],12,true);
 	this.sprites.coeur.animations.play("good");
-	this.sprites.pause = game.add.button(1280-150 , 50, 'playButton',function(){
+
+	this.sprites.pause = game.add.button(1280-150 , 50, 'pause',function(){
 		that.refGame.pauseGame = !that.refGame.pauseGame;
 	});
 	this.sprites.pause.fixedToCamera = true;
 
+	this.sprites.fil = game.add.sprite(1166 , 0,"fil");
+	this.sprites.fil.fixedToCamera = true;
+
 	this.sprites.pause.inputEnabled = true;
-	this.sprites.pause.events.onInputUp.add(function () {this.refGame.paused = true;},this);
-	game.input.onDown.add(function () {if(this.refGame.paused)this.refGame.paused = false;},this);
+	this.sprites.pause.events.onInputUp.add(function () {
+		this.refGame.paused = true;
+	},this);
+	game.input.onDown.add(function () {
+		if(this.refGame.paused)this.refGame.paused = false;
+		
+	},this);
 
 	this.changeAnim = function (nameObjectToChange, animName){
 		this.sprites[nameObjectToChange].play(animName);
 	}
 };
+HUD.prototype.constructor = HUD;
+HUD.prototype.show = function(){
+    game.add.sprite(0 , 0,"credit");
+}
